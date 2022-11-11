@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 16:37:28 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/10 20:09:10 by chanwoki         ###   ########.fr       */
+/*   Updated: 2022/11/11 18:05:09 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,28 @@
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t			i;
-	unsigned char	*dptr;
-	unsigned char	*sptr;
 
-	if (dst == 0 && src == 0)
-		return (0);
+	dst = (unsigned char *)dst;
+	src = (unsigned char *)src;
+	if (dst == src || len == 0)
+		return (dst);
 	i = 0;
-	dptr = (unsigned char *)dst;
-	sptr = (unsigned char *)src;
-	if (sptr - dptr >= 0)
+	if (src - dst > 0 && (size_t)(src - dst) < len)
 	{
 		while (i < len)
 		{
-			dptr[i] = sptr[i];
+			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
 			i++;
 		}
+		return (dst);
 	}
-	else
+	else if (dst - src > 0 && (size_t)(dst - src) < len)
 	{
-		i = ft_strlen(src) - 1;
-		len = ft_strlen(dst) - 1;
-		while (i >= 0)
-		{
-			dptr[len] = sptr[i];
-			i--;
-			len--;
-		}
+		i = len;
+		while (i-- > 0)
+			((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		return (dst);
 	}
-	return (dptr);
+	ft_memcpy(dst, src, len);
+	return (dst);
 }
