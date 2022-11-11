@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 18:37:23 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/11 20:41:51 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/11 20:45:33 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/11 20:50:23 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	char	i;
+	char	start;
 
 	i = (char)c;
+	start = *s;
+	while (*s)
+		s++;
 	while (*s != i)
 	{
-		if (*s == 0)
+		if (*s == start)
 			return (0);
-		s++;
+		s--;
 	}
 	return ((char *)s);
 }
