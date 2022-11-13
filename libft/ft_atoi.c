@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 20:45:33 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/13 16:51:25 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/13 16:47:20 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/13 17:00:05 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+int	ft_atoi(const char *str)
 {
-	char	i;
-	int		len;
+	int	i;
+	int	minus;
+	int	result;
 
-	i = (char)c;
-	len = ft_strlen(s);
-	while (*s != 0)
-		s++;
-	while (len >= 0)
+	i = 0;
+	minus = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	if (str[i] == '-')
 	{
-		if (*s == i)
-			return ((char *)s);
-		s--;
-		len--;
+		minus = -1;
+		i++;
 	}
-	return (0);
+	else if (str[i] == '+')
+		i++;
+	result = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
+	return (minus * result);
 }
