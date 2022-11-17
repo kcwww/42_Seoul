@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/10 14:14:33 by chanwoki          #+#    #+#              #
-#    Updated: 2022/11/17 16:42:29 by chanwoki         ###   ########.fr        #
+#    Updated: 2022/11/18 01:22:34 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,26 +18,33 @@ ft_atoi.c ft_strnstr.c ft_memchr.c ft_memcmp.c ft_calloc.c ft_strdup.c ft_strjoi
 ft_itoa.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_split.c \
 ft_substr.c ft_strtrim.c ft_strmapi.c ft_striteri.c
 
+SRC_BONUS_FILES = ft_lstadd_front.c ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+
 OBJECTS = $(SRC_FILES:.c=.o)
+OBJECTS_BONUS = $(SRC_BONUS_FILES:.c=.o)
 
 CC = gcc -Wall -Wextra -Werror
 
 HEADER = .
 
 all : $(NAME)
+	sleep 1
 
 $(NAME) : $(OBJECTS)
-	ar rscv libft.a $(OBJECTS)
+	ar rscv $(NAME) $(OBJECTS)
 
 %.o : %.c
 	$(CC) -I $(HEADER) -c $< -o $@
 
 clean :
-	rm -rf $(OBJECTS)
+	rm -rf $(OBJECTS) $(OBJECTS_BONUS)
 
 fclean : clean
 	rm -rf $(NAME)
 
 re : fclean all
 
-.PHONY : all clean fclean re
+bonus: $(OBJECTS) $(OBJECTS_BONUS)
+	ar rcsv $(NAME) $(OBJECTS) $(OBJECTS_BONUS)
+
+.PHONY : all clean fclean re bonus

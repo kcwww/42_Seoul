@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 13:24:48 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/17 18:38:29 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/17 19:40:19 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/17 22:02:47 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_lstsize(t_list *lst)
 {
-	char	*re;
 	size_t	i;
-	size_t	j;
+	t_list	*temp;
 
-	i = ft_strlen(s1);
-	j = ft_strlen(s2);
-	re = (char *)malloc(sizeof(char) * (i + j + 1));
-	if (re == 0)
+	i = 1;
+	temp = lst;
+	if (lst == 0)
 		return (0);
-	ft_strlcpy(re, s1, i + 1);
-	ft_strlcpy(re + i, s2, j + 1);
-	return (re);
+	while (temp->next)
+	{
+		lst = lst->next;
+		temp = lst;
+		i++;
+	}
+	return (i);
 }

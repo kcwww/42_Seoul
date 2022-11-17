@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 20:45:33 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/13 16:51:25 by chanwoki         ###   ########.fr       */
+/*   Updated: 2022/11/17 19:03:23 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,17 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	char	i;
-	int		len;
+	size_t	len;
 
 	i = (char)c;
-	len = ft_strlen(s);
+	len = ft_strlen(s) + 1;
 	while (*s != 0)
 		s++;
-	while (len >= 0)
+	while (len-- > 0)
 	{
 		if (*s == i)
 			return ((char *)s);
 		s--;
-		len--;
 	}
 	return (0);
 }

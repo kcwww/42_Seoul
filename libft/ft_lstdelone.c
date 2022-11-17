@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 13:24:48 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/17 18:38:29 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/17 22:43:14 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/17 23:01:50 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	char	*re;
-	size_t	i;
-	size_t	j;
-
-	i = ft_strlen(s1);
-	j = ft_strlen(s2);
-	re = (char *)malloc(sizeof(char) * (i + j + 1));
-	if (re == 0)
-		return (0);
-	ft_strlcpy(re, s1, i + 1);
-	ft_strlcpy(re + i, s2, j + 1);
-	return (re);
+	if (lst == 0 || del == 0)
+		return ;
+	(*del)(lst->content);
+	free(lst);
 }

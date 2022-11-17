@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:55:41 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/17 13:46:58 by chanwoki         ###   ########.fr       */
+/*   Updated: 2022/11/17 18:42:34 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	count_word(char const *str, char c)
 {
-	int	i;
-	int	cnt;
+	size_t	i;
+	size_t	cnt;
 
 	i = 0;
 	cnt = 0;
@@ -31,9 +31,9 @@ int	count_word(char const *str, char c)
 	return (cnt);
 }
 
-int	check_word_len(char const *str, int i, char c)
+int	check_word_len(char const *str, size_t i, char c)
 {
-	int	len;
+	size_t	len;
 
 	len = i;
 	while (str[i] != 0 && str[i] != c)
@@ -41,11 +41,11 @@ int	check_word_len(char const *str, int i, char c)
 	return (i - len);
 }
 
-char	*word_input(char const *str, int str_i, char c)
+char	*word_input(char const *str, size_t str_i, char c)
 {
 	char	*word;
-	int		word_len;
-	int		i;
+	size_t	word_len;
+	size_t	i;
 
 	word_len = check_word_len(str, str_i, c);
 	word = (char *)malloc(sizeof(char) * (word_len + 1));
@@ -62,10 +62,10 @@ char	*word_input(char const *str, int str_i, char c)
 	return (word);
 }
 
-int	do_split(char **split, int split_len, char const *s, char c)
+int	do_split(char **split, size_t split_len, char const *s, char c)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
@@ -94,7 +94,7 @@ int	do_split(char **split, int split_len, char const *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
-	int		split_len;
+	size_t	split_len;
 
 	split_len = count_word(s, c);
 	split = (char **)malloc(sizeof(char *) * (split_len + 1));

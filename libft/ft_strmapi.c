@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 16:40:18 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/17 18:13:51 by chanwoki         ###   ########.fr       */
+/*   Updated: 2022/11/17 18:58:27 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
-	unsigned int	len;
+	size_t			len;
 	char			*str;
 
 	if (s == 0 || f == 0)

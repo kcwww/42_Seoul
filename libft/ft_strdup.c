@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 18:13:15 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/13 18:16:14 by chanwoki         ###   ########.fr       */
+/*   Updated: 2022/11/17 18:56:04 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strdup(const char *s1)
 {
-	int		len;
+	size_t	len;
 	char	*re;
 
 	len = ft_strlen(s1);

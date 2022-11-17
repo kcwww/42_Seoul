@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 16:37:28 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/13 16:44:58 by chanwoki         ###   ########.fr       */
+/*   Updated: 2022/11/17 18:40:28 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t			i;
+	size_t	i;
 
 	if (dst == src || len == 0)
 		return (dst);
