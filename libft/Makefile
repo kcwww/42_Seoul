@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/10 14:14:33 by chanwoki          #+#    #+#              #
-#    Updated: 2022/11/18 01:22:34 by chanwoki         ###   ########.fr        #
+#    Updated: 2022/11/19 17:22:53 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,18 +23,19 @@ SRC_BONUS_FILES = ft_lstadd_front.c ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lst
 OBJECTS = $(SRC_FILES:.c=.o)
 OBJECTS_BONUS = $(SRC_BONUS_FILES:.c=.o)
 
-CC = gcc -Wall -Wextra -Werror
+CC = cc
+
+CFLAG = -Wall -Wextra -Werror
 
 HEADER = .
 
 all : $(NAME)
-	sleep 1
 
 $(NAME) : $(OBJECTS)
 	ar rscv $(NAME) $(OBJECTS)
 
 %.o : %.c
-	$(CC) -I $(HEADER) -c $< -o $@
+	$(CC) $(CFLAG) -I $(HEADER) -c $< -o $@
 
 clean :
 	rm -rf $(OBJECTS) $(OBJECTS_BONUS)
