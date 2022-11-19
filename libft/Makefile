@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/10 14:14:33 by chanwoki          #+#    #+#              #
-#    Updated: 2022/11/19 17:22:53 by chanwoki         ###   ########.fr        #
+#    Updated: 2022/11/19 20:28:37 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ OBJECTS_BONUS = $(SRC_BONUS_FILES:.c=.o)
 
 CC = cc
 
-CFLAG = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 HEADER = .
 
@@ -35,7 +35,7 @@ $(NAME) : $(OBJECTS)
 	ar rscv $(NAME) $(OBJECTS)
 
 %.o : %.c
-	$(CC) $(CFLAG) -I $(HEADER) -c $< -o $@
+	$(CC) $(CFLAGS) -I $(HEADER) -c $< -o $@
 
 clean :
 	rm -rf $(OBJECTS) $(OBJECTS_BONUS)
