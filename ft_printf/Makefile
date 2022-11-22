@@ -14,7 +14,7 @@ NAME=libftprintf.a
 
 CFLAGS=-Wall -Wextra -Werror
 
-LIB_DIR=./Libft/
+LIB_DIR=./libft/
 
 LIB_NAME=ft
 
@@ -28,16 +28,16 @@ ARFLAGS=rcsv
 
 RM=rm -f
 
-SRC_FILES =
+SRC_FILES = ft_printf.c
 
 OBJECTS = $(SRC_FILES:.c=.o)
 
 
 all : $(NAME)
 
-$(NAME) : $(LIB) $(OBJS)
+$(NAME) : $(LIB) $(OBJECTS)
 	cp $(LIB) $(NAME)
-	$(AR) $(ARFLAGS) $@ $(OBJS)
+	$(AR) $(ARFLAGS) $@ $(OBJECTS)
 
 %.o : %.c
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
@@ -53,4 +53,19 @@ re : fclean all
 bonus: $(OBJECTS)
 	ar rcsv $(NAME) $(OBJECTS)
 
-.PHONY : all clean fclean re bonus
+# libft complie
+
+libft :
+		$(MAKE) -C $(LIB_DIR) all
+
+clean :
+		$(MAKE) -C ./libft clean
+
+fclean :
+		$(MAKE) -C ./libft fclean
+		rm -rf $(NAME)
+
+re : fclean all
+
+
+.PHONY : all clean fclean re bonus libft
