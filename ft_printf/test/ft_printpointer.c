@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printpointer.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 18:49:59 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/19 19:18:49 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/24 19:32:37 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/24 21:42:03 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include "libft.h"
+#include "ft_printf.h"
 
-int		ft_printf(const char *format, ...);
-void	ft_printhex(long long num, int i);
-void	ft_printpointer(void *ptr);
-
-#endif
+void	ft_printpointer(void *ptr)
+{
+	long long	p;
+	
+	p = (long long)ptr;
+	if (p == 0)
+		return ;
+	ft_putchar_fd('0', 1);
+	ft_putchar_fd('x', 1);
+	ft_printhex(p, 1);
+}

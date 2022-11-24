@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 18:49:59 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/19 19:18:49 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/11 18:34:30 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/11 18:36:51 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include "libft.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...);
-void	ft_printhex(long long num, int i);
-void	ft_printpointer(void *ptr);
-
-#endif
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (c - 'A' + 'a');
+	return (c);
+}

@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 18:49:59 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/19 19:18:49 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/11 20:45:33 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/17 19:03:23 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include "libft.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...);
-void	ft_printhex(long long num, int i);
-void	ft_printpointer(void *ptr);
+char	*ft_strrchr(const char *s, int c)
+{
+	char	i;
+	size_t	len;
 
-#endif
+	i = (char)c;
+	len = ft_strlen(s) + 1;
+	while (*s != 0)
+		s++;
+	while (len-- > 0)
+	{
+		if (*s == i)
+			return ((char *)s);
+		s--;
+	}
+	return (0);
+}

@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 18:49:59 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/19 19:18:49 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/13 17:56:05 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/13 18:11:26 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include "libft.h"
+#include "libft.h"
 
-int		ft_printf(const char *format, ...);
-void	ft_printhex(long long num, int i);
-void	ft_printpointer(void *ptr);
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*re;
 
-#endif
+	re = malloc(size * count);
+	if (re == 0)
+		return (0);
+	ft_bzero(re, count * size);
+	return (re);
+}

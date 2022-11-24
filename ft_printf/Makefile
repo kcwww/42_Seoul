@@ -14,13 +14,12 @@ NAME=libftprintf.a
 
 CFLAGS=-Wall -Wextra -Werror
 
-LIB_DIR=./libft/
-
-LIB_NAME=ft
+LIBFT=libft
+LIBFT_NAME=libft.a
 
 LIB=$(LIB_DIR)lib$(LIB_NAME).a
 
-INCLUDE=-I ./libft
+INCLUDE=-I ./$(LIBFT)
 
 AR=ar
 
@@ -28,14 +27,15 @@ ARFLAGS=rcsv
 
 RM=rm -f
 
-SRC_FILES = ft_printf.c
+SRC_FILES = ft_printf.c ft_printhex.c ft_printpointer.c
 
 OBJECTS = $(SRC_FILES:.c=.o)
 
 
 all : $(NAME)
 
-$(NAME) : $(LIB) $(OBJECTS)
+$(NAME) : $(OBJECTS)
+	make all -C $(LIBFT)/
 	cp $(LIB) $(NAME)
 	$(AR) $(ARFLAGS) $@ $(OBJECTS)
 
@@ -43,9 +43,11 @@ $(NAME) : $(LIB) $(OBJECTS)
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean :
+	$(RM) $(OBJECTS)
 	rm -rf $(OBJECTS)
 
 fclean : clean
+	make clean -C $(LIBFT)
 	rm -rf $(NAME)
 
 re : fclean all
@@ -53,19 +55,5 @@ re : fclean all
 bonus: $(OBJECTS)
 	ar rcsv $(NAME) $(OBJECTS)
 
-# libft complie
 
-libft :
-		$(MAKE) -C $(LIB_DIR) all
-
-clean :
-		$(MAKE) -C ./libft clean
-
-fclean :
-		$(MAKE) -C ./libft fclean
-		rm -rf $(NAME)
-
-re : fclean all
-
-
-.PHONY : all clean fclean re bonus libft
+.PHONY : all clean fclean re bonus

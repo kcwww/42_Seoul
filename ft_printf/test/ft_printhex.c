@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printhex.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 18:49:59 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/19 19:18:49 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/19 19:17:37 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/19 19:22:03 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include "libft.h"
+#include "ft_printf.h"
 
-int		ft_printf(const char *format, ...);
-void	ft_printhex(long long num, int i);
-void	ft_printpointer(void *ptr);
+void	ft_printhex(long long num, int i)
+{
+	const char	*hex;
 
-#endif
+	if (i == 1)
+		hex = "0123456789abcdef";
+	else if (i == 2)
+		hex = "0123456789ABCDEF";
+	else
+		return ;
+	if (num > 15)
+		ft_printhex(num / 16, i);
+	if (num % 16 < 0)
+		ft_putchar_fd(hex[-(num % 16)], 1);
+	else
+		ft_putchar_fd(hex[num % 16], 1);
+}
