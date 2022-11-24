@@ -12,18 +12,9 @@
 
 #include "ft_printf.h"
 
-void	ft_printhex(long long num, int i)
+void	ft_printhex(unsigned int num, int i)
 {
 	const char	*hex;
 
-	if (i == 1)
-		hex = "0123456789abcdef";
-	else if (i == 2)
-		hex = "0123456789ABCDEF";
-	else
-		return ;
-
-	if (num > 15)
-		ft_printhex(num / 16, i);
-	ft_putchar_fd(hex[num % 16], 1);
+	hex = ft_itoahex(num);
 }

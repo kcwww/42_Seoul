@@ -10,11 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include "libft.h"
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-int	check_len(int n)
+static unsigned int	check_len(unsigned int n)
 {
-	int	len;
+	unsigned int	len;
 
 	len = 0;
 	if (n <= 0)
@@ -22,34 +25,38 @@ int	check_len(int n)
 	while (n)
 	{
 		len++;
-		n /= 10;
+		n /= 16;
 	}
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoahex(unsigned int n, int i)
 {
-	int		len;
-	long	num;
-	char	*re;
+	int				len;
+	unsigned int	num;
+	char			*re;
+	char			*hex;
 
+	if (i == 1)
+		hex = "0123456789abcdef";
+	else if (i == 2)
+		hex = "0123456789ABCDEF";
 	len = check_len(n);
-	num = (long)n;
+	num = n;
 	n = 0;
 	re = (char *)malloc(sizeof(char) * (len + 1));
 	if (re == 0)
 		return (0);
 	re[len] = 0;
-	if (num < 0)
-	{
-		re[0] = '-';
-		num = -num;
-		n = 1;
-	}
 	while (len-- > n)
 	{
-		re[len] = (num % 10) + '0';
-		num /= 10;
+		re[len] = hex[(num % 16)];
+		num /= 16;
 	}
 	return (re);
+}
+
+int main()
+{
+	printf("%s\n",ft_itoahex(-123, 1));
 }

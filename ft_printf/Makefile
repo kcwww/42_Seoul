@@ -27,7 +27,7 @@ ARFLAGS=rcsv
 
 RM=rm -f
 
-SRC_FILES = ft_printf.c ft_printhex.c ft_printpointer.c
+SRC_FILES = ft_printf.c ft_printhex.c ft_printpointer.c ft_itoahex.c
 
 OBJECTS = $(SRC_FILES:.c=.o)
 
@@ -36,18 +36,19 @@ all : $(NAME)
 
 $(NAME) : $(OBJECTS)
 	make all -C $(LIBFT)/
-	cp $(LIB) $(NAME)
+	cp ./$(LIBFT)/$(LIBFT_NAME) $(NAME)
 	$(AR) $(ARFLAGS) $@ $(OBJECTS)
 
 %.o : %.c
 	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean :
+	make clean -C $(LIBFT)
 	$(RM) $(OBJECTS)
 	rm -rf $(OBJECTS)
 
 fclean : clean
-	make clean -C $(LIBFT)
+	make fclean -C $(LIBFT)
 	rm -rf $(NAME)
 
 re : fclean all

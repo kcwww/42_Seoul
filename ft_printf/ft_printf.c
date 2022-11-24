@@ -17,7 +17,7 @@ int	check_format(const char *format, va_list ap)
 	if (*format == 0)
 		return (-1);
 	if (*format == 'c')
-		ft_putchar_fd(va_arg(ap, char), 1);
+		ft_putchar_fd(va_arg(ap, int), 1);
 	else if (*format == 'd')
 		ft_putnbr_fd(va_arg(ap, int), 1);
 	else if (*format == 'x')
@@ -27,7 +27,7 @@ int	check_format(const char *format, va_list ap)
 	else if (*format == 's')
 		ft_putstr_fd(va_arg(ap, char *), 1);
 	else if (*format == 'p')
-		ft_printpointer(va_arg(ap, void *), 1);
+		ft_printpointer(va_arg(ap, void *));
 	return (1);
 }
 
@@ -46,7 +46,7 @@ int	ft_printf(const char *format, ...)
 				return (-1);
 			}
 		}
-		else:
+		else
 			write(1, format, 1);
 		format++;
 	}

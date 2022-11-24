@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	ft_printhex(long long num, int i)
+void	ft_printhex(unsigned int num, int i)
 {
 	const char	*hex;
 
@@ -24,8 +24,5 @@ void	ft_printhex(long long num, int i)
 		return ;
 	if (num > 15)
 		ft_printhex(num / 16, i);
-	if (num % 16 < 0)
-		ft_putchar_fd(hex[-(num % 16)], 1);
-	else
-		ft_putchar_fd(hex[num % 16], 1);
+	ft_putchar_fd(hex[num % 16], 1);
 }

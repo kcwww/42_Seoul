@@ -16,7 +16,8 @@
 # include "libft.h"
 
 int		ft_printf(const char *format, ...);
-void	ft_printhex(long long num, int i);
+void	ft_printhex(unsigned int num, int i);
 void	ft_printpointer(void *ptr);
+char	*ft_itoahex(unsigned int n)
 
 #endif
