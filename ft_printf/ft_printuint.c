@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_printuint.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 12:41:49 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/17 12:52:29 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/24 18:58:22 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/24 19:23:58 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_printuint(unsigned int num)
 {
-	long long	num;
-	char		c;
+	char	*re;
+	int		len;
 
-	num = n;
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		num = -num;
-	}
-	if (num >= 10)
-		ft_putnbr_fd((int)(num / 10), fd);
-	c = (num % 10) + '0';
-	ft_putchar_fd(c, fd);
+	re = ft_uitoa(num);
+	if (re == 0)
+		return (-1);
+	len = ft_printstr(re);
+	free(re);
+	return (len);
 }

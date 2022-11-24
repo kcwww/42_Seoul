@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 18:48:59 by chanwoki          #+#    #+#              #
-#    Updated: 2022/11/19 17:48:33 by chanwoki         ###   ########.fr        #
+#    Updated: 2022/11/24 19:26:22 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,6 @@ CFLAGS=-Wall -Wextra -Werror
 LIBFT=libft
 LIBFT_NAME=libft.a
 
-LIB=$(LIB_DIR)lib$(LIB_NAME).a
-
 INCLUDE=-I ./$(LIBFT)
 
 AR=ar
@@ -27,7 +25,8 @@ ARFLAGS=rcsv
 
 RM=rm -f
 
-SRC_FILES = ft_printf.c ft_printhex.c ft_printpointer.c ft_itoahex.c
+SRC_FILES = ft_printf.c ft_printhex.c ft_printpointer.c ft_itoahex.c ft_itop.c \
+ft_printstr.c ft_printint.c ft_printchar.c ft_printuint.c ft_uitoa.c ft_putchar.c ft_putstr.c
 
 OBJECTS = $(SRC_FILES:.c=.o)
 
@@ -35,7 +34,7 @@ OBJECTS = $(SRC_FILES:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJECTS)
-	make all -C $(LIBFT)/
+	make $(LIBFT)
 	cp ./$(LIBFT)/$(LIBFT_NAME) $(NAME)
 	$(AR) $(ARFLAGS) $@ $(OBJECTS)
 
@@ -53,8 +52,7 @@ fclean : clean
 
 re : fclean all
 
-bonus: $(OBJECTS)
-	ar rcsv $(NAME) $(OBJECTS)
+libft :
+	make all -C $(LIBFT)/
 
-
-.PHONY : all clean fclean re bonus
+.PHONY : all clean fclean re libft

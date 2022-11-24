@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printhex.c                                      :+:      :+:    :+:   */
+/*   ft_printint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/19 19:17:37 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/19 19:22:03 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/24 14:25:32 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/24 15:59:17 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printhex(unsigned int num, int i)
+int	ft_printint(int num)
 {
-	const char	*hex;
+	char	*re;
+	int		len;
 
-	if (i == 1)
-		hex = "0123456789abcdef";
-	else if (i == 2)
-		hex = "0123456789ABCDEF";
-	else
-		return ;
-	if (num > 15)
-		ft_printhex(num / 16, i);
-	ft_putchar_fd(hex[num % 16], 1);
+	re = ft_itoa(num);
+	if (re == 0)
+		return (-1);
+	len = ft_printstr(re);
+	free(re);
+	return (len);
 }

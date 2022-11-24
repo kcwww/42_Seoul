@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_printstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 18:49:59 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/19 19:18:49 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/24 14:55:37 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/24 19:30:33 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include "libft.h"
+#include "ft_printf.h"
 
-int		ft_printf(const char *format, ...);
-void	ft_printhex(unsigned int num, int i);
-void	ft_printpointer(void *ptr);
+int	ft_printstr(char *str)
+{
+	char	*re;
+	int		len;
+	ssize_t	i;
 
-#endif
+	if (str == 0)
+	{
+		re = "(null)";
+		str = re;
+	}
+	i = ft_putstr(str, 1);
+	if (i == -1)
+		return (i);
+	len = ft_strlen(str);
+	return (len);
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 12:36:30 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/17 12:37:18 by chanwoki         ###   ########.fr       */
+/*   Updated: 2022/11/24 14:56:38 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
-	if (s == 0)
-	{
-		ft_putstr_fd("(null)", 1);
-		return ;
-	}
 	while (s[i])
 	{
 		ft_putchar_fd(s[i], fd);

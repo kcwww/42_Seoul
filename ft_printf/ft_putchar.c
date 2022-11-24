@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 12:37:51 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/17 12:39:27 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/17 12:29:45 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/24 19:28:52 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putendl_fd(char *s, int fd)
+ssize_t	ft_putchar(char c, int fd)
 {
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	ssize_t	i;
+
+	i = write(fd, &c, 1);
+	if (i == -1)
+		return (i);
+	return (i);
 }

@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 12:29:45 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/17 12:34:25 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/17 12:36:30 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/24 19:28:56 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putchar_fd(char c, int fd)
+ssize_t	ft_putstr(char *s, int fd)
 {
-	write(fd, &c, 1);
+	int		i;
+	ssize_t	c;
+
+	i = 0;
+	while (s[i])
+	{
+		c = ft_putchar(s[i], fd);
+		if (c == -1)
+			return (c);
+		i++;
+	}
+	return (c);
 }

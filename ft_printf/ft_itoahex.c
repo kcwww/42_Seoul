@@ -1,19 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoahex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 12:37:20 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/15 15:32:05 by chanwoki         ###   ########.fr       */
+/*   Updated: 2022/11/24 14:40:22 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include "ft_printf.h"
 
 static unsigned int	check_len(unsigned int n)
 {
@@ -32,7 +29,7 @@ static unsigned int	check_len(unsigned int n)
 
 char	*ft_itoahex(unsigned int n, int i)
 {
-	int				len;
+	unsigned int	len;
 	unsigned int	num;
 	char			*re;
 	char			*hex;
@@ -54,9 +51,4 @@ char	*ft_itoahex(unsigned int n, int i)
 		num /= 16;
 	}
 	return (re);
-}
-
-int main()
-{
-	printf("%s\n",ft_itoahex(-123, 1));
 }
