@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 14:55:37 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/24 19:30:33 by chanwoki         ###   ########.fr       */
+/*   Updated: 2022/11/24 20:23:29 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_printstr(char *str)
 {
 	char	*re;
-	int		len;
+	size_t	len;
 	ssize_t	i;
 
 	if (str == 0)
