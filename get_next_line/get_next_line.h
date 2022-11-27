@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/11 17:21:02 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/27 12:22:36 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/27 12:48:50 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/27 16:27:31 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# include <stdlib.h>
+# include <limits.h>
+# include <unistd.h>
+# define BUFFER_SIZE 1
+char	*get_next_line(int fd);
 
-int	ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
+#endif
