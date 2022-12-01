@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 12:48:46 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/12/01 20:40:01 by chanwoki         ###   ########.fr       */
+/*   Updated: 2022/12/01 20:43:46 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ char	*ft_read(int fd, char *buf)
 			free(read_str);
 			// buffer가 여기서 못 받음
 			return (buf);
-		}
+		} // dup, free > join
 		buf = ft_strjoin(buf, read_str);
 	}
 	free(read_str);
-	return (buf);
+	return (buf); // 버퍼도 프리 해줘야함
 }
 // get_idx_nl
 // -1 or idx_nl
@@ -83,7 +83,7 @@ char	*next_buf(char *buf)
 		return (0);
 	}
 	ft_strlcpy(left_buf, (buf + i), ft_strlen(buf) - i + 1);
-	free(buf);
+	free(buf); // 프리가 안되고 있음 !!
 	return (left_buf);
 }
 

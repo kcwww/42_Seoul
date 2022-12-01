@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 12:48:44 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/12/01 19:13:52 by chanwoki         ###   ########.fr       */
+/*   Updated: 2022/12/01 20:47:26 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,13 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (0);
 	ft_strlcpy(re, s1, i + 1);
 	ft_strlcpy(re + i, s2, j + 1);
+	// s1 프리해주고 리턴
 	return (re);
 }
+
+// void free_str(char *string)
+// {
+// 	free(string);
+// 	string = NULL;
+// }
+// 프리해주고 초기화
