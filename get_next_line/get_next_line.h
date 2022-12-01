@@ -15,7 +15,14 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
-# define BUFFER_SIZE 1
+# ifndef OPEN_MAX
+#  define OPEN_MAX 10240
+# endif
+
 char	*get_next_line(int fd);
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlen(const char *s);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char	*ft_strchr(const char *s, int c);
 
 #endif
