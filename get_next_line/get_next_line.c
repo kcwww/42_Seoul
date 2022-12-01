@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 12:48:46 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/27 16:30:51 by chanwoki         ###   ########.fr       */
+/*   Updated: 2022/12/01 20:40:01 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,28 @@ char	*ft_read(int fd, char *buf)
 		return (0);
 	while (!ft_strchr(buf, '\n') && len != 0)
 	{
-		len = read(fd, &read_str, BUFFER_SIZE);
+		len = read(fd, read_str, BUFFER_SIZE);
 		if (len == -1)
 		{
 			free(read_str);
 			return (0);
+		}
+		read_str[len] = 0;
+		if (ft_strlen(buf) >= len) // && len == 0
+		{
+			if (ft_strlen(read_str) > 0)
+				ft_strjoin(buf, read_str);
+			free(read_str);
+			// buffer가 여기서 못 받음
+			return (buf);
 		}
 		buf = ft_strjoin(buf, read_str);
 	}
 	free(read_str);
 	return (buf);
 }
-
+// get_idx_nl
+// -1 or idx_nl
 char	*buf_to_line(char *buf)
 {
 	int		i;
@@ -88,4 +98,4 @@ char	*get_next_line(int fd)
 	line = buf_to_line(buf);
 	buf = next_buf(buf);
 	return (line);
-}
+} // strdup

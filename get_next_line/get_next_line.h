@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 12:48:50 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/27 16:27:31 by chanwoki         ###   ########.fr       */
+/*   Updated: 2022/12/01 20:07:08 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,17 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
 # ifndef OPEN_MAX
 #  define OPEN_MAX 10240
 # endif
 
 char	*get_next_line(int fd);
-char	*ft_strjoin(char const *s1, char const *s2);
-size_t	ft_strlen(const char *s);
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
-char	*ft_strchr(const char *s, int c);
+char	*ft_strjoin(char *s1, char *s2);
+int		ft_strlen(char *s);
+int		ft_strlcpy(char *dst, char *src, int dstsize);
+char	*ft_strchr(char *s, int c);
 
 #endif
