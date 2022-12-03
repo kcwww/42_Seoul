@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 14:44:40 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/12/03 15:41:01 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/12/03 19:00:34 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/12/03 19:31:42 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ char	*ft_strchr(char *s, int c);
 size_t	ft_strlen(char *s);
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
 char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strdup(char *s1);
 
 #endif

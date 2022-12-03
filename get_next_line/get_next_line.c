@@ -5,49 +5,64 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 14:44:37 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/12/03 15:42:25 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/12/03 19:00:36 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/12/03 19:38:06 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	free_str(char *line, char *buf)
+static void	free_str(char **line, char **buf)
 {
 	if (line != NULL)
-		free(line);
+	{
+		if (*line != NULL)
+		{
+			free(*line);
+			*line = NULL;
+		}
+	}
 	if (buf != NULL)
-		free(buf);
+	{
+		if (*buf != NULL)
+		{
+			free(*buf);
+			*buf = NULL;
+		}
+	}
 }
 
-char	*ft_read(char *line, int fd)
+static char	*ft_read(int fd, char *line)
 {
-	int		len;
 	char	*buf;
+	ssize_t	len;
 
+	len = 1;
 	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (buf == NULL)
 		return (NULL);
-	len = 1;
+	buf[BUFFER_SIZE] = 0;
 	while (len != 0 && ft_strchr(buf, '\n') == NULL)
 	{
 		len = read(fd, buf, BUFFER_SIZE);
 		if (len == -1)
 		{
-			free_str(line, buf);
+			free_str(&line, &buf);
 			return (NULL);
 		}
 		if (len != 0)
 		{
 			buf[len] = 0;
 			line = ft_strjoin(line, buf);
+			if (line == NULL)
+				return (NULL);
 		}
 	}
-	free(buf);
+	free_str(NULL, &buf);
 	return (line);
 }
 
-char	*get_line(char *line)
+static char	*get_line(char *line)
 {
 	char	*g_line;
 	int		len;
@@ -64,7 +79,7 @@ char	*get_line(char *line)
 	return (g_line);
 }
 
-char	*next_line(char *line)
+static char	*next_line(char *line)
 {
 	char	*n_line;
 	int		len;
@@ -77,21 +92,29 @@ char	*next_line(char *line)
 	if (line[len] == '\n')
 		len++;
 	if (line_len == len)
+	{
+		free_str(&line,NULL);
 		return (NULL);
+	}
 	n_line = (char *)malloc(sizeof(char) * (line_len - len + 1));
 	if (n_line == NULL)
+	{
+		free_str(&line, NULL);
 		return (NULL);
+	}
 	ft_strlcpy(n_line, line + len, line_len - len + 1);
-	free(line);
+	free_str(&line, NULL);
 	return (n_line);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*line;
 	char		*re;
+	static char	*line;
 
-	line = ft_read(line, fd);
+	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0)
+		return (NULL);
+	line = ft_read(fd, line);
 	if (line == NULL)
 		return (NULL);
 	re = get_line(line);

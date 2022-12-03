@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/03 15:35:23 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/12/03 15:41:55 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/12/03 19:00:19 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/12/03 19:31:36 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,19 @@
 char	*ft_strchr(char *s, int c)
 {
 	char	i;
+	int		idx;
 
+	if (s == NULL)
+		return (NULL);
 	i = (char)c;
-	while (*s != i)
+	idx = 0;
+	while (s[idx] != i)
 	{
-		if (*s == 0)
+		if (s[idx] == 0)
 			return (NULL);
-		s++;
+		idx++;
 	}
-	return ((char *)s);
+	return ((char *)&s[idx]);
 }
 
 size_t	ft_strlen(char *s)
@@ -57,6 +61,19 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 	return (src_size);
 }
 
+char	*ft_strdup(char *s1)
+{
+	size_t	len;
+	char	*re;
+
+	len = ft_strlen(s1);
+	re = (char *)malloc(sizeof(char) * (len + 1));
+	if (re == 0)
+		return (0);
+	ft_strlcpy(re, s1, len + 1);
+	return (re);
+}
+
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*re;
@@ -68,6 +85,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	re = (char *)malloc(sizeof(char) * (i + j + 1));
 	if (re == NULL)
 		return (NULL);
+	re[i + j] = 0;
 	ft_strlcpy(re, s1, i + 1);
 	if (s1 != NULL)
 		free(s1);
