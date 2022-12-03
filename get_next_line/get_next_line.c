@@ -5,97 +5,98 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 12:48:46 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/12/01 20:43:46 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/12/03 14:44:37 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/12/03 15:42:25 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_read(int fd, char *buf)
+void	free_str(char *line, char *buf)
+{
+	if (line != NULL)
+		free(line);
+	if (buf != NULL)
+		free(buf);
+}
+
+char	*ft_read(char *line, int fd)
 {
 	int		len;
-	char	*read_str;
+	char	*buf;
 
+	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (buf == NULL)
+		return (NULL);
 	len = 1;
-	read_str = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	if (read_str == 0)
-		return (0);
-	while (!ft_strchr(buf, '\n') && len != 0)
+	while (len != 0 && ft_strchr(buf, '\n') == NULL)
 	{
-		len = read(fd, read_str, BUFFER_SIZE);
+		len = read(fd, buf, BUFFER_SIZE);
 		if (len == -1)
 		{
-			free(read_str);
-			return (0);
+			free_str(line, buf);
+			return (NULL);
 		}
-		read_str[len] = 0;
-		if (ft_strlen(buf) >= len) // && len == 0
+		if (len != 0)
 		{
-			if (ft_strlen(read_str) > 0)
-				ft_strjoin(buf, read_str);
-			free(read_str);
-			// buffer가 여기서 못 받음
-			return (buf);
-		} // dup, free > join
-		buf = ft_strjoin(buf, read_str);
+			buf[len] = 0;
+			line = ft_strjoin(line, buf);
+		}
 	}
-	free(read_str);
-	return (buf); // 버퍼도 프리 해줘야함
-}
-// get_idx_nl
-// -1 or idx_nl
-char	*buf_to_line(char *buf)
-{
-	int		i;
-	char	*return_line;
-
-	if (buf == 0)
-		return (0);
-	i = 0;
-	while (buf[i] && buf[i] != '\n')
-		i++;
-	if (buf[i] == '\n')
-		i++;
-	return_line = (char *)malloc(sizeof(char) * (i + 1));
-	if (return_line == 0)
-		return (0);
-	ft_strlcpy(return_line, buf, i + 1);
-	return (return_line);
+	free(buf);
+	return (line);
 }
 
-char	*next_buf(char *buf)
+char	*get_line(char *line)
 {
-	int		i;
-	char	*left_buf;
+	char	*g_line;
+	int		len;
 
-	if (buf == 0)
-		return (0);
-	i = 0;
-	while (buf[i] && buf[i] != '\n')
-		i++;
-	if (buf[i] == '\n')
-		i++;
-	left_buf = (char *)malloc(sizeof(char) * (ft_strlen(buf) - i + 1));
-	if (left_buf == 0)
-	{
-		free(buf);
-		return (0);
-	}
-	ft_strlcpy(left_buf, (buf + i), ft_strlen(buf) - i + 1);
-	free(buf); // 프리가 안되고 있음 !!
-	return (left_buf);
+	len = 0;
+	while (line[len] && line[len] != '\n')
+		len++;
+	if (line[len] == '\n')
+		len++;
+	g_line = (char *)malloc(sizeof(char) * (len + 1));
+	if (g_line == NULL)
+		return (NULL);
+	ft_strlcpy(g_line, line, len + 1);
+	return (g_line);
+}
+
+char	*next_line(char *line)
+{
+	char	*n_line;
+	int		len;
+	int		line_len;
+
+	len = 0;
+	line_len = ft_strlen(line);
+	while (line[len] && line[len] != '\n')
+		len++;
+	if (line[len] == '\n')
+		len++;
+	if (line_len == len)
+		return (NULL);
+	n_line = (char *)malloc(sizeof(char) * (line_len - len + 1));
+	if (n_line == NULL)
+		return (NULL);
+	ft_strlcpy(n_line, line + len, line_len - len + 1);
+	free(line);
+	return (n_line);
 }
 
 char	*get_next_line(int fd)
 {
-	char		*line;
-	static char	*buf;
+	static char	*line;
+	char		*re;
 
-	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0)
-		return (0);
-	buf = ft_read(fd, buf);
-	line = buf_to_line(buf);
-	buf = next_buf(buf);
-	return (line);
-} // strdup
+	line = ft_read(line, fd);
+	if (line == NULL)
+		return (NULL);
+	re = get_line(line);
+	if (re == NULL)
+		return (NULL);
+	line = next_line(line);
+	return (re);
+}
