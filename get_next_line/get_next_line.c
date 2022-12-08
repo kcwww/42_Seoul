@@ -54,8 +54,6 @@ static char	*ft_read(int fd, char *line)
 		{
 			buf[len] = 0;
 			line = ft_strjoin(line, buf);
-			if (line == NULL)
-				return (NULL);
 		}
 	}
 	free_str(NULL, &buf);
@@ -93,7 +91,7 @@ static char	*next_line(char *line)
 		len++;
 	if (line_len == len)
 	{
-		free_str(&line,NULL);
+		free_str(&line, NULL);
 		return (NULL);
 	}
 	n_line = (char *)malloc(sizeof(char) * (line_len - len + 1));

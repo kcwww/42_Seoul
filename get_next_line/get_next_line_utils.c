@@ -68,8 +68,8 @@ char	*ft_strdup(char *s1)
 
 	len = ft_strlen(s1);
 	re = (char *)malloc(sizeof(char) * (len + 1));
-	if (re == 0)
-		return (0);
+	if (re == NULL)
+		return (NULL);
 	ft_strlcpy(re, s1, len + 1);
 	return (re);
 }
