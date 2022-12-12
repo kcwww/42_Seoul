@@ -42,6 +42,7 @@ static char	*ft_read(int fd, char *line)
 	if (buf == NULL)
 		return (NULL);
 	buf[BUFFER_SIZE] = 0;
+	buf[0] = 0;
 	while (len != 0 && ft_strchr(buf, '\n') == NULL)
 	{
 		len = read(fd, buf, BUFFER_SIZE);
