@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:00:36 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/12/03 19:38:06 by chanwoki         ###   ########.fr       */
+/*   Updated: 2022/12/15 16:14:23 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ static char	*ft_read(int fd, char *line)
 	if (buf == NULL)
 		return (NULL);
 	buf[0] = 0;
-	buf[BUFFER_SIZE] = 0;
 	while (len != 0 && ft_strchr(buf, '\n') == NULL)
 	{
 		len = read(fd, buf, BUFFER_SIZE);

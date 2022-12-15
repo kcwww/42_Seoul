@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:00:36 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/12/03 19:38:06 by chanwoki         ###   ########.fr       */
+/*   Updated: 2022/12/15 16:14:30 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ static char	*ft_read(int fd, char *line)
 	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (buf == NULL)
 		return (NULL);
-	buf[BUFFER_SIZE] = 0;
 	buf[0] = 0;
 	while (len != 0 && ft_strchr(buf, '\n') == NULL)
 	{
