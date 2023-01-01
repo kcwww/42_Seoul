@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:14:29 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/18 00:11:37 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/01/01 16:41:45 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdlib.h>
+# include "ft_printf.h"
+# include "get_next_line.h"
+# include "get_next_line_bonus.h"
 
 typedef struct s_list
 {
