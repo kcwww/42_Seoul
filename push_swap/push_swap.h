@@ -1,28 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 23:05:20 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/01 18:59:32 by chanwoki         ###   ########.fr       */
+/*   Created: 2023/01/01 17:29:07 by chanwoki          #+#    #+#             */
+/*   Updated: 2023/01/01 18:07:54 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+# include "libft/libft.h"
 
-void	ft_lstclear(t_list **lst)
-{
-	t_list	*start;
-
-	if (lst == 0 || *lst == 0)
-		return ;
-	start = *lst;
-	while (start)
-	{
-		(*lst) = (*lst)->next;
-		free(start);
-		start = *lst;
-	}
-}
+#endif

@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 18:48:59 by chanwoki          #+#    #+#              #
-#    Updated: 2023/01/01 17:24:23 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/01/01 17:26:58 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,6 @@ CFLAGS=-Wall -Wextra -Werror
 
 LIBFT=libft
 LIBFT_NAME=libft.a
-
-INCLUDE=-I ./$(LIBFT)
 
 AR=ar
 
