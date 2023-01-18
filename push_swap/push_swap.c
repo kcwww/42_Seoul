@@ -27,6 +27,12 @@ int main(int argc, char **argv)
 	}
 
 	execute_rules("pb", &stack_a, &stack_b);
+	execute_rules("pb", &stack_a, &stack_b);
+	execute_rules("pb", &stack_a, &stack_b);
+	execute_rules("rb", &stack_a, &stack_b);
+	execute_rules("pa", &stack_a, &stack_b);
+	execute_rules("rra", &stack_a, &stack_b);
+
 	ft_printf("done\n");
 
 	t_list	*temp;

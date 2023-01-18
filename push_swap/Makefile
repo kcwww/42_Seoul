@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 18:48:59 by chanwoki          #+#    #+#              #
-#    Updated: 2023/01/18 16:20:16 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/01/18 17:27:37 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ ARFLAGS=rcsv
 
 RM=rm -f
 
-SRC_FILES=push_swap.c check_lst.c game_rule1.c
+SRC_FILES=push_swap.c check_lst.c game_rule1.c game_rule2.c
 
 OBJECTS = $(SRC_FILES:.c=.o)
 
