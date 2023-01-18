@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/10 14:14:33 by chanwoki          #+#    #+#              #
-#    Updated: 2023/01/01 17:41:21 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/01/18 15:11:37 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ ft_substr.c ft_strtrim.c ft_strmapi.c ft_striteri.c \
 ft_printf.c ft_printhex.c ft_printpointer.c ft_itoahex.c ft_itop.c \
 ft_printstr.c ft_printint.c ft_printchar.c ft_printuint.c ft_uitoa.c ft_putchar.c ft_putstr.c \
 get_next_line.c get_next_line_bonus.c get_next_line_utils.c get_next_line_utils_bonus.c \
-ft_lstadd_front.c ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c
+ft_lstadd_front.c ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstlastbefore.c
 
 OBJECTS = $(SRC_FILES:.c=.o)
 

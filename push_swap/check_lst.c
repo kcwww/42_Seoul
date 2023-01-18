@@ -1,20 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   check_lst.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/01 17:29:07 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/18 16:56:37 by chanwoki         ###   ########.fr       */
+/*   Created: 2023/01/18 15:24:36 by chanwoki          #+#    #+#             */
+/*   Updated: 2023/01/18 15:26:04 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "libft/libft.h"
+#include "push_swap.h"
 
-int		check_lst(t_list *lst);
-void	execute_rules(char	*rule, t_list **stack_a, t_list **stack_b);
+int	check_lst(t_list *lst)
+{
+	size_t	i;
+	t_list	*temp;
 
-#endif
+	i = 1;
+	temp = lst;
+	if (lst == 0)
+		return (0);
+	if (temp->next)
+	{
+		lst = lst->next;
+		temp = lst;
+		i++;
+	}
+	return (i);
+}
