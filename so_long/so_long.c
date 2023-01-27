@@ -6,12 +6,13 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 10:42:29 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/27 11:09:41 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/01/27 13:56:04 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "mlx/mlx.h"
+#include "libft/libft.h"
 
 int	main(void)
 {

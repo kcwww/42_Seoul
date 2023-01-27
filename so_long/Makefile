@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/10 14:14:33 by chanwoki          #+#    #+#              #
-#    Updated: 2023/01/27 11:11:12 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/01/27 13:55:27 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,12 +36,13 @@ all : $(NAME)
 $(NAME) : $(OBJECTS)
 	make -C $(LIBFT)
 	make -C $(MLX)
+	cp ./$(MLX)/libmlx.dylib .
 	$(CC) $(CFLAGS) -L $(LIBFT) -l $(FT) -L $(MLX) -l mlx -framework OpenGL -framework AppKit $(SRC_FILES) -o $(NAME)
 
 clean :
 	make clean -C $(LIBFT)
 	make clean -C $(MLX)
-	$(RM) $(OBJECTS)
+	$(RM) $(OBJECTS) libmlx.dylib
 	rm -rf $(OBJECTS)
 
 fclean : clean
