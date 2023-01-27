@@ -5,25 +5,98 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/27 10:42:29 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/27 13:56:04 by chanwoki         ###   ########.fr       */
+/*   Created: 2023/01/27 16:56:38 by chanwoki          #+#    #+#             */
+/*   Updated: 2023/01/27 17:58:19 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "mlx/mlx.h"
+#include <stdio.h>
 #include "libft/libft.h"
+#include "mlx/mlx.h"
+
+// mlx 구조체 mlx 포인터와 생성할 win 포인터를 가지고 있다.
+typedef struct	s_vars {
+	void		*mlx;
+	void		*win;
+}				t_vars;
+
+// esc key press event
+int	key_hook(int keycode, t_vars *vars)
+{
+	if(keycode == 53)
+	{
+		mlx_destroy_window(vars->mlx, vars->win);
+		exit(0);
+	}
+	return (0);
+}
 
 int	main(void)
 {
-	void	*mlx;
-	void	*win;
+	t_vars	var;
+	void	*img;
+	void	*img2;
+	void	*img3;
+	void	*octo1;
+	void	*octo2;
+	void	*octo3;
+	void	*octo4;
+	int		img_width;
+	int		img_height;
 
-	mlx = mlx_init();
-    //소프트웨어와 디스플레이 간의 연결을 초기화하기 위해 mlx_init()을 사용
-	win = mlx_new_window(mlx, 500, 500, "타이틀바 문자열");
-    // 새로운 윈도우를 스크린 위에 생성해주는 함수
-	mlx_loop(mlx);
-    // 키보드나 마우스로부터 이벤트를 받기위해 이벤트를 수신하는 함수,
-    // 이벤트를 지속적으로 받기위해 무한루프임
+	var.mlx = mlx_init();
+	var.win = mlx_new_window(var.mlx, 496, 496, "cw game");
+	img = mlx_xpm_file_to_image(var.mlx, "imgs/ground.xpm", &img_width, &img_height);
+	img2 = mlx_xpm_file_to_image(var.mlx, "imgs/obstacle.xpm", &img_width, &img_height);
+	img3 = mlx_xpm_file_to_image(var.mlx, "imgs/escape.xpm", &img_width, &img_height);
+	octo1 = mlx_xpm_file_to_image(var.mlx, "imgs/octo.xpm", &img_width, &img_height);
+	octo2 = mlx_xpm_file_to_image(var.mlx, "imgs/octoleft.xpm", &img_width, &img_height);
+	octo3 = mlx_xpm_file_to_image(var.mlx, "imgs/octoright.xpm", &img_width, &img_height);
+	octo4 = mlx_xpm_file_to_image(var.mlx, "imgs/octoback.xpm", &img_width, &img_height);
+    //xpm 파일을 불러와 이미지로 변환하고 img에 저장해줌
+	for (int i = 0; i <= 480; i += 15)
+	{
+		for (int j = 0; j <= 480; j += 15)
+		{
+			mlx_put_image_to_window(var.mlx, var.win, img, i, j);
+			if (i == 0 || i == 480 || j == 0 || j == 480)
+				mlx_put_image_to_window(var.mlx, var.win, img2, i, j);
+			else if ( j == 30 && i > 150 && i < 300)
+				mlx_put_image_to_window(var.mlx, var.win, img2, i, j);
+			else if ( i == 225 && j > 150 && j < 300)
+				mlx_put_image_to_window(var.mlx, var.win, img2, i, j);
+			else if ( j == 150 && i > 60 && i < 420)
+				mlx_put_image_to_window(var.mlx, var.win, img2, i, j);
+			else if ( i == 120 && j > 240 && j < 420)
+				mlx_put_image_to_window(var.mlx, var.win, img2, i, j);
+			else if ( j == 420 && i > 115 && i < 360)
+				mlx_put_image_to_window(var.mlx, var.win, img2, i, j);
+			else if (i == 450 && j == 450)
+				mlx_put_image_to_window(var.mlx, var.win, img3, i, j);
+
+			else if (i == 320 && j == 420)
+				mlx_put_image_to_window(var.mlx, var.win, octo2, i, j);
+			else if (i == 120 && j == 330)
+				mlx_put_image_to_window(var.mlx, var.win, octo2, i, j);
+
+			else if (i == 420 && j == 120)
+				mlx_put_image_to_window(var.mlx, var.win, octo3, i, j);
+			else if (i == 330 && j == 90)
+				mlx_put_image_to_window(var.mlx, var.win, octo3, i, j);
+
+			else if (i == 210 && j == 420)
+				mlx_put_image_to_window(var.mlx, var.win, octo4, i, j);
+			else if (i == 90 && j == 210)
+				mlx_put_image_to_window(var.mlx, var.win, octo4, i, j);
+
+			else if (i == 210 && j == 330)
+				mlx_put_image_to_window(var.mlx, var.win, octo1, i, j);
+			else if (i == 150 && j == 150)
+				mlx_put_image_to_window(var.mlx, var.win, octo1, i, j);
+		}
+	}
+    // xpm에서 이미지로 변환한 img를 화면에 (50,50)위치에 띄워줌
+	mlx_key_hook(var.win, key_hook, &var); // esc key press event
+	mlx_loop(var.mlx);
+	return (0);
 }
