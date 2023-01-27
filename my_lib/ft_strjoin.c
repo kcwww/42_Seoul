@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 19:09:41 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/27 09:30:51 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/15 13:24:48 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/17 18:38:29 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_list	*new;
+	char	*re;
+	size_t	i;
+	size_t	j;
 
-	new = (t_list *)malloc(sizeof(t_list));
-	if (new == 0)
+	i = ft_strlen(s1);
+	j = ft_strlen(s2);
+	re = (char *)malloc(sizeof(char) * (i + j + 1));
+	if (re == 0)
 		return (0);
-	new->content = content;
-	new->next = 0;
-	return (new);
+	ft_strlcpy(re, s1, i + 1);
+	ft_strlcpy(re + i, s2, j + 1);
+	return (re);
 }

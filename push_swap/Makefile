@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 18:48:59 by chanwoki          #+#    #+#              #
-#    Updated: 2023/01/18 17:27:37 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/01/27 10:14:45 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ FT = ft
 all : $(NAME)
 
 $(NAME) : $(OBJECTS)
-	make $(LIBFT)
+	make -C $(LIBFT)
 	cp ./$(LIBFT)/$(LIBFT_NAME) ./
 	$(CC) $(CFLAGS) -L . -l $(FT) $(SRC_FILES) -o $(NAME)
 

@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 19:09:41 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/27 09:30:51 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/13 18:13:15 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/17 18:56:04 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+char	*ft_strdup(const char *s1)
 {
-	t_list	*new;
+	size_t	len;
+	char	*re;
 
-	new = (t_list *)malloc(sizeof(t_list));
-	if (new == 0)
+	len = ft_strlen(s1);
+	re = (char *)malloc(sizeof(char) * (len + 1));
+	if (re == 0)
 		return (0);
-	new->content = content;
-	new->next = 0;
-	return (new);
+	ft_strlcpy(re, s1, len + 1);
+	return (re);
 }

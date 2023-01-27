@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 19:09:41 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/27 09:30:51 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/13 17:27:22 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/13 17:41:21 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_list	*new;
+	unsigned char	*chr;
+	unsigned char	find;
+	size_t			i;
 
-	new = (t_list *)malloc(sizeof(t_list));
-	if (new == 0)
-		return (0);
-	new->content = content;
-	new->next = 0;
-	return (new);
+	chr = (unsigned char *)s;
+	find = (unsigned char)c;
+	i = 0;
+	while (i < n)
+	{
+		if (*chr == find)
+			return ((void *)chr);
+		chr++;
+		i++;
+	}
+	return ((void *)0);
 }

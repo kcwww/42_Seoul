@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 19:09:41 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/27 09:30:51 by chanwoki         ###   ########.fr       */
+/*   Created: 2022/11/10 20:13:51 by chanwoki          #+#    #+#             */
+/*   Updated: 2022/11/10 20:18:15 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	t_list	*new;
+	size_t	src_size;
+	size_t	idx;
 
-	new = (t_list *)malloc(sizeof(t_list));
-	if (new == 0)
-		return (0);
-	new->content = content;
-	new->next = 0;
-	return (new);
+	idx = 0;
+	src_size = ft_strlen(src);
+	while (src[idx] && idx + 1 < dstsize)
+	{
+		dst[idx] = src[idx];
+		idx++;
+	}
+	if (dstsize != 0)
+		dst[idx] = 0;
+	return (src_size);
 }
