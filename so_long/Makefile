@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/10 14:14:33 by chanwoki          #+#    #+#              #
-#    Updated: 2023/01/27 10:14:38 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/01/27 11:11:12 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,21 +23,24 @@ ARFLAGS=rcsv
 
 RM=rm -f
 
-SRC_FILES=
+SRC_FILES=so_long.c
 
 OBJECTS = $(SRC_FILES:.c=.o)
 
 FT = ft
 
+MLX = mlx
+
 all : $(NAME)
 
 $(NAME) : $(OBJECTS)
 	make -C $(LIBFT)
-	cp ./$(LIBFT)/$(LIBFT_NAME) ./
-	$(CC) $(CFLAGS) -L . -l $(FT) $(SRC_FILES) -o $(NAME)
+	make -C $(MLX)
+	$(CC) $(CFLAGS) -L $(LIBFT) -l $(FT) -L $(MLX) -l mlx -framework OpenGL -framework AppKit $(SRC_FILES) -o $(NAME)
 
 clean :
 	make clean -C $(LIBFT)
+	make clean -C $(MLX)
 	$(RM) $(OBJECTS)
 	rm -rf $(OBJECTS)
 
