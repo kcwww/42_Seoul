@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:38:44 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/29 15:31:20 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/01/29 15:57:32 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int main()
 	param.ground = mlx_xpm_file_to_image(param.mlx, "imgs/ground.xpm", &param.width, &param.height);
 	param.obstacle = mlx_xpm_file_to_image(param.mlx, "imgs/obstacle.xpm", &param.width, &param.height);
 	param.escape = mlx_xpm_file_to_image(param.mlx, "imgs/escape.xpm", &param.width, &param.height);
-	param.win = mlx_new_window(param.mlx, (param.width-1) * param.col, (param.height-1) * param.row, "so_long");
+	param.win = mlx_new_window(param.mlx, (param.width) * param.col, (param.height) * param.row, "so_long");
 	param.x = 0;
 	param.y = 0;
 	i = 0;
@@ -107,15 +107,19 @@ int main()
 			else if (map[i][j] == 'C')
 				mlx_put_image_to_window(param.mlx, param.win, param.octo, param.x, param.y);
 			else if (map[i][j] == 'P')
+			{
+				param.start_x = param.x;
+				param.start_y = param.y;
 				mlx_put_image_to_window(param.mlx, param.win, param.player, param.x, param.y);
-			param.x += param.width - 1;
+			}
+			param.x += param.width;
 			j++;
 		}
 		i++;
-		param.y += param.height - 1;
+		param.y += param.height;
 	}
-	param.x = 0;
-	param.y = 0;
+	param.x = param.start_x;
+	param.y = param.start_y;
 	mlx_key_hook(param.win, &key_press, &param);
     //키보드 입력을 받아줌
 	//mlx_loop_hook(param.mlx, &draw, &param);

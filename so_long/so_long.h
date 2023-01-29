@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:39:34 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/29 15:31:31 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/01/29 15:46:35 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_param
 	int		col;
 	int		x;
 	int		y;
+	int		start_x;
+	int		start_y;
 }	t_param;
 
 // typedef struct s_param
