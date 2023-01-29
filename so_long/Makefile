@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/10 14:14:33 by chanwoki          #+#    #+#              #
-#    Updated: 2023/01/27 15:42:24 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/01/29 13:57:13 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ all : $(NAME)
 $(NAME) : $(OBJECTS)
 	make -C $(LIBFT)
 	make -C $(MLX)
-	$(CC) $(CFLAGS) -L $(LIBFT) -l $(FT) -L $(MLX) -l $(MLX) $(MLXF) $(SRC_FILES) -o $(NAME)
+	$(CC) $(CFLAGS) -g3 -L $(LIBFT) -l $(FT) -L $(MLX) -l $(MLX) $(MLXF) $(SRC_FILES) -o $(NAME)
 	install_name_tool -change libmlx.dylib mlx/libmlx.dylib $(NAME)
 
 clean :

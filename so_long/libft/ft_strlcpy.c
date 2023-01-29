@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 20:13:51 by chanwoki          #+#    #+#             */
-/*   Updated: 2022/11/10 20:18:15 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/01/29 14:02:42 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	src_size;
 	size_t	idx;
 
+	if (src == NULL)
+		return (0);
 	idx = 0;
 	src_size = ft_strlen(src);
 	while (src[idx] && idx + 1 < dstsize)
