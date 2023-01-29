@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:39:34 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/29 15:46:35 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/01/29 19:09:07 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ typedef struct s_param
 	void	*mlx;
 	void	*win;
 	void	*player;
-	void	*octo;
+	//void	*octo;
+	void	*coin;
 	void	*obstacle;
 	void	*escape;
 	void	*ground;
@@ -36,6 +37,10 @@ typedef struct s_param
 	int		y;
 	int		start_x;
 	int		start_y;
+	int		score;
+	int		walk;
+	int		goal;
+	char	**map;
 }	t_param;
 
 // typedef struct s_param
