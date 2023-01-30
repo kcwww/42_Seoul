@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:38:44 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/30 17:56:51 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/01/30 20:24:17 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,12 @@ int	draw_map(t_param *param)
 {
 	int	i;
 	int	j;
+	static int	time;
+
 	i = 0;
 	param->y = 0;
+	time++;
+	printf("time is %d\n", time);
 	while (param->map[i])
 	{
 		j = 0;
@@ -77,7 +81,30 @@ int	draw_map(t_param *param)
 			else if (param->map[i][j] == 'E')
 				mlx_put_image_to_window(param->mlx, param->win, param->escape, param->x, param->y);
 			else if (param->map[i][j] == 'C')
-				mlx_put_image_to_window(param->mlx, param->win, param->coin, param->x, param->y);
+			{
+				if (time < 7)
+				{
+					mlx_put_image_to_window(param->mlx, param->win, param->ground, param->x, param->y);
+					mlx_put_image_to_window(param->mlx, param->win, param->coin.coin2, param->x, param->y);
+				}
+				else if (time >= 7 && time < 14)
+				{
+					mlx_put_image_to_window(param->mlx, param->win, param->ground, param->x, param->y);
+					mlx_put_image_to_window(param->mlx, param->win, param->coin.coin3, param->x, param->y);
+				}
+				else if (time >= 14 && time < 21)
+				{
+					mlx_put_image_to_window(param->mlx, param->win, param->ground, param->x, param->y);
+					mlx_put_image_to_window(param->mlx, param->win, param->coin.coin4, param->x, param->y);
+				}
+				else if (time >= 21)
+				{
+					mlx_put_image_to_window(param->mlx, param->win, param->ground, param->x, param->y);
+					mlx_put_image_to_window(param->mlx, param->win, param->coin.coin1, param->x, param->y);
+					if (time == 28)
+						time = 0;
+				}
+			}
 			else if (param->map[i][j] == 'P')
 			{
 				if (param->goal == -1)
@@ -86,7 +113,7 @@ int	draw_map(t_param *param)
 					mlx_put_image_to_window(param->mlx, param->win, param->ground, param->x, param->y);
 				param->start_x = param->x;
 				param->start_y = param->y;
-				mlx_put_image_to_window(param->mlx, param->win, param->player, param->x, param->y);
+				mlx_put_image_to_window(param->mlx, param->win, param->move.player, param->x, param->y);
 			}
 			param->x += param->width;
 			j++;
@@ -105,6 +132,7 @@ int	key_press(int keycode, t_param *param)
 {
 	int	y_max;
 	int	x_max;
+	static int	time;
 
 	y_max = (param->height) * param->row;
 	x_max = (param->width) * param->col;
@@ -193,7 +221,7 @@ int ft_close(void)
 	return (0);
 }
 
-void	img_digit(t_param *param)
+void	init_digit(t_param *param)
 {
 	param->digit.zero = mlx_xpm_file_to_image(param->mlx, "imgs/0.xpm", &param->width, &param->height);
 	param->digit.one = mlx_xpm_file_to_image(param->mlx, "imgs/1.xpm", &param->width, &param->height);
@@ -218,6 +246,68 @@ int	key_release(int keycode, t_param *param)
 	else if (keycode == KEY_D)
 		param->kflag[3] = 0;
 	return (0);
+}
+
+void	init_map(t_param *param)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	param->y = 0;
+	while (param->map[i])
+	{
+		j = 0;
+		param->x = 0;
+		while (param->map[i][j])
+		{
+			mlx_put_image_to_window(param->mlx, param->win, param->ground, param->x, param->y);
+			param->x += param->width;
+			j++;
+		}
+			i++;
+			param->y += param->height;
+	}
+}
+
+void	init_coins(t_param *param)
+{
+	param->coin.coin1 = mlx_xpm_file_to_image(param->mlx, "imgs/coin1.xpm", &param->width, &param->height);
+	param->coin.coin2 = mlx_xpm_file_to_image(param->mlx, "imgs/coin2.xpm", &param->width, &param->height);
+	param->coin.coin3 = mlx_xpm_file_to_image(param->mlx, "imgs/coin3.xpm", &param->width, &param->height);
+	param->coin.coin4 = mlx_xpm_file_to_image(param->mlx, "imgs/coin4.xpm", &param->width, &param->height);
+}
+
+void	init_move(t_param *param)
+{
+	param->move.player = mlx_xpm_file_to_image(param->mlx, "imgs/player.xpm", &param->width, &param->height);
+	param->move.front1 = mlx_xpm_file_to_image(param->mlx, "imgs/front1.xpm", &param->width, &param->height);
+	param->move.front2 = mlx_xpm_file_to_image(param->mlx, "imgs/front2.xpm", &param->width, &param->height);
+	param->move.front3 = mlx_xpm_file_to_image(param->mlx, "imgs/front3.xpm", &param->width, &param->height);
+	param->move.front4 = mlx_xpm_file_to_image(param->mlx, "imgs/front4.xpm", &param->width, &param->height);
+	param->move.front5 = mlx_xpm_file_to_image(param->mlx, "imgs/front5.xpm", &param->width, &param->height);
+	param->move.front6 = mlx_xpm_file_to_image(param->mlx, "imgs/front6.xpm", &param->width, &param->height);
+	param->move.left1 = mlx_xpm_file_to_image(param->mlx, "imgs/left1.xpm", &param->width, &param->height);
+	param->move.left2 = mlx_xpm_file_to_image(param->mlx, "imgs/left2.xpm", &param->width, &param->height);
+	param->move.left3 = mlx_xpm_file_to_image(param->mlx, "imgs/left3.xpm", &param->width, &param->height);
+	param->move.left4 = mlx_xpm_file_to_image(param->mlx, "imgs/left4.xpm", &param->width, &param->height);
+	param->move.left5 = mlx_xpm_file_to_image(param->mlx, "imgs/left5.xpm", &param->width, &param->height);
+	param->move.left6 = mlx_xpm_file_to_image(param->mlx, "imgs/left6.xpm", &param->width, &param->height);
+	param->move.left7 = mlx_xpm_file_to_image(param->mlx, "imgs/left7.xpm", &param->width, &param->height);
+	param->move.right1 = mlx_xpm_file_to_image(param->mlx, "imgs/right1.xpm", &param->width, &param->height);
+	param->move.right2 = mlx_xpm_file_to_image(param->mlx, "imgs/right2.xpm", &param->width, &param->height);
+	param->move.right3 = mlx_xpm_file_to_image(param->mlx, "imgs/right3.xpm", &param->width, &param->height);
+	param->move.right4 = mlx_xpm_file_to_image(param->mlx, "imgs/right4.xpm", &param->width, &param->height);
+	param->move.right5 = mlx_xpm_file_to_image(param->mlx, "imgs/right5.xpm", &param->width, &param->height);
+	param->move.right6 = mlx_xpm_file_to_image(param->mlx, "imgs/right6.xpm", &param->width, &param->height);
+	param->move.right7 = mlx_xpm_file_to_image(param->mlx, "imgs/right7.xpm", &param->width, &param->height);
+	param->move.back1 = mlx_xpm_file_to_image(param->mlx, "imgs/back1.xpm", &param->width, &param->height);
+	param->move.back2 = mlx_xpm_file_to_image(param->mlx, "imgs/back2.xpm", &param->width, &param->height);
+	param->move.back3 = mlx_xpm_file_to_image(param->mlx, "imgs/back3.xpm", &param->width, &param->height);
+	param->move.back4 = mlx_xpm_file_to_image(param->mlx, "imgs/back4.xpm", &param->width, &param->height);
+	param->move.back5 = mlx_xpm_file_to_image(param->mlx, "imgs/back5.xpm", &param->width, &param->height);
+	param->move.back6 = mlx_xpm_file_to_image(param->mlx, "imgs/back6.xpm", &param->width, &param->height);
+	param->move.back7 = mlx_xpm_file_to_image(param->mlx, "imgs/back7.xpm", &param->width, &param->height);
 }
 
 int main()
@@ -269,21 +359,20 @@ int main()
 	while (param.map[param.row])
 		param.row++;
 	param.mlx = mlx_init();
-	param.player = mlx_xpm_file_to_image(param.mlx, "imgs/player.xpm", &param.width, &param.height);
-	param.coin = mlx_xpm_file_to_image(param.mlx, "imgs/coin.xpm", &param.width, &param.height);
-	img_digit(&param);
-	//param.octo = mlx_xpm_file_to_image(param.mlx, "imgs/octo.xpm", &param.width, &param.height);
+	init_digit(&param);
+	init_coins(&param);
+	init_move(&param);
 	param.ground = mlx_xpm_file_to_image(param.mlx, "imgs/ground.xpm", &param.width, &param.height);
 	param.obstacle = mlx_xpm_file_to_image(param.mlx, "imgs/obstacle.xpm", &param.width, &param.height);
 	param.escape = mlx_xpm_file_to_image(param.mlx, "imgs/escape.xpm", &param.width, &param.height);
 	param.win = mlx_new_window(param.mlx, (param.width) * param.col, (param.height) * param.row, "so_long");
 	param.x = 0;
 	param.y = 0;
-	//draw_map(&param);
+	init_map(&param);
 	printf("y is %d x is %d \n", param.y, param.x);
 	//mlx_key_hook(param.win, &key_press, &param);
 	mlx_hook(param.win, KEY_PRESS, 0, &key_press, &param);
-	mlx_hook(param.win, KEY_RELEASE, 0, &key_release, &param);
+	//mlx_hook(param.win, KEY_RELEASE, 0, &key_release, &param);
 	mlx_hook(param.win, PRESS_RED_BUTTON, 0, &ft_close, &param);
     //키보드 입력을 받아줌
 	mlx_loop_hook(param.mlx, &draw_map, &param);
