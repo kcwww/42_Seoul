@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:39:34 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/30 12:58:16 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:45:22 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_param
 	int		start_x;
 	int		start_y;
 	int		score;
+	int		all_coins;
 	int		walk;
 	int		goal;
 	char	**map;

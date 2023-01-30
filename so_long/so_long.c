@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:38:44 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/30 15:26:01 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/01/30 16:34:28 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "mlx/mlx.h"
 #include "so_long.h"
 #include <stdio.h>
+#include <time.h>
 ///////////////////////////////////////////
 
 void check_leaks(void)
@@ -79,6 +80,13 @@ void	draw_map(t_param *param)
 				mlx_put_image_to_window(param->mlx, param->win, param->coin, param->x, param->y);
 			else if (param->map[i][j] == 'P')
 			{
+				if (param->goal == -1)
+				{
+					mlx_put_image_to_window(param->mlx, param->win, param->escape, param->x, param->y);
+					param->map[i][j] = 'E';
+				}
+				else
+					mlx_put_image_to_window(param->mlx, param->win, param->ground, param->x, param->y);
 				param->start_x = param->x;
 				param->start_y = param->y;
 				mlx_put_image_to_window(param->mlx, param->win, param->player, param->x, param->y);
@@ -99,14 +107,19 @@ int	key_press(int keycode, t_param *param)
 	int	y_max;
 	int	x_max;
 
-	mlx_clear_window(param->mlx, param->win); //기존에 그려놨던 윈도우를 지워줌
 	y_max = (param->height) * param->row;
 	x_max = (param->width) * param->col;
 	if (keycode == KEY_W && param->y != 0)
 	{
 		if (param->map[param->y / param->height - 1][param->x / param->width] != '1')
 		{
-			param->map[param->y / param->height][param->x / param->width] = '0';
+			if (param->goal == -1)
+			{
+				param->goal = 0;
+				param->map[param->y / param->height][param->x / param->width] = 'E';
+			}
+			else
+				param->map[param->y / param->height][param->x / param->width] = '0';
 			param->y -= param->height;
 			param->walk++;
 		}
@@ -115,7 +128,13 @@ int	key_press(int keycode, t_param *param)
 	{
 		if (param->map[param->y / param->height + 1][param->x / param->width] != '1')
 		{
-			param->map[param->y / param->height][param->x / param->width] = '0';
+			if (param->goal == -1)
+			{
+				param->goal = 0;
+				param->map[param->y / param->height][param->x / param->width] = 'E';
+			}
+			else
+				param->map[param->y / param->height][param->x / param->width] = '0';
 			param->y += param->height;
 			param->walk++;
 		}
@@ -124,7 +143,13 @@ int	key_press(int keycode, t_param *param)
 	{
 		if (param->map[param->y / param->height][param->x / param->width - 1] != '1')
 		{
-			param->map[param->y / param->height][param->x / param->width] = '0';
+			if (param->goal == -1)
+			{
+				param->goal = 0;
+				param->map[param->y / param->height][param->x / param->width] = 'E';
+			}
+			else
+				param->map[param->y / param->height][param->x / param->width] = '0';
 			param->x -= param->width;
 			param->walk++;
 		}
@@ -133,7 +158,13 @@ int	key_press(int keycode, t_param *param)
 	{
 		if (param->map[param->y / param->height][param->x / param->width + 1] != '1')
 		{
-			param->map[param->y / param->height][param->x / param->width] = '0';
+			if (param->goal == -1)
+			{
+				param->goal = 0;
+				param->map[param->y / param->height][param->x / param->width] = 'E';
+			}
+			else
+				param->map[param->y / param->height][param->x / param->width] = '0';
 			param->x += param->width;
 			param->walk++;
 		}
@@ -143,9 +174,14 @@ int	key_press(int keycode, t_param *param)
 	if (param->map[param->y / param->height][param->x / param->width] == 'C')
 		param->score++;
 	else if (param->map[param->y / param->height][param->x / param->width] == 'E')
-		param->goal = 1;
+	{
+		if (param->score == param->all_coins)
+			param->goal = 1;
+		else
+			param->goal = -1;
+	}
 	param->map[param->y / param->height][param->x / param->width] = 'P';
-	printf("y: %d x: %d score : %d walk : %d \n", param->y / 64, param->x / 64, param->score, param->walk);
+	printf("y: %d x: %d score : %d walk : %d all coins : %d  goal : %d \n", param->y / param->height, param->x / param->width, param->score, param->walk, param->all_coins, param->goal);
 	draw_map(param);
 	if (param->goal == 1)
 		exit (0);
@@ -178,7 +214,7 @@ int main()
 	char	*parse;
 	char	*str;
 	int		fd;
-	int		i;
+	int		i,j;
 
 	fd = open("map.txt", O_RDONLY);
 	atexit(check_leaks);
@@ -191,8 +227,16 @@ int main()
 
 
 	i = 0;
+	param.all_coins = 0;
 	while (param.map[i])
 	{
+		j = 0;
+		while (param.map[i][j])
+		{
+			if (param.map[i][j] == 'C')
+				param.all_coins += 1;
+			j++;
+		}
 		printf("%s\n", param.map[i]);
 		i++;
 	}
@@ -201,6 +245,7 @@ int main()
 
 	param.col = ft_strlen(param.map[0]);
 	param.row = 0;
+
 	param.score = 0;
 	param.goal = 0;
 	param.walk = 0;
@@ -222,7 +267,7 @@ int main()
 	mlx_key_hook(param.win, &key_press, &param);
 	mlx_hook(param.win, PRESS_RED_BUTTON, 0, &ft_close, &param);
     //키보드 입력을 받아줌
-	//mlx_loop_hook(param.mlx, &draw, &param);
+	//mlx_loop_hook(param.mlx, &test, &param);
     //이미지를 지우고 다시 그려주는 draw함수를 이벤트마다 실행해줌
 	mlx_loop(param.mlx);
 
