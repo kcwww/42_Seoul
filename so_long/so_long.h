@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:39:34 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/30 15:45:22 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:02:40 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # define KEY_S				1
 # define KEY_A				0
 # define KEY_D				2
+# define KEY_PRESS			2
+# define KEY_RELEASE		3
 # define PRESS_RED_BUTTON	17
 
 typedef struct s_digit
@@ -55,6 +57,7 @@ typedef struct s_param
 	int		all_coins;
 	int		walk;
 	int		goal;
+	int		kflag[4];
 	char	**map;
 	t_digit	digit;
 }	t_param;

@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:38:44 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/30 16:34:28 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:56:51 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	draw_walk(t_param *param)
 	free(num);
 }
 
-void	draw_map(t_param *param)
+int	draw_map(t_param *param)
 {
 	int	i;
 	int	j;
@@ -81,10 +81,7 @@ void	draw_map(t_param *param)
 			else if (param->map[i][j] == 'P')
 			{
 				if (param->goal == -1)
-				{
 					mlx_put_image_to_window(param->mlx, param->win, param->escape, param->x, param->y);
-					param->map[i][j] = 'E';
-				}
 				else
 					mlx_put_image_to_window(param->mlx, param->win, param->ground, param->x, param->y);
 				param->start_x = param->x;
@@ -100,7 +97,9 @@ void	draw_map(t_param *param)
 	param->x = param->start_x;
 	param->y = param->start_y;
 	draw_walk(param);
+	return (0);
 }
+
 int	key_press(int keycode, t_param *param)
 // 입력에따라 좌표로 사용할 값을 증감시킴
 {
@@ -182,7 +181,7 @@ int	key_press(int keycode, t_param *param)
 	}
 	param->map[param->y / param->height][param->x / param->width] = 'P';
 	printf("y: %d x: %d score : %d walk : %d all coins : %d  goal : %d \n", param->y / param->height, param->x / param->width, param->score, param->walk, param->all_coins, param->goal);
-	draw_map(param);
+	//draw_map(param);
 	if (param->goal == 1)
 		exit (0);
 	return (0);
@@ -206,6 +205,19 @@ void	img_digit(t_param *param)
 	param->digit.seven = mlx_xpm_file_to_image(param->mlx, "imgs/7.xpm", &param->width, &param->height);
 	param->digit.eight = mlx_xpm_file_to_image(param->mlx, "imgs/8.xpm", &param->width, &param->height);
 	param->digit.nine = mlx_xpm_file_to_image(param->mlx, "imgs/9.xpm", &param->width, &param->height);
+}
+
+int	key_release(int keycode, t_param *param)
+{
+	if (keycode == KEY_W)
+		param->kflag[0] = 0;
+	else if (keycode == KEY_A)
+		param->kflag[1] = 0;
+	else if (keycode == KEY_S)
+		param->kflag[2] = 0;
+	else if (keycode == KEY_D)
+		param->kflag[3] = 0;
+	return (0);
 }
 
 int main()
@@ -245,7 +257,12 @@ int main()
 
 	param.col = ft_strlen(param.map[0]);
 	param.row = 0;
-
+	i = 0;
+	while (i < 4)
+	{
+		param.kflag[i] = 0;
+		i++;
+	}
 	param.score = 0;
 	param.goal = 0;
 	param.walk = 0;
@@ -262,12 +279,14 @@ int main()
 	param.win = mlx_new_window(param.mlx, (param.width) * param.col, (param.height) * param.row, "so_long");
 	param.x = 0;
 	param.y = 0;
-	draw_map(&param);
+	//draw_map(&param);
 	printf("y is %d x is %d \n", param.y, param.x);
-	mlx_key_hook(param.win, &key_press, &param);
+	//mlx_key_hook(param.win, &key_press, &param);
+	mlx_hook(param.win, KEY_PRESS, 0, &key_press, &param);
+	mlx_hook(param.win, KEY_RELEASE, 0, &key_release, &param);
 	mlx_hook(param.win, PRESS_RED_BUTTON, 0, &ft_close, &param);
     //키보드 입력을 받아줌
-	//mlx_loop_hook(param.mlx, &test, &param);
+	mlx_loop_hook(param.mlx, &draw_map, &param);
     //이미지를 지우고 다시 그려주는 draw함수를 이벤트마다 실행해줌
 	mlx_loop(param.mlx);
 
