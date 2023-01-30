@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:39:34 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/29 19:09:07 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:58:16 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,20 @@
 # define KEY_A				0
 # define KEY_D				2
 # define PRESS_RED_BUTTON	17
+
+typedef struct s_digit
+{
+	void	*zero;
+	void	*one;
+	void	*two;
+	void	*three;
+	void	*four;
+	void	*five;
+	void	*six;
+	void	*seven;
+	void	*eight;
+	void	*nine;
+}	t_digit;
 
 typedef struct s_param
 {
@@ -41,6 +55,7 @@ typedef struct s_param
 	int		walk;
 	int		goal;
 	char	**map;
+	t_digit	digit;
 }	t_param;
 
 // typedef struct s_param

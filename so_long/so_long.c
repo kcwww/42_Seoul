@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:38:44 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/29 19:11:08 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:26:01 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,41 @@ void check_leaks(void)
 	system("leaks so_long");
 }
 
+void	draw_walk(t_param *param)
+{
+	char	*num;
+	int		len;
+	float	x_w;
 
+	num = ft_itoa(param->walk);
+	len = ft_strlen(num);
+	x_w = 0.75;
+	while (len-- > 0)
+	{
+		if (num[len] == '0')
+			mlx_put_image_to_window(param->mlx, param->win, param->digit.zero, (param->col - x_w) * param->width, param->height / 4 );
+		else if (num[len] == '1')
+			mlx_put_image_to_window(param->mlx, param->win, param->digit.one, (param->col - x_w) * param->width, param->height / 4 );
+		else if (num[len] == '2')
+			mlx_put_image_to_window(param->mlx, param->win, param->digit.two, (param->col - x_w) * param->width, param->height / 4 );
+		else if (num[len] == '3')
+			mlx_put_image_to_window(param->mlx, param->win, param->digit.three, (param->col - x_w) * param->width, param->height / 4 );
+		else if (num[len] == '4')
+			mlx_put_image_to_window(param->mlx, param->win, param->digit.four, (param->col - x_w) * param->width, param->height / 4 );
+		else if (num[len] == '5')
+			mlx_put_image_to_window(param->mlx, param->win, param->digit.five, (param->col - x_w) * param->width, param->height / 4 );
+		else if (num[len] == '6')
+			mlx_put_image_to_window(param->mlx, param->win, param->digit.six, (param->col - x_w) * param->width, param->height / 4 );
+		else if (num[len] == '7')
+			mlx_put_image_to_window(param->mlx, param->win, param->digit.seven, (param->col - x_w) * param->width, param->height / 4 );
+		else if (num[len] == '8')
+			mlx_put_image_to_window(param->mlx, param->win, param->digit.eight, (param->col - x_w) * param->width, param->height / 4 );
+		else if (num[len] == '9')
+			mlx_put_image_to_window(param->mlx, param->win, param->digit.nine, (param->col - x_w) * param->width, param->height / 4 );
+		x_w += 1;
+	}
+	free(num);
+}
 
 void	draw_map(t_param *param)
 {
@@ -57,6 +91,7 @@ void	draw_map(t_param *param)
 		}
 	param->x = param->start_x;
 	param->y = param->start_y;
+	draw_walk(param);
 }
 int	key_press(int keycode, t_param *param)
 // 입력에따라 좌표로 사용할 값을 증감시킴
@@ -106,10 +141,7 @@ int	key_press(int keycode, t_param *param)
 	else if (keycode == KEY_ESC)
 		exit(0);
 	if (param->map[param->y / param->height][param->x / param->width] == 'C')
-	{
 		param->score++;
-		//mlx_string_put(param->mlx, param->win, 0, 0, 0xFFFFFF, "123");
-	}
 	else if (param->map[param->y / param->height][param->x / param->width] == 'E')
 		param->goal = 1;
 	param->map[param->y / param->height][param->x / param->width] = 'P';
@@ -118,6 +150,26 @@ int	key_press(int keycode, t_param *param)
 	if (param->goal == 1)
 		exit (0);
 	return (0);
+}
+
+int ft_close(void)
+{
+	exit (0);
+	return (0);
+}
+
+void	img_digit(t_param *param)
+{
+	param->digit.zero = mlx_xpm_file_to_image(param->mlx, "imgs/0.xpm", &param->width, &param->height);
+	param->digit.one = mlx_xpm_file_to_image(param->mlx, "imgs/1.xpm", &param->width, &param->height);
+	param->digit.two = mlx_xpm_file_to_image(param->mlx, "imgs/2.xpm", &param->width, &param->height);
+	param->digit.three = mlx_xpm_file_to_image(param->mlx, "imgs/3.xpm", &param->width, &param->height);
+	param->digit.four = mlx_xpm_file_to_image(param->mlx, "imgs/4.xpm", &param->width, &param->height);
+	param->digit.five = mlx_xpm_file_to_image(param->mlx, "imgs/5.xpm", &param->width, &param->height);
+	param->digit.six = mlx_xpm_file_to_image(param->mlx, "imgs/6.xpm", &param->width, &param->height);
+	param->digit.seven = mlx_xpm_file_to_image(param->mlx, "imgs/7.xpm", &param->width, &param->height);
+	param->digit.eight = mlx_xpm_file_to_image(param->mlx, "imgs/8.xpm", &param->width, &param->height);
+	param->digit.nine = mlx_xpm_file_to_image(param->mlx, "imgs/9.xpm", &param->width, &param->height);
 }
 
 int main()
@@ -157,6 +209,7 @@ int main()
 	param.mlx = mlx_init();
 	param.player = mlx_xpm_file_to_image(param.mlx, "imgs/player.xpm", &param.width, &param.height);
 	param.coin = mlx_xpm_file_to_image(param.mlx, "imgs/coin.xpm", &param.width, &param.height);
+	img_digit(&param);
 	//param.octo = mlx_xpm_file_to_image(param.mlx, "imgs/octo.xpm", &param.width, &param.height);
 	param.ground = mlx_xpm_file_to_image(param.mlx, "imgs/ground.xpm", &param.width, &param.height);
 	param.obstacle = mlx_xpm_file_to_image(param.mlx, "imgs/obstacle.xpm", &param.width, &param.height);
@@ -167,6 +220,7 @@ int main()
 	draw_map(&param);
 	printf("y is %d x is %d \n", param.y, param.x);
 	mlx_key_hook(param.win, &key_press, &param);
+	mlx_hook(param.win, PRESS_RED_BUTTON, 0, &ft_close, &param);
     //키보드 입력을 받아줌
 	//mlx_loop_hook(param.mlx, &draw, &param);
     //이미지를 지우고 다시 그려주는 draw함수를 이벤트마다 실행해줌
