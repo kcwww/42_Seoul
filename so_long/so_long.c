@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 13:38:44 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/30 20:24:17 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/02/06 14:28:28 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,52 +22,14 @@ void check_leaks(void)
 	system("leaks so_long");
 }
 
-void	draw_walk(t_param *param)
-{
-	char	*num;
-	int		len;
-	float	x_w;
-
-	num = ft_itoa(param->walk);
-	len = ft_strlen(num);
-	x_w = 0.75;
-	while (len-- > 0)
-	{
-		if (num[len] == '0')
-			mlx_put_image_to_window(param->mlx, param->win, param->digit.zero, (param->col - x_w) * param->width, param->height / 4 );
-		else if (num[len] == '1')
-			mlx_put_image_to_window(param->mlx, param->win, param->digit.one, (param->col - x_w) * param->width, param->height / 4 );
-		else if (num[len] == '2')
-			mlx_put_image_to_window(param->mlx, param->win, param->digit.two, (param->col - x_w) * param->width, param->height / 4 );
-		else if (num[len] == '3')
-			mlx_put_image_to_window(param->mlx, param->win, param->digit.three, (param->col - x_w) * param->width, param->height / 4 );
-		else if (num[len] == '4')
-			mlx_put_image_to_window(param->mlx, param->win, param->digit.four, (param->col - x_w) * param->width, param->height / 4 );
-		else if (num[len] == '5')
-			mlx_put_image_to_window(param->mlx, param->win, param->digit.five, (param->col - x_w) * param->width, param->height / 4 );
-		else if (num[len] == '6')
-			mlx_put_image_to_window(param->mlx, param->win, param->digit.six, (param->col - x_w) * param->width, param->height / 4 );
-		else if (num[len] == '7')
-			mlx_put_image_to_window(param->mlx, param->win, param->digit.seven, (param->col - x_w) * param->width, param->height / 4 );
-		else if (num[len] == '8')
-			mlx_put_image_to_window(param->mlx, param->win, param->digit.eight, (param->col - x_w) * param->width, param->height / 4 );
-		else if (num[len] == '9')
-			mlx_put_image_to_window(param->mlx, param->win, param->digit.nine, (param->col - x_w) * param->width, param->height / 4 );
-		x_w += 1;
-	}
-	free(num);
-}
 
 int	draw_map(t_param *param)
 {
 	int	i;
 	int	j;
-	static int	time;
 
 	i = 0;
 	param->y = 0;
-	time++;
-	printf("time is %d\n", time);
 	while (param->map[i])
 	{
 		j = 0;
@@ -81,30 +43,7 @@ int	draw_map(t_param *param)
 			else if (param->map[i][j] == 'E')
 				mlx_put_image_to_window(param->mlx, param->win, param->escape, param->x, param->y);
 			else if (param->map[i][j] == 'C')
-			{
-				if (time < 7)
-				{
-					mlx_put_image_to_window(param->mlx, param->win, param->ground, param->x, param->y);
-					mlx_put_image_to_window(param->mlx, param->win, param->coin.coin2, param->x, param->y);
-				}
-				else if (time >= 7 && time < 14)
-				{
-					mlx_put_image_to_window(param->mlx, param->win, param->ground, param->x, param->y);
-					mlx_put_image_to_window(param->mlx, param->win, param->coin.coin3, param->x, param->y);
-				}
-				else if (time >= 14 && time < 21)
-				{
-					mlx_put_image_to_window(param->mlx, param->win, param->ground, param->x, param->y);
-					mlx_put_image_to_window(param->mlx, param->win, param->coin.coin4, param->x, param->y);
-				}
-				else if (time >= 21)
-				{
-					mlx_put_image_to_window(param->mlx, param->win, param->ground, param->x, param->y);
-					mlx_put_image_to_window(param->mlx, param->win, param->coin.coin1, param->x, param->y);
-					if (time == 28)
-						time = 0;
-				}
-			}
+				mlx_put_image_to_window(param->mlx, param->win, param->coin.coin1, param->x, param->y);
 			else if (param->map[i][j] == 'P')
 			{
 				if (param->goal == -1)
@@ -123,16 +62,13 @@ int	draw_map(t_param *param)
 		}
 	param->x = param->start_x;
 	param->y = param->start_y;
-	draw_walk(param);
 	return (0);
 }
 
 int	key_press(int keycode, t_param *param)
-// 입력에따라 좌표로 사용할 값을 증감시킴
 {
 	int	y_max;
 	int	x_max;
-	static int	time;
 
 	y_max = (param->height) * param->row;
 	x_max = (param->width) * param->col;
@@ -208,10 +144,9 @@ int	key_press(int keycode, t_param *param)
 			param->goal = -1;
 	}
 	param->map[param->y / param->height][param->x / param->width] = 'P';
-	printf("y: %d x: %d score : %d walk : %d all coins : %d  goal : %d \n", param->y / param->height, param->x / param->width, param->score, param->walk, param->all_coins, param->goal);
-	//draw_map(param);
 	if (param->goal == 1)
 		exit (0);
+	printf("%d\n", param->walk);
 	return (0);
 }
 
@@ -339,7 +274,6 @@ int main()
 				param.all_coins += 1;
 			j++;
 		}
-		printf("%s\n", param.map[i]);
 		i++;
 	}
 ///////////////////////////////
@@ -369,14 +303,9 @@ int main()
 	param.x = 0;
 	param.y = 0;
 	init_map(&param);
-	printf("y is %d x is %d \n", param.y, param.x);
-	//mlx_key_hook(param.win, &key_press, &param);
 	mlx_hook(param.win, KEY_PRESS, 0, &key_press, &param);
-	//mlx_hook(param.win, KEY_RELEASE, 0, &key_release, &param);
 	mlx_hook(param.win, PRESS_RED_BUTTON, 0, &ft_close, &param);
-    //키보드 입력을 받아줌
 	mlx_loop_hook(param.mlx, &draw_map, &param);
-    //이미지를 지우고 다시 그려주는 draw함수를 이벤트마다 실행해줌
 	mlx_loop(param.mlx);
 
 
