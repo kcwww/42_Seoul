@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 14:01:18 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/02/12 16:12:01 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/02/12 16:22:40 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,10 @@ void	dead_check(t_param *param)
 		param->x > (param->octo.octo_x[i] - 32) && \
 		param->y < (param->octo.octo_y[i] + 32) && \
 		param->y > (param->octo.octo_y[i] - 32))
+		{
+			printf("GAME OVER\n");
 			exit (0);
+		}
 		i++;
 	}
 }
