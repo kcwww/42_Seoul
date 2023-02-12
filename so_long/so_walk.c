@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   so_walk.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 13:24:48 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/02/12 16:13:37 by chanwoki         ###   ########.fr       */
+/*   Created: 2023/02/10 14:07:47 by chanwoki          #+#    #+#             */
+/*   Updated: 2023/02/10 16:43:39 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+void	check_score(t_param *p)
 {
-	char	*re;
-	size_t	i;
-	size_t	j;
-
-	i = ft_strlen(s1);
-	j = ft_strlen(s2);
-	re = (char *)malloc(sizeof(char) * (i + j + 1));
-	if (re == 0)
-		return (0);
-	ft_strlcpy(re, s1, i + 1);
-	ft_strlcpy(re + i, s2, j + 1);
-	if (s1 != NULL)
-		free(s1);
-	if (s2 != NULL)
-		free(s2);
-	return (re);
+	if (p->map[p->y / p->height][p->x / p->width] == 'C')
+	{
+		p->map[p->y / p->height][p->x / p->width] = 'P';
+		p->score++;
+	}
+	else if (p->map[p->y / p->height][p->x / p->width] == 'E')
+	{
+		if (p->score == p->all_coins)
+			exit (0);
+	}
 }

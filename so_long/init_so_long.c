@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   init_so_long.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 13:24:48 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/02/12 16:13:37 by chanwoki         ###   ########.fr       */
+/*   Created: 2023/01/31 09:54:15 by chanwoki          #+#    #+#             */
+/*   Updated: 2023/02/12 15:52:45 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+void	init_coins(t_param *param)
 {
-	char	*re;
-	size_t	i;
-	size_t	j;
+	param->coin.coin1 = input_img(param, "imgs/coin1.xpm");
+}
 
-	i = ft_strlen(s1);
-	j = ft_strlen(s2);
-	re = (char *)malloc(sizeof(char) * (i + j + 1));
-	if (re == 0)
-		return (0);
-	ft_strlcpy(re, s1, i + 1);
-	ft_strlcpy(re + i, s2, j + 1);
-	if (s1 != NULL)
-		free(s1);
-	if (s2 != NULL)
-		free(s2);
-	return (re);
+void	init_map(t_param *p)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	p->y = 0;
+	while (p->map[i])
+	{
+		j = 0;
+		p->x = 0;
+		while (p->map[i][j])
+		{
+			draw_img(p, p->ground, p->x, p->y);
+			p->x += p->width;
+			j++;
+		}
+			i++;
+			p->y += p->height;
+	}
 }
