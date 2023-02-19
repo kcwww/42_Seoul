@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 14:14:29 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/18 15:12:26 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/02/16 12:39:55 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(int));
 void	ft_lstclear(t_list **lst);
 void	ft_lstiter(t_list *lst, void (*f)(int));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(int), void (*del)(int));
-t_list	*ft_lstlastbefore(t_list *lst);
 
 #endif

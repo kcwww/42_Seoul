@@ -12,92 +12,111 @@
 
 #include "push_swap.h"
 
-void	rule_sa(int check_a, t_list **stack_a)
+void	rule_sa(int check_a, t_ps *A)
 {
-	t_list	*temp;
-
-	if (check_a == 1 || check_a == 0)
-		return ;
-	temp = (*stack_a)->next;
-	(*stack_a)->next = temp->next;
-	temp->next = (*stack_a);
-	(*stack_a) = temp;
-}
-
-void	rule_sb(int check_b, t_list **stack_b)
-{
-	t_list	*temp;
-
-	if (check_b == 1 || check_b == 0)
-		return ;
-	temp = (*stack_b)->next;
-	(*stack_b)->next = temp->next;
-	temp->next = (*stack_b);
-	(*stack_b) = temp;
-}
-
-void	rule_pa(int check_b, t_list **stack_a, t_list **stack_b)
-{
-	t_list	*temp;
-
-	if (check_b == 0)
-		return ;
-	temp = *stack_b;
-	(*stack_b) = (*stack_b)->next;
-	temp->next = (*stack_a);
-	(*stack_a) = temp;
-}
-
-void	rule_pb(int check_a, t_list **stack_a, t_list **stack_b)
-{
-	t_list	*temp;
+	t_deque	*lst;
+	t_deque	*temp;
 
 	if (check_a == 0)
 		return ;
-	temp = ft_lstnew((*stack_a)->content);
-	temp->next = (*stack_b);
-	(*stack_b) = temp;
-	temp = (*stack_a)->next;
-	free(*stack_a);
-	(*stack_a) = temp;
+	lst = A->head->next;
+	temp = A->head;
+	temp->next = lst->next;
+	temp->next->previous = temp;
+	temp->previous = lst;
+	lst->next = temp;
+	lst->previous = NULL;
+	A->head = A->head->next;
+	if (check_a == 1)
+		A->tail = A->head->next;
 }
 
-void	execute_rules(char	*rule, t_list **stack_a, t_list **stack_b)
+void	rule_sb(int check_b, t_ps *B)
+{
+	t_deque	*lst;
+	t_deque	*temp;
+
+	if (check_b == 0 || check_b == 1)
+		return ;
+	lst = B->head->next;
+	temp = B->head;
+	temp->next = lst->next;
+	temp->next->previous = temp;
+	temp->previous = lst;
+	lst->next = temp;
+	lst->previous = NULL;
+	B->head = B->head->next;
+	if (check_b == 2)
+		B->tail = B->head->next;
+}
+
+void	rule_pa(int check_b, t_ps *A, t_ps *B)
+{
+	t_deque	*lst;
+	t_deque	*temp;
+
+	if (check_b == 0)
+		return ;
+	lst = B->head;
+	lst->next = A->head;
+	lst->previous = NULL;
+	A->head->previous = lst;
+	A->head = lst;
+	B->head = B->head->next;
+	B->head->previous = NULL;
+}
+
+void	rule_pb(int check_a, t_ps *A, t_ps *B)
+{
+	t_deque	*lst;
+	t_deque	*temp;
+
+	if (check_a == 0)
+		return ;
+	lst = A->head;
+	lst->next = B->head;
+	lst->previous = NULL;
+	if (B->head != NULL)
+		B->head->previous = lst;
+	B->head = lst;
+	A->head = A->head->next;
+	A->head->previous = NULL;
+}
+
+void	execute_rules(char	*rule, t_ps *A, t_ps *B)
 {
 	int	check_a;
 	int	check_b;
 
-	check_a = check_lst(*stack_a);
-	check_b = check_lst(*stack_b);
 	if (ft_strncmp(rule, "sa", 2) == 0)
-		rule_sa(check_a, stack_a);
+		rule_sa(check_a, A);
 	else if (ft_strncmp(rule, "sb", 2) == 0)
-		rule_sb(check_b, stack_b);
+		rule_sb(check_b, B);
 	else if (ft_strncmp(rule, "ss", 2) == 0)
 	{
-		rule_sa(check_a, stack_a);
-		rule_sb(check_b, stack_b);
+		rule_sa(check_a, A);
+		rule_sb(check_b, B);
 	}
 	else if (ft_strncmp(rule, "pa", 2) == 0)
-		rule_pa(check_b, stack_a, stack_b);
+		rule_pa(check_b, A, B);
 	else if (ft_strncmp(rule, "pb", 2) == 0)
-		rule_pb(check_a, stack_a, stack_b);
+		rule_pb(check_a, A, B);
 	else if (ft_strncmp(rule, "ra", 2) == 0)
-		rule_ra(check_a, stack_a);
+		rule_ra(check_a, A);
 	else if (ft_strncmp(rule, "rb", 2) == 0)
-		rule_rb(check_b, stack_b);
+		rule_rb(check_b, B);
 	else if (ft_strncmp(rule, "rr", 2) == 0 && ft_strlen(rule) == 2)
 	{
-		rule_ra(check_a, stack_a);
-		rule_rb(check_b, stack_b);
+		rule_ra(check_a, A);
+		rule_rb(check_b, B);
 	}
 	else if (ft_strncmp(rule, "rra", 3) == 0)
-		rule_rra(check_a, stack_a);
+		rule_rra(check_a, A);
 	else if (ft_strncmp(rule, "rrb", 3) == 0)
-		rule_rrb(check_b, stack_b);
+		rule_rrb(check_b, B);
 	else if (ft_strncmp(rule, "rrr", 3) == 0)
 	{
-		rule_rra(check_a, stack_a);
-		rule_rrb(check_b, stack_b);
+		rule_rra(check_a, A);
+		rule_rrb(check_b, B);
 	}
 }

@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlastbefore.c                                 :+:      :+:    :+:   */
+/*   ft_dequenew.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/18 15:10:49 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/18 15:11:10 by chanwoki         ###   ########.fr       */
+/*   Created: 2023/02/16 12:45:07 by chanwoki          #+#    #+#             */
+/*   Updated: 2023/02/16 12:47:02 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstlastbefore(t_list *lst)
+t_deque	*ft_dequenew(int content)
 {
-	if (lst == 0)
-		return (0);
-	while (lst->next->next)
-		lst = lst->next;
-	return (lst);
+	t_deque	*re;
+
+	re = (t_deque *)malloc(sizeof(t_deque));
+	if (re == NULL)
+		return (NULL);
+	re->content = content;
+	re->next = NULL;
+	re->previous = NULL;
+	return (re);
 }

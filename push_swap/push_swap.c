@@ -7,9 +7,9 @@ void check_leaks(void)
 
 int main(int argc, char **argv)
 {
-	t_list	*stack_a;
-	t_list	*list;
-	t_list	*stack_b = NULL;
+	t_ps	*A;
+	t_ps	*B;
+	t_deque	*lst;
 	int		i;
 
 	atexit(check_leaks);
@@ -17,37 +17,31 @@ int main(int argc, char **argv)
 	if (argc <= 1)
 		return (0);
 	i = 2;
-	list = ft_lstnew(ft_atoi(argv[1]));
-	stack_a = list;
+	lst = ft_dequenew(ft_atoi(argv[1]));
+	A->head = lst;
 	while (i < argc)
 	{
-		list->next = ft_lstnew(ft_atoi(argv[i]));
-		list = list->next;
+		lst->next = ft_dequenew(ft_atoi(argv[i]));
+		lst->next->previous = lst;
+		lst = lst->next;
 		i++;
 	}
+	A->tail = lst;
 
-	execute_rules("pb", &stack_a, &stack_b);
-	execute_rules("pb", &stack_a, &stack_b);
-	execute_rules("pb", &stack_a, &stack_b);
-	execute_rules("rb", &stack_a, &stack_b);
-	execute_rules("pa", &stack_a, &stack_b);
-	execute_rules("rra", &stack_a, &stack_b);
+	execute_rules("pb", A, B);
 
-	ft_printf("done\n");
-
-	t_list	*temp;
-	temp = stack_a;
-	while (stack_a)
+	t_deque	*temp = A->head;
+	while (temp)
 	{
-		ft_printf("stack_a is %d\n", stack_a->content);
-		stack_a = stack_a->next;
+		ft_printf("stack_a is %d\n", temp->content);
+		temp = temp->next;
 	}
-	ft_lstclear(&temp);
-	temp = stack_b;
-	while (stack_b)
+	ft_dequeclear(&A);
+	temp = B->head;
+	while (temp)
 	{
-		ft_printf("stack_b is %d\n", stack_b->content);
-		stack_b = stack_b->next;
+		ft_printf("stack_b is %d\n", temp->content);
+		temp = temp->next;
 	}
-	ft_lstclear(&temp);
+	ft_dequeclear(&B);
 }
