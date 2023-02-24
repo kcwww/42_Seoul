@@ -30,7 +30,17 @@ typedef struct s_ps
 	t_deque	*lst;
 }	t_ps;
 
-int		check_lst(t_deque *lst);
+int		check_lst(t_ps *lst);
 void	execute_rules(char	*rule, t_ps *A, t_ps *B);
+void	ft_dequeclear(t_ps *deque);
+t_deque	*ft_dequenew(int content);
+void	rule_sa(int check_a, t_ps *A);
+void	rule_sb(int check_b, t_ps *B);
+void	rule_pa(int check_b, t_ps *A, t_ps *B);
+void	rule_pb(int check_a, t_ps *A, t_ps *B);
+void	rule_ra(int check_a, t_ps *A);
+void	rule_rb(int check_b, t_ps *B);
+void	rule_rra(int check_a, t_ps *A);
+void	rule_rrb(int check_b, t_ps *B);
 
 #endif

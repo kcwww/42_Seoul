@@ -17,18 +17,22 @@ void	rule_sa(int check_a, t_ps *A)
 	t_deque	*lst;
 	t_deque	*temp;
 
-	if (check_a == 0)
+	if (check_a == 0 || check_a == 1)
 		return ;
 	lst = A->head->next;
 	temp = A->head;
 	temp->next = lst->next;
-	temp->next->previous = temp;
-	temp->previous = lst;
 	lst->next = temp;
 	lst->previous = NULL;
-	A->head = A->head->next;
-	if (check_a == 1)
+	temp->previous = lst;
+	A->head = lst;
+	if (check_a == 2)
+	{
 		A->tail = A->head->next;
+		return ;
+	}
+	temp = temp->next;
+	temp->previous = lst->next;
 }
 
 void	rule_sb(int check_b, t_ps *B)
@@ -41,13 +45,17 @@ void	rule_sb(int check_b, t_ps *B)
 	lst = B->head->next;
 	temp = B->head;
 	temp->next = lst->next;
-	temp->next->previous = temp;
-	temp->previous = lst;
 	lst->next = temp;
 	lst->previous = NULL;
-	B->head = B->head->next;
+	temp->previous = lst;
+	B->head = lst;
 	if (check_b == 2)
+	{
 		B->tail = B->head->next;
+		return ;
+	}
+	temp = temp->next;
+	temp->previous = lst->next;
 }
 
 void	rule_pa(int check_b, t_ps *A, t_ps *B)
@@ -58,12 +66,26 @@ void	rule_pa(int check_b, t_ps *A, t_ps *B)
 	if (check_b == 0)
 		return ;
 	lst = B->head;
-	lst->next = A->head;
+	temp = B->head->next;
+	if (A->head != NULL)
+	{
+		lst->next = A->head;
+		A->head->previous = lst;
+	}
+	else
+	{
+		A->tail = lst;
+		lst->next = NULL;
+	}
 	lst->previous = NULL;
-	A->head->previous = lst;
 	A->head = lst;
-	B->head = B->head->next;
-	B->head->previous = NULL;
+	if (check_b == 1)
+	{
+		B->head = NULL;
+		return ;
+	}
+	B->head = temp;
+	temp->previous = NULL;
 }
 
 void	rule_pb(int check_a, t_ps *A, t_ps *B)
@@ -74,13 +96,26 @@ void	rule_pb(int check_a, t_ps *A, t_ps *B)
 	if (check_a == 0)
 		return ;
 	lst = A->head;
-	lst->next = B->head;
-	lst->previous = NULL;
+	temp = A->head->next;
 	if (B->head != NULL)
+	{
+		lst->next = B->head;
 		B->head->previous = lst;
+	}
+	else
+	{
+		B->tail = lst;
+		lst->next = NULL;
+	}
+	lst->previous = NULL;
 	B->head = lst;
-	A->head = A->head->next;
-	A->head->previous = NULL;
+	if (check_a == 1)
+	{
+		A->head = NULL;
+		return ;
+	}
+	A->head = temp;
+	temp->previous = NULL;
 }
 
 void	execute_rules(char	*rule, t_ps *A, t_ps *B)
@@ -88,6 +123,11 @@ void	execute_rules(char	*rule, t_ps *A, t_ps *B)
 	int	check_a;
 	int	check_b;
 
+	check_a = check_lst(A);
+	check_b = check_lst(B);
+
+	//ft_printf("a is %d b is %d\n",check_a,check_b);
+	
 	if (ft_strncmp(rule, "sa", 2) == 0)
 		rule_sa(check_a, A);
 	else if (ft_strncmp(rule, "sb", 2) == 0)

@@ -23,7 +23,7 @@ ARFLAGS=rcsv
 
 RM=rm -f
 
-SRC_FILES=push_swap.c
+SRC_FILES=push_swap.c check_lst.c ft_dequeclear.c ft_dequenew.c game_rule1.c game_rule2.c
 
 OBJECTS = $(SRC_FILES:.c=.o)
 

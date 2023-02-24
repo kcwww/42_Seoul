@@ -12,15 +12,15 @@
 
 #include "push_swap.h"
 
-void	ft_dequeclear(t_ps **deque)
+void	ft_dequeclear(t_ps *deque)
 {
 	t_deque	*temp;
 	t_deque	*tclear;
 
-	if (*deque == NULL)
+	if (deque == NULL)
 		return ;
-	tclear = (*deque)->head;
-	temp = (*deque)->head;
+	tclear = deque->head;
+	temp = deque->head;
 	while (temp)
 	{
 		temp = temp->next;

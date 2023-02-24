@@ -12,21 +12,21 @@
 
 #include "push_swap.h"
 
-int	check_lst(t_deque *lst)
+int	check_lst(t_ps *lst)
 {
 	size_t	i;
 	t_deque	*temp;
 
-	i = 1;
-	temp = lst;
-	if (lst == 0)
+	i = 0;
+	if (lst->head == NULL)
 		return (0);
+	temp = lst->head;
 	while (temp)
 	{
-		if (i == 3)
-			return (3);
 		temp = temp->next;
 		i++;
+		if (i == 3)
+			return (3);
 	}
 	if (i == 2)
 		return (2);

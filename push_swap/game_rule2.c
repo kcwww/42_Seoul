@@ -59,6 +59,7 @@ void	rule_rb(int check_b, t_ps *B)
 void	rule_rra(int check_a, t_ps *A)
 {
 	t_deque	*lst;
+	t_deque	*temp;
 
 	if (check_a == 1 || check_a == 0)
 		return ;
@@ -67,31 +68,36 @@ void	rule_rra(int check_a, t_ps *A)
 		rule_sa(check_a, A);
 		return ;
 	}
+	temp = A->tail->previous;
 	lst = A->tail;
 	lst->next = A->head;
-	A->tail->previous->next = NULL;
-	A->tail = A->tail->previous;
 	lst->previous = NULL;
-	A->head->previous = lst;
 	A->head = lst;
+	A->tail = temp;
+	A->tail->next = NULL;
+	temp = A->head->next;
+	temp->previous = A->head;
 }
 
 void	rule_rrb(int check_b, t_ps *B)
 {
 	t_deque	*lst;
+	t_deque	*temp;
 
 	if (check_b == 1 || check_b == 0)
 		return ;
 	if (check_b == 2)
 	{
-		rule_sa(check_b, B);
+		rule_sb(check_b, B);
 		return ;
 	}
+	temp = B->tail->previous;
 	lst = B->tail;
 	lst->next = B->head;
-	B->tail->previous->next = NULL;
-	B->tail = B->tail->previous;
 	lst->previous = NULL;
-	B->head->previous = lst;
 	B->head = lst;
+	B->tail = temp;
+	B->tail->next = NULL;
+	temp = B->head->next;
+	temp->previous = B->head;
 }
