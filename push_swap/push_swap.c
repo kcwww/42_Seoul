@@ -61,7 +61,9 @@ int main(int argc, char **argv)
 	ft_memset(&A, 0, sizeof(t_ps));
 	ft_memset(&B, 0, sizeof(t_ps));
 	if (argc <= 1)
-		return (0);
+		return (-1);
+	if (check_arg(argc, argv) == -1)
+		return (-1);
 	i = 2;
 	lst = ft_dequenew(ft_atoi(argv[1]));
 	A.head = lst;
@@ -104,6 +106,10 @@ int main(int argc, char **argv)
 	print_stack("rrb", &A, &B);
 	execute_rules("rb", &A, &B);
 	print_stack("rb", &A, &B);
+	execute_rules("pa", &A, &B);
+	print_stack("pa", &A, &B);
+	execute_rules("pa", &A, &B);
+	print_stack("pa", &A, &B);
 	execute_rules("ra", &A, &B);
 	print_stack("ra", &A, &B);
 	execute_rules("rra", &A, &B);

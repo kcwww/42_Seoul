@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 17:29:07 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/02/16 13:50:41 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:28:45 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@ void	rule_ra(int check_a, t_ps *A);
 void	rule_rb(int check_b, t_ps *B);
 void	rule_rra(int check_a, t_ps *A);
 void	rule_rrb(int check_b, t_ps *B);
+int		check_int(const char *str);
+int		check_arg(int argc, char **argv);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif

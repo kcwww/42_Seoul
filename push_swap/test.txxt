@@ -1,0 +1,422 @@
+------pb------a-----------------
+stack a is 2
+stack a is 3
+stack a is 4
+stack a is 5
+stack a is 6
+stack a is 7
+------------re a-----------------
+re stack a is 7
+re stack a is 6
+re stack a is 5
+re stack a is 4
+re stack a is 3
+re stack a is 2
+------------b-----------------
+stack b is 1
+------------re b-----------------
+re stack b is 1
+
+
+
+------pb------a-----------------
+stack a is 3
+stack a is 4
+stack a is 5
+stack a is 6
+stack a is 7
+------------re a-----------------
+re stack a is 7
+re stack a is 6
+re stack a is 5
+re stack a is 4
+re stack a is 3
+------------b-----------------
+stack b is 2
+stack b is 1
+------------re b-----------------
+re stack b is 1
+re stack b is 2
+
+
+
+------pb------a-----------------
+stack a is 4
+stack a is 5
+stack a is 6
+stack a is 7
+------------re a-----------------
+re stack a is 7
+re stack a is 6
+re stack a is 5
+re stack a is 4
+------------b-----------------
+stack b is 3
+stack b is 2
+stack b is 1
+------------re b-----------------
+re stack b is 1
+re stack b is 2
+re stack b is 3
+
+
+
+------pb------a-----------------
+stack a is 5
+stack a is 6
+stack a is 7
+------------re a-----------------
+re stack a is 7
+re stack a is 6
+re stack a is 5
+------------b-----------------
+stack b is 4
+stack b is 3
+stack b is 2
+stack b is 1
+------------re b-----------------
+re stack b is 1
+re stack b is 2
+re stack b is 3
+re stack b is 4
+
+
+
+------pb------a-----------------
+stack a is 6
+stack a is 7
+------------re a-----------------
+re stack a is 7
+re stack a is 6
+------------b-----------------
+stack b is 5
+stack b is 4
+stack b is 3
+stack b is 2
+stack b is 1
+------------re b-----------------
+re stack b is 1
+re stack b is 2
+re stack b is 3
+re stack b is 4
+re stack b is 5
+
+
+
+------rb------a-----------------
+stack a is 6
+stack a is 7
+------------re a-----------------
+re stack a is 7
+re stack a is 6
+------------b-----------------
+stack b is 4
+stack b is 3
+stack b is 2
+stack b is 1
+stack b is 5
+------------re b-----------------
+re stack b is 5
+re stack b is 1
+re stack b is 2
+re stack b is 3
+re stack b is 4
+
+
+
+------ra------a-----------------
+stack a is 7
+stack a is 6
+------------re a-----------------
+re stack a is 6
+re stack a is 7
+------------b-----------------
+stack b is 4
+stack b is 3
+stack b is 2
+stack b is 1
+stack b is 5
+------------re b-----------------
+re stack b is 5
+re stack b is 1
+re stack b is 2
+re stack b is 3
+re stack b is 4
+
+
+
+------pb------a-----------------
+stack a is 6
+------------re a-----------------
+re stack a is 6
+------------b-----------------
+stack b is 7
+stack b is 4
+stack b is 3
+stack b is 2
+stack b is 1
+stack b is 5
+------------re b-----------------
+re stack b is 5
+re stack b is 1
+re stack b is 2
+re stack b is 3
+re stack b is 4
+re stack b is 7
+
+
+
+------ss------a-----------------
+stack a is 6
+------------re a-----------------
+re stack a is 6
+------------b-----------------
+stack b is 4
+stack b is 7
+stack b is 3
+stack b is 2
+stack b is 1
+stack b is 5
+------------re b-----------------
+re stack b is 5
+re stack b is 1
+re stack b is 2
+re stack b is 3
+re stack b is 7
+re stack b is 4
+
+
+
+------rr------a-----------------
+stack a is 6
+------------re a-----------------
+re stack a is 6
+------------b-----------------
+stack b is 7
+stack b is 3
+stack b is 2
+stack b is 1
+stack b is 5
+stack b is 4
+------------re b-----------------
+re stack b is 4
+re stack b is 5
+re stack b is 1
+re stack b is 2
+re stack b is 3
+re stack b is 7
+
+
+
+------pa------a-----------------
+stack a is 7
+stack a is 6
+------------re a-----------------
+re stack a is 6
+re stack a is 7
+------------b-----------------
+stack b is 3
+stack b is 2
+stack b is 1
+stack b is 5
+stack b is 4
+------------re b-----------------
+re stack b is 4
+re stack b is 5
+re stack b is 1
+re stack b is 2
+re stack b is 3
+
+
+
+------sa------a-----------------
+stack a is 6
+stack a is 7
+------------re a-----------------
+re stack a is 7
+re stack a is 6
+------------b-----------------
+stack b is 3
+stack b is 2
+stack b is 1
+stack b is 5
+stack b is 4
+------------re b-----------------
+re stack b is 4
+re stack b is 5
+re stack b is 1
+re stack b is 2
+re stack b is 3
+
+
+
+------sb------a-----------------
+stack a is 6
+stack a is 7
+------------re a-----------------
+re stack a is 7
+re stack a is 6
+------------b-----------------
+stack b is 2
+stack b is 3
+stack b is 1
+stack b is 5
+stack b is 4
+------------re b-----------------
+re stack b is 4
+re stack b is 5
+re stack b is 1
+re stack b is 3
+re stack b is 2
+
+
+
+------rrb------a-----------------
+stack a is 6
+stack a is 7
+------------re a-----------------
+re stack a is 7
+re stack a is 6
+------------b-----------------
+stack b is 4
+stack b is 2
+stack b is 3
+stack b is 1
+stack b is 5
+------------re b-----------------
+re stack b is 5
+re stack b is 1
+re stack b is 3
+re stack b is 2
+re stack b is 4
+
+
+
+------rb------a-----------------
+stack a is 6
+stack a is 7
+------------re a-----------------
+re stack a is 7
+re stack a is 6
+------------b-----------------
+stack b is 2
+stack b is 3
+stack b is 1
+stack b is 5
+stack b is 4
+------------re b-----------------
+re stack b is 4
+re stack b is 5
+re stack b is 1
+re stack b is 3
+re stack b is 2
+
+
+
+------pa------a-----------------
+stack a is 2
+stack a is 6
+stack a is 7
+------------re a-----------------
+re stack a is 7
+re stack a is 6
+re stack a is 2
+------------b-----------------
+stack b is 3
+stack b is 1
+stack b is 5
+stack b is 4
+------------re b-----------------
+re stack b is 4
+re stack b is 5
+re stack b is 1
+re stack b is 3
+
+
+
+------pa------a-----------------
+stack a is 3
+stack a is 2
+stack a is 6
+stack a is 7
+------------re a-----------------
+re stack a is 7
+re stack a is 6
+re stack a is 2
+re stack a is 3
+------------b-----------------
+stack b is 1
+stack b is 5
+stack b is 4
+------------re b-----------------
+re stack b is 4
+re stack b is 5
+re stack b is 1
+
+
+
+------ra------a-----------------
+stack a is 2
+stack a is 6
+stack a is 7
+stack a is 3
+------------re a-----------------
+re stack a is 3
+re stack a is 7
+re stack a is 6
+re stack a is 2
+------------b-----------------
+stack b is 1
+stack b is 5
+stack b is 4
+------------re b-----------------
+re stack b is 4
+re stack b is 5
+re stack b is 1
+
+
+
+------rra------a-----------------
+stack a is 3
+stack a is 2
+stack a is 6
+stack a is 7
+------------re a-----------------
+re stack a is 7
+re stack a is 6
+re stack a is 2
+re stack a is 3
+------------b-----------------
+stack b is 1
+stack b is 5
+stack b is 4
+------------re b-----------------
+re stack b is 4
+re stack b is 5
+re stack b is 1
+
+
+
+Process:         push_swap [63997]
+Path:            /Users/*/Desktop/*/push_swap
+Load Address:    0x1066fa000
+Identifier:      push_swap
+Version:         ???
+Code Type:       X86-64
+Parent Process:  zsh [7808]
+
+Date/Time:       2023-02-24 17:41:23.848 +0900
+Launch Time:     2023-02-24 17:41:23.439 +0900
+OS Version:      Mac OS X 10.15.7 (19H2026)
+Report Version:  7
+Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
+Analysis Tool Version:  Xcode 12.3 (12C33)
+
+Physical footprint:         324K
+Physical footprint (peak):  324K
+----
+
+leaks Report Version: 4.0
+Process 63997: 155 nodes malloced for 8 KB
+Process 63997: 0 leaks for 0 total leaked bytes.
+
