@@ -6,15 +6,13 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 16:15:02 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/02/19 18:17:00 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/02/25 21:07:14 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-struct sigaction	action;
-
-void	get_sig(int sig, siginfo_t *info, void *context)
+void	get_sig(int sig)
 {
 	static char	letter;
 	static int	bit;
@@ -42,12 +40,13 @@ void	get_sig(int sig, siginfo_t *info, void *context)
 
 int	main(void)
 {
-	pid_t	pid;
+	pid_t				pid;
+	struct sigaction	action;
 
 	pid = getpid();
+	action.sa_flags = SA_SIGINFO;
 	action.sa_handler = get_sig;
 	sigemptyset(&action.sa_mask);
-	action.sa_flags = SA_SIGINFO;
 	ft_printf("PID : %d\n", pid);
 	sigaction(SIGUSR1, &action, NULL);
 	sigaction(SIGUSR2, &action, NULL);

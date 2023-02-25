@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/19 14:38:51 by chanwoki          #+#    #+#              #
-#    Updated: 2023/02/19 16:24:24 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/02/25 20:09:02 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ clean :
 
 fclean : clean
 	make fclean -C $(FT_PRINTF)
-	rm -rf $(NAME) $(LIB_PRINTF) $(BONUS)
+	rm -rf $(NAME) $(NAME2) $(LIB_PRINTF) $(BONUS)
 
 re : fclean all
 

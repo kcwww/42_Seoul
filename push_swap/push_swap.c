@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:18:34 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/02/25 19:40:25 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/02/25 19:55:09 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ int	main(int argc, char **argv)
 	t_ps	b;
 
 	atexit(check_leaks);
-	ft_memset(&A, 0, sizeof(t_ps));
-	ft_memset(&B, 0, sizeof(t_ps));
+	ft_memset(&a, 0, sizeof(t_ps));
+	ft_memset(&b, 0, sizeof(t_ps));
 	if (check_arg(argc, argv) == -1)
 		return (-1);
 	if (init_deque(argc, argv, &a) == -1)
