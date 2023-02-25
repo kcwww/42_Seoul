@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/25 19:18:34 by chanwoki          #+#    #+#             */
+/*   Updated: 2023/02/25 19:40:25 by chanwoki         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void check_leaks(void)
+void	check_leaks(void)
 {
 	system("leaks push_swap");
 }
@@ -50,73 +62,20 @@ void	print_stack(char *str, t_ps *a, t_ps *b)
 	ft_printf("\n\n\n");
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_ps	A;
-	t_ps	B;
-	t_deque	*lst;
-	int		i;
+	t_ps	a;
+	t_ps	b;
 
 	atexit(check_leaks);
 	ft_memset(&A, 0, sizeof(t_ps));
 	ft_memset(&B, 0, sizeof(t_ps));
-	if (argc <= 1)
-		return (-1);
 	if (check_arg(argc, argv) == -1)
 		return (-1);
-	i = 2;
-	lst = ft_dequenew(ft_atoi(argv[1]));
-	A.head = lst;
-	while (i < argc)
-	{
-		lst->next = ft_dequenew(ft_atoi(argv[i]));
-		lst->next->previous = lst;
-		lst = lst->next;
-		i++;
-	}
-	A.tail = lst;
-
-	execute_rules("pb", &A, &B);
-	print_stack("pb", &A, &B);
-	execute_rules("pb", &A, &B);
-	print_stack("pb", &A, &B);
-	execute_rules("pb", &A, &B);
-	print_stack("pb", &A, &B);
-	execute_rules("pb", &A, &B);
-	print_stack("pb", &A, &B);
-	execute_rules("pb", &A, &B);
-	print_stack("pb", &A, &B);
-	execute_rules("rb", &A, &B);
-	print_stack("rb", &A, &B);
-	execute_rules("ra", &A, &B);
-	print_stack("ra", &A, &B);
-	execute_rules("pb", &A, &B);
-	print_stack("pb", &A, &B);
-	execute_rules("ss", &A, &B);
-	print_stack("ss", &A, &B);
-	execute_rules("rr", &A, &B);
-	print_stack("rr", &A, &B);
-	execute_rules("pa", &A, &B);
-	print_stack("pa", &A, &B);
-	execute_rules("sa", &A, &B);
-	print_stack("sa", &A, &B);
-	execute_rules("sb", &A, &B);
-	print_stack("sb", &A, &B);
-	execute_rules("rrb", &A, &B);
-	print_stack("rrb", &A, &B);
-	execute_rules("rb", &A, &B);
-	print_stack("rb", &A, &B);
-	execute_rules("pa", &A, &B);
-	print_stack("pa", &A, &B);
-	execute_rules("pa", &A, &B);
-	print_stack("pa", &A, &B);
-	execute_rules("ra", &A, &B);
-	print_stack("ra", &A, &B);
-	execute_rules("rra", &A, &B);
-	print_stack("rra", &A, &B);
-
-	t_deque	*temp = A.head;
-	ft_dequeclear(&A);
-	temp = B.head;
-	ft_dequeclear(&B);
+	if (init_deque(argc, argv, &a) == -1)
+		return (-1);
+	execute_rules("pb", &a, &b);
+	print_stack("pb", &a, &b);
+	ft_dequeclear(&a);
+	ft_dequeclear(&b);
 }

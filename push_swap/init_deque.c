@@ -1,42 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_int.c                                        :+:      :+:    :+:   */
+/*   init_deque.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 16:47:20 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/02/25 19:41:02 by chanwoki         ###   ########.fr       */
+/*   Created: 2023/02/25 19:25:33 by chanwoki          #+#    #+#             */
+/*   Updated: 2023/02/25 19:33:46 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_int(const char *str)
+int	init_deque(int argc, char **argv, t_ps *A)
 {
-	int			i;
-	long long	minus;
-	long long	result;
+	int		i;
+	t_deque	*lst;
 
-	i = 0;
-	minus = 1;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '-')
-	{
-		minus = -1;
-		i++;
-	}
-	else if (str[i] == '+')
-		i++;
-	result = 0;
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		result = result * 10 + (str[i] - '0');
-		i++;
-	}
-	result = result * minus;
-	if (result > 2147483647 || result < -2147483648)
+	i = 2;
+	lst = ft_dequenew(ft_atoi(argv[1]));
+	if (lst == NULL)
 		return (-1);
+	A->head = lst;
+	while (i < argc)
+	{
+		lst->next = ft_dequenew(ft_atoi(argv[i]));
+		if (lst == NULL)
+		{
+			ft_dequeclear(A);
+			return (-1);
+		}
+		lst->next->previous = lst;
+		lst = lst->next;
+		i++;
+	}
+	A->tail = lst;
 	return (1);
 }

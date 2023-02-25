@@ -6,15 +6,13 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 17:29:07 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/02/24 18:28:45 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/02/25 19:41:29 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "libft/libft.h"
-
-
 
 typedef struct s_deque
 {
@@ -45,5 +43,6 @@ void	rule_rrb(int check_b, t_ps *B);
 int		check_int(const char *str);
 int		check_arg(int argc, char **argv);
 int		ft_strcmp(const char *s1, const char *s2);
+int		init_deque(int argc, char **argv, t_ps *A);
 
 #endif

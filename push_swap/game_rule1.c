@@ -5,158 +5,155 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Cruleated: 2023/01/18 16:14:25 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/18 16:17:01 by chanwoki         ###   ########.fr       */
+/*   Created: 2023/02/25 19:44:49 by chanwoki          #+#    #+#             */
+/*   Updated: 2023/02/25 19:45:13 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rule_sa(int check_a, t_ps *A)
+void	rule_sa(int check_a, t_ps *a)
 {
 	t_deque	*lst;
 	t_deque	*temp;
 
 	if (check_a == 0 || check_a == 1)
 		return ;
-	lst = A->head->next;
-	temp = A->head;
+	lst = a->head->next;
+	temp = a->head;
 	temp->next = lst->next;
 	lst->next = temp;
 	lst->previous = NULL;
 	temp->previous = lst;
-	A->head = lst;
+	a->head = lst;
 	if (check_a == 2)
 	{
-		A->tail = A->head->next;
+		a->tail = a->head->next;
 		return ;
 	}
 	temp = temp->next;
 	temp->previous = lst->next;
 }
 
-void	rule_sb(int check_b, t_ps *B)
+void	rule_sb(int check_b, t_ps *b)
 {
 	t_deque	*lst;
 	t_deque	*temp;
 
 	if (check_b == 0 || check_b == 1)
 		return ;
-	lst = B->head->next;
-	temp = B->head;
+	lst = b->head->next;
+	temp = b->head;
 	temp->next = lst->next;
 	lst->next = temp;
 	lst->previous = NULL;
 	temp->previous = lst;
-	B->head = lst;
+	b->head = lst;
 	if (check_b == 2)
 	{
-		B->tail = B->head->next;
+		b->tail = b->head->next;
 		return ;
 	}
 	temp = temp->next;
 	temp->previous = lst->next;
 }
 
-void	rule_pa(int check_b, t_ps *A, t_ps *B)
+void	rule_pa(int check_b, t_ps *a, t_ps *b)
 {
 	t_deque	*lst;
 	t_deque	*temp;
 
 	if (check_b == 0)
 		return ;
-	lst = B->head;
-	temp = B->head->next;
-	if (A->head != NULL)
+	lst = b->head;
+	temp = b->head->next;
+	if (a->head != NULL)
 	{
-		lst->next = A->head;
-		A->head->previous = lst;
+		lst->next = a->head;
+		a->head->previous = lst;
 	}
 	else
 	{
-		A->tail = lst;
+		a->tail = lst;
 		lst->next = NULL;
 	}
 	lst->previous = NULL;
-	A->head = lst;
+	a->head = lst;
 	if (check_b == 1)
 	{
-		B->head = NULL;
+		b->head = NULL;
 		return ;
 	}
-	B->head = temp;
+	b->head = temp;
 	temp->previous = NULL;
 }
 
-void	rule_pb(int check_a, t_ps *A, t_ps *B)
+void	rule_pb(int check_a, t_ps *a, t_ps *b)
 {
 	t_deque	*lst;
 	t_deque	*temp;
 
 	if (check_a == 0)
 		return ;
-	lst = A->head;
-	temp = A->head->next;
-	if (B->head != NULL)
+	lst = a->head;
+	temp = a->head->next;
+	if (b->head != NULL)
 	{
-		lst->next = B->head;
-		B->head->previous = lst;
+		lst->next = b->head;
+		b->head->previous = lst;
 	}
 	else
 	{
-		B->tail = lst;
+		b->tail = lst;
 		lst->next = NULL;
 	}
 	lst->previous = NULL;
-	B->head = lst;
+	b->head = lst;
 	if (check_a == 1)
 	{
-		A->head = NULL;
+		a->head = NULL;
 		return ;
 	}
-	A->head = temp;
+	a->head = temp;
 	temp->previous = NULL;
 }
 
-void	execute_rules(char	*rule, t_ps *A, t_ps *B)
+void	execute_rules(char	*rule, t_ps *a, t_ps *b)
 {
 	int	check_a;
 	int	check_b;
 
-	check_a = check_lst(A);
-	check_b = check_lst(B);
-
-	//ft_printf("a is %d b is %d\n",check_a,check_b);
-	
+	check_a = check_lst(a);
+	check_b = check_lst(b);
 	if (ft_strncmp(rule, "sa", 2) == 0)
-		rule_sa(check_a, A);
+		rule_sa(check_a, a);
 	else if (ft_strncmp(rule, "sb", 2) == 0)
-		rule_sb(check_b, B);
+		rule_sb(check_b, b);
 	else if (ft_strncmp(rule, "ss", 2) == 0)
 	{
-		rule_sa(check_a, A);
-		rule_sb(check_b, B);
+		rule_sa(check_a, a);
+		rule_sb(check_b, b);
 	}
 	else if (ft_strncmp(rule, "pa", 2) == 0)
-		rule_pa(check_b, A, B);
+		rule_pa(check_b, a, b);
 	else if (ft_strncmp(rule, "pb", 2) == 0)
-		rule_pb(check_a, A, B);
+		rule_pb(check_a, a, b);
 	else if (ft_strncmp(rule, "ra", 2) == 0)
-		rule_ra(check_a, A);
+		rule_ra(check_a, a);
 	else if (ft_strncmp(rule, "rb", 2) == 0)
-		rule_rb(check_b, B);
+		rule_rb(check_b, b);
 	else if (ft_strncmp(rule, "rr", 2) == 0 && ft_strlen(rule) == 2)
 	{
-		rule_ra(check_a, A);
-		rule_rb(check_b, B);
+		rule_ra(check_a, a);
+		rule_rb(check_b, b);
 	}
 	else if (ft_strncmp(rule, "rra", 3) == 0)
-		rule_rra(check_a, A);
+		rule_rra(check_a, a);
 	else if (ft_strncmp(rule, "rrb", 3) == 0)
-		rule_rrb(check_b, B);
+		rule_rrb(check_b, b);
 	else if (ft_strncmp(rule, "rrr", 3) == 0)
 	{
-		rule_rra(check_a, A);
-		rule_rrb(check_b, B);
+		rule_rra(check_a, a);
+		rule_rrb(check_b, b);
 	}
 }

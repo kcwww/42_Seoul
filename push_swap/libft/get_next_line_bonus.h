@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/03 19:00:34 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/01/01 16:58:04 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/02/25 19:38:56 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@
 #  define OPEN_MAX 10240
 # endif
 
-char			*get_next_line(int fd);
-char		*gnl_strchr(char *s, int c);
+char	*get_next_line(int fd);
+char	*gnl_strchr(char *s, int c);
 size_t	gnl_strlen(char *s);
 size_t	gnl_strlcpy(char *dst, char *src, size_t dstsize);
-char		*gnl_strdup(char *s1);
-char		*gnl_strjoin(char *s1, char *s2);
+char	*gnl_strdup(char *s1);
+char	*gnl_strjoin(char *s1, char *s2);
 
 #endif

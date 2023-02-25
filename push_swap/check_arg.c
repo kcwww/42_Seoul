@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:10:00 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/02/24 18:29:48 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/02/25 19:39:15 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int	check_dup(int argc, char **argv)
 	return (1);
 }
 
-int	check_arg(int argc, char **argv)
+int	check_num(int argc, char **argv)
 {
-    int	i;
+	int	i;
 	int	j;
 	int	re;
 
@@ -51,14 +51,27 @@ int	check_arg(int argc, char **argv)
 		}
 		i++;
 	}
+	return (1);
+}
+
+int	check_arg(int argc, char **argv)
+{
+	int	i;
+	int	re;
+
+	if (argc <= 1)
+		return (-1);
+	re = check_num(argc, argv);
+	if (re == -1)
+		return (-1);
 	i = 1;
-    while (i < argc)
-    {
+	while (i < argc)
+	{
 		re = check_int(argv[i]);
 		if (re == -1)
 			return (re);
-        i++;
-    }
+		i++;
+	}
 	re = check_dup(argc, argv);
 	if (re == -1)
 		return (re);
