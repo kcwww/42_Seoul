@@ -6,15 +6,12 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/19 14:38:51 by chanwoki          #+#    #+#              #
-#    Updated: 2023/02/25 20:09:02 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/03/10 15:26:06 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=server
 NAME2=client
-
-BONUS=server_bonus
-BONUS2=client_bonus
 
 CFLAGS=-Wall -Wextra -Werror
 
@@ -32,12 +29,9 @@ RM=rm -f
 SERVER_SRC_FILES=server.c
 CLIENT_SRC_FILES=client.c
 
-BONUS_SRC_FILES =
-
 SERVER_OBJECTS = $(SERVER_SRC_FILES:.c=.o)
 CLIENT_OBJECTS = $(CLIENT_SRC_FILES:.c=.o)
 
-BONUS_OBJECTS = $(BONUS_SRC_FILES:.c=.o)
 
 all : $(NAME)
 
@@ -48,19 +42,15 @@ $(NAME) : $(OBJECTS)
 
 clean :
 	make clean -C $(FT_PRINTF)
-	$(RM) $(OBJECTS) $(BONUS_OBJECTS)
+	$(RM) $(SERVER_OBJECTS) $(CLIENT_OBJECTS)
 
 fclean : clean
 	make fclean -C $(FT_PRINTF)
-	rm -rf $(NAME) $(NAME2) $(LIB_PRINTF) $(BONUS)
+	rm -rf $(NAME) $(NAME2) $(LIB_PRINTF)
 
 re : fclean all
 
 ft_printf :
 	make all -C $(FT_PRINTF)/
 
-bonus : $(NAME)
-	$(CC) $(CFLAGS) -L $(FT_PRINTF) -l $(FT) $(BONUS_SRC_FILES) -o $(BONUS)
-	$(CC) $(CFLAGS) -L $(FT_PRINTF) -l $(FT) $(BONUS_SRC_FILES) -o $(BONUS2)
-
-.PHONY : all clean fclean re ft_printf bonus
+.PHONY : all clean fclean re ft_printf

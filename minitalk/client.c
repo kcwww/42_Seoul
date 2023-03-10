@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 16:14:59 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/02/25 21:09:05 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:29:08 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	main(int argc, char **argv)
 		e++;
 	}
 	pid = ft_atoi(argv[1]);
-	if (pid <= 100 || pid > 99999)
+	if (pid <= 100 || pid > 32768)
 	{
 		ft_printf("Wrong Arguments.\n");
 		exit(1);
