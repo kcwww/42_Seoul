@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 17:21:02 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/02/24 18:19:22 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/10 16:38:24 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
-		return (1);
-	else if (c == '-')
 		return (1);
 	return (0);
 }

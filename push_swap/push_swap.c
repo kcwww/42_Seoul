@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:18:34 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/02/25 19:55:09 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/10 20:36:14 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,17 @@ int	main(int argc, char **argv)
 		return (-1);
 	if (init_deque(argc, argv, &a) == -1)
 		return (-1);
-	execute_rules("pb", &a, &b);
-	print_stack("pb", &a, &b);
+	if (check_sorting(&a) == 1)
+	{
+		ft_dequeclear(&a);
+		return (0);
+	}
+	if (ft_dequesize(a.head) == 3)
+		sort_three(&a, &b);
+	else
+		set_pivot(&a, &b);
+	// execute_rules("pb", &a, &b);
+	print_stack("set pi", &a, &b);
 	ft_dequeclear(&a);
 	ft_dequeclear(&b);
 }

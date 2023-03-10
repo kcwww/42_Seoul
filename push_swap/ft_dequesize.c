@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_sorting.c                                    :+:      :+:    :+:   */
+/*   ft_dequesize.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/10 15:35:44 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/10 20:25:58 by chanwoki         ###   ########.fr       */
+/*   Created: 2023/03/10 19:01:48 by chanwoki          #+#    #+#             */
+/*   Updated: 2023/03/10 19:03:43 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_sorting(t_ps *a)
+int	ft_dequesize(t_deque *lst)
 {
-	t_deque	*lst;
-	int		temp;
-	int		compare;
+	int	i;
 
-	lst = a->head;
-	temp = lst->content;
-	lst = lst->next;
+	i = 0;
+	if (lst == NULL)
+		return (i);
 	while (lst)
 	{
-		compare = lst->content;
 		lst = lst->next;
-		if (temp >= compare)
-			return (0);
-		temp = compare;
+		i++;
 	}
-	return (1);
+	return (i);
 }

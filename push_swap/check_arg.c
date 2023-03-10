@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:10:00 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/02/25 19:39:15 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/10 16:40:05 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	check_num(int argc, char **argv)
 		j = 0;
 		while (argv[i][j])
 		{
+			if (argv[i][0] == '-' || argv[i][0] == '+')
+				j++;
 			re = ft_isdigit(argv[i][j]);
 			if (re == 0)
 				return (-1);
