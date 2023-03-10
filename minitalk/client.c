@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 16:14:59 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/10 15:42:15 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:59:06 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,14 @@ int	send_sig(pid_t pid, char *input)
 	return (0);
 }
 
-int	main(int argc, char **argv)
+int	check_arg(int argc, char **argv)
 {
-	pid_t				pid;
-	int					e;
+	int	e;
 
 	if (argc != 3)
 	{
 		ft_printf("Wrong Arguments.\n");
-		exit(1);
+		return (-1);
 	}
 	e = 0;
 	while (argv[1][e])
@@ -73,17 +72,27 @@ int	main(int argc, char **argv)
 		if (ft_isdigit(argv[1][e]) == 0)
 		{
 			ft_printf("Wrong Arguments.\n");
-			exit(1);
+			return (-1);
 		}
 		e++;
 	}
+	return (1);
+}
+
+int	main(int argc, char **argv)
+{
+	pid_t				pid;
+	int					e;
+
+	e = check_arg(argc, argv);
+	if (e == -1)
+		exit(1);
 	pid = ft_atoi(argv[1]);
 	if (pid <= 0 || pid > 32768)
 	{
 		ft_printf("Wrong Arguments.\n");
 		exit(1);
 	}
-
 	e = send_sig(pid, argv[2]);
 	if (e == -1)
 		return (-1);
