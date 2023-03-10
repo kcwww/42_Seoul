@@ -6,11 +6,17 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 16:14:59 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/10 15:29:08 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:42:15 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+void	ft_kill(pid_t pid, int sig)
+{
+	if (kill(pid, sig) == -1)
+		ft_printf("Message send FAIL.\n");
+}
 
 void	send_bit(pid_t pid, char *str)
 {
@@ -30,9 +36,9 @@ void	send_bit(pid_t pid, char *str)
 			bits = str[i] >> (7 - j);
 			j++;
 			if ((bits & 1) == 0)
-				kill(pid, SIGUSR1);
+				ft_kill(pid, SIGUSR1);
 			else if ((bits & 1) == 1)
-				kill(pid, SIGUSR2);
+				ft_kill(pid, SIGUSR2);
 			usleep(125);
 		}
 		i++;
@@ -72,7 +78,7 @@ int	main(int argc, char **argv)
 		e++;
 	}
 	pid = ft_atoi(argv[1]);
-	if (pid <= 100 || pid > 32768)
+	if (pid <= 0 || pid > 32768)
 	{
 		ft_printf("Wrong Arguments.\n");
 		exit(1);
