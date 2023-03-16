@@ -6,23 +6,23 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 17:26:16 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/02/19 14:29:24 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/16 23:32:13 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rule_ra(int check_a, t_ps *A)
+int	rule_ra(int check_a, t_ps *A)
 {
 	t_deque	*lst;
 	t_deque	*temp;
 
 	if (check_a == 1 || check_a == 0)
-		return ;
+		return (0);
 	if (check_a == 2)
 	{
 		rule_sa(check_a, A);
-		return ;
+		return (1);
 	}
 	lst = A->head;
 	temp = A->head->next;
@@ -32,19 +32,20 @@ void	rule_ra(int check_a, t_ps *A)
 	A->tail = lst;
 	A->head = temp;
 	A->head->previous = NULL;
+	return (1);
 }
 
-void	rule_rb(int check_b, t_ps *B)
+int	rule_rb(int check_b, t_ps *B)
 {
 	t_deque	*lst;
 	t_deque	*temp;
 
 	if (check_b == 1 || check_b == 0)
-		return ;
+		return (0);
 	if (check_b == 2)
 	{
 		rule_sb(check_b, B);
-		return ;
+		return (1);
 	}
 	lst = B->head;
 	temp = B->head->next;
@@ -54,19 +55,20 @@ void	rule_rb(int check_b, t_ps *B)
 	B->tail = lst;
 	B->head = temp;
 	B->head->previous = NULL;
+	return (1);
 }
 
-void	rule_rra(int check_a, t_ps *A)
+int	rule_rra(int check_a, t_ps *A)
 {
 	t_deque	*lst;
 	t_deque	*temp;
 
 	if (check_a == 1 || check_a == 0)
-		return ;
+		return (0);
 	if (check_a == 2)
 	{
 		rule_sa(check_a, A);
-		return ;
+		return (1);
 	}
 	temp = A->tail->previous;
 	lst = A->tail;
@@ -77,19 +79,20 @@ void	rule_rra(int check_a, t_ps *A)
 	A->tail->next = NULL;
 	temp = A->head->next;
 	temp->previous = A->head;
+	return (1);
 }
 
-void	rule_rrb(int check_b, t_ps *B)
+int	rule_rrb(int check_b, t_ps *B)
 {
 	t_deque	*lst;
 	t_deque	*temp;
 
 	if (check_b == 1 || check_b == 0)
-		return ;
+		return (0);
 	if (check_b == 2)
 	{
 		rule_sb(check_b, B);
-		return ;
+		return (1);
 	}
 	temp = B->tail->previous;
 	lst = B->tail;
@@ -100,4 +103,5 @@ void	rule_rrb(int check_b, t_ps *B)
 	B->tail->next = NULL;
 	temp = B->head->next;
 	temp->previous = B->head;
+	return (1);
 }

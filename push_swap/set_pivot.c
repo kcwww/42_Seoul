@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 18:24:56 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/10 20:43:52 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/17 00:22:00 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,5 @@ void	set_pivot(t_ps *a, t_ps *b)
 		pivot_b = swap;
 	}
 	partitioning(a, b, pivot_a, pivot_b);
+	greeding(a, b);
 }

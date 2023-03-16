@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:18:34 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/10 20:36:14 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/16 23:39:54 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,10 @@ int	main(int argc, char **argv)
 	}
 	if (ft_dequesize(a.head) == 3)
 		sort_three(&a, &b);
+	else if (ft_dequesize(a.head) == 2)
+		execute_rules("sa", &a, &b);
 	else
 		set_pivot(&a, &b);
-	// execute_rules("pb", &a, &b);
 	print_stack("set pi", &a, &b);
 	ft_dequeclear(&a);
 	ft_dequeclear(&b);
