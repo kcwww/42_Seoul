@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 16:14:59 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/10 15:59:06 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/18 16:33:13 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ void	send_bit(pid_t pid, char *str)
 	int		i;
 	int		j;
 	char	bits;
-	int		len;
 
-	len = ft_strlen(str);
 	i = 0;
 	bits = 0;
 	while (str[i])
@@ -39,7 +37,7 @@ void	send_bit(pid_t pid, char *str)
 				ft_kill(pid, SIGUSR1);
 			else if ((bits & 1) == 1)
 				ft_kill(pid, SIGUSR2);
-			usleep(125);
+			usleep(500);
 		}
 		i++;
 	}
