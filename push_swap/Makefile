@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 18:48:59 by chanwoki          #+#    #+#              #
-#    Updated: 2023/03/10 19:42:07 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/03/19 14:03:18 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ RM=rm -f
 
 SRC_FILES=push_swap.c check_lst.c ft_dequeclear.c ft_dequenew.c game_rule1.c game_rule2.c \
 check_int.c check_arg.c ft_strcmp.c init_deque.c check_sorting.c set_pivot.c \
-ft_dequesize.c sort_three.c
+ft_dequesize.c sort_three.c greeding.c
 
 OBJECTS = $(SRC_FILES:.c=.o)
 
