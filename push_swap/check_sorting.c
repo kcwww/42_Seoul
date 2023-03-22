@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_sorting.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:35:44 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/10 20:25:58 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:42:09 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_sorting(t_ps *a)
 	{
 		compare = lst->content;
 		lst = lst->next;
-		if (temp >= compare)
+		if (temp > compare)
 			return (0);
 		temp = compare;
 	}

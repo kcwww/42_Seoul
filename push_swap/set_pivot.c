@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_pivot.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 18:24:56 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/19 12:50:34 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:52:26 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,9 @@ void	set_pivot(t_ps *a, t_ps *b)
 	int	pivot_a;
 	int	pivot_b;
 	int	swap;
+	int	flag;
 
+	flag = 0;
 	if (a->head->next == NULL)
 		return ;
 	pivot_a = a->head->content;
@@ -63,5 +65,13 @@ void	set_pivot(t_ps *a, t_ps *b)
 		pivot_b = swap;
 	}
 	partitioning(a, b, pivot_a, pivot_b);
-	greeding(a, b);
+	while (b->head)
+	{
+		greeding(a, b);
+		print_stack("hoho", a, b);
+	}
+	if (check_sorting(a) != 1)
+	{
+		if (a->head->content)
+	}
 }

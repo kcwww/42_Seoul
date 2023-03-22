@@ -1,0 +1,76 @@
+pb
+rra
+
+
+ hi is 2 ti is 1
+
+
+
+ hi is 1
+
+
+
+ hi is 2 ti is 1
+
+
+
+ hi is 1
+
+rra
+pa
+
+
+ min is 1
+
+------hoho------a-----------------
+stack a is 3
+stack a is 6
+stack a is 1
+stack a is 2
+------------re a-----------------
+re stack a is 2
+re stack a is 1
+re stack a is 6
+re stack a is 3
+-----------None b-------------
+
+
+
+------set pi------a-----------------
+stack a is 3
+stack a is 6
+stack a is 1
+stack a is 2
+------------re a-----------------
+re stack a is 2
+re stack a is 1
+re stack a is 6
+re stack a is 3
+-----------None b-------------
+
+
+
+Process:         push_swap [58409]
+Path:            /Users/USER/Desktop/*/push_swap
+Load Address:    0x1054a4000
+Identifier:      push_swap
+Version:         0
+Code Type:       X86-64
+Platform:        macOS
+Parent Process:  zsh [52826]
+
+Date/Time:       2023-03-22 16:50:07.483 +0900
+Launch Time:     2023-03-22 16:50:07.399 +0900
+OS Version:      macOS 13.2.1 (22D68)
+Report Version:  7
+Analysis Tool:   /usr/bin/leaks
+
+Physical footprint:         356K
+Physical footprint (peak):  368K
+Idle exit: untracked
+----
+
+leaks Report Version: 4.0
+Process 58409: 175 nodes malloced for 9 KB
+Process 58409: 0 leaks for 0 total leaked bytes.
+

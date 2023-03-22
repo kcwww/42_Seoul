@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   greeding.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 00:22:12 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/19 14:10:49 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:13:12 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	counting_rules(t_ps *a, int num, int idx)
 
 	re = 1;
 	hi = 0;
-	ti = 0;
+	ti = 1;
 	lst = a->head;
 	while (lst)
 	{
@@ -84,6 +84,6 @@ void	greeding(t_ps *a, t_ps *b)
 		}
 		lst = lst->next;
 	}
-	//choose_greed(a, b, min);
+	choose_greed(a, b, min);
 	ft_printf("\n\n min is %d\n\n", min);
 }
