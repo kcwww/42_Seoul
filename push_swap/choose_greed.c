@@ -6,24 +6,62 @@
 /*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:13:31 by chanwookim        #+#    #+#             */
-/*   Updated: 2023/03/22 16:46:11 by chanwookim       ###   ########.fr       */
+/*   Updated: 2023/03/24 13:47:16 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
+void	go_sorting(t_ps *a, t_ps *b)
+{
+	t_deque	*lst;
+	int		temp;
+	int 	compare;
+	int		hi;
+	int		ti;
+	
+	lst = a->head;
+	hi = 0;
+	ti = ft_dequesize(a->head);
+	temp = lst->content;
+	compare = lst->next->content;
+	while (lst->next)
+	{
+		temp = lst->content;
+		compare = lst->next->content;
+		hi++;
+		if (temp > compare)
+			break ;
+		lst = lst->next;	
+	}
+	if (hi > (ti / 2))
+	{
+		while (hi)
+		{
+			execute_rules("rra", a, b);
+			hi--;
+		}
+	}
+	else
+	{
+		while (hi)
+		{
+			execute_rules("ra", a, b);
+			hi--;
+		}
+	}
+}
+
 void    exe_pa(t_ps *a, t_ps *b)
 {
     t_deque	*lst;
 	int		hi;
 	int		ti;
-    int     flag;
 
 	hi = 0;
 	ti = 1;
 	lst = a->head;
-    flag = 0;
 	while (lst)
 	{
 		if (lst->content > b->head->content)
@@ -41,15 +79,8 @@ void    exe_pa(t_ps *a, t_ps *b)
 	}
     if (hi == 0 && ti == 1)
     {
-        if (a->head->content > a->tail->content)
-            flag = 1;
-        while (check_sorting(a) != 1)
-        {
-            if (flag == 1)
-                execute_rules("rra", a, b);
-            else
-                execute_rules("ra", a, b);
-        }
+        if (check_sorting(a) != 1)
+			go_sorting(a, b);
     }
     else if (hi > ti)
     {

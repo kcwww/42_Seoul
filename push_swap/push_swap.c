@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:18:34 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/19 12:49:55 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/24 13:48:04 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	main(int argc, char **argv)
 		execute_rules("sa", &a, &b);
 	else
 		set_pivot(&a, &b);
-	print_stack("set pi", &a, &b);
+	print_stack("final stack", &a, &b);
 	ft_dequeclear(&a);
 	ft_dequeclear(&b);
 }

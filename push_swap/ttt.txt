@@ -1,5 +1,36 @@
 pb
-rra
+pb
+rb
+pb
+pb
+rb
+pb
+pb
+------after partitioning------a-----------------
+stack a is 4
+stack a is 5
+stack a is 11
+------------re a-----------------
+re stack a is 11
+re stack a is 5
+re stack a is 4
+------------b-----------------
+stack b is 7
+stack b is 9
+stack b is 6
+stack b is 3
+stack b is 2
+stack b is 1
+------------re b-----------------
+re stack b is 1
+re stack b is 2
+re stack b is 3
+re stack b is 6
+re stack b is 9
+re stack b is 7
+
+
+
 
 
  hi is 2 ti is 1
@@ -7,6 +38,46 @@ rra
 
 
  hi is 1
+
+
+
+ hi is 2 ti is 1
+
+
+
+ hi is 1
+
+
+
+ hi is 2 ti is 1
+
+
+
+ hi is 1
+
+
+
+ hi is 0 ti is 1
+
+
+
+ hi is 0
+
+
+
+ hi is 0 ti is 1
+
+
+
+ hi is 0
+
+
+
+ hi is 0 ti is 1
+
+
+
+ hi is 0
 
 
 
@@ -20,47 +91,350 @@ rra
 pa
 
 
+ min is 2
+
+------hoho------a-----------------
+stack a is 7
+stack a is 11
+stack a is 4
+stack a is 5
+------------re a-----------------
+re stack a is 5
+re stack a is 4
+re stack a is 11
+re stack a is 7
+------------b-----------------
+stack b is 9
+stack b is 6
+stack b is 3
+stack b is 2
+stack b is 1
+------------re b-----------------
+re stack b is 1
+re stack b is 2
+re stack b is 3
+re stack b is 6
+re stack b is 9
+
+
+
+
+
+ hi is 1 ti is 3
+
+
+
+ hi is 1
+
+
+
+ hi is 0 ti is 3
+
+
+
+ hi is 0
+
+
+
+ hi is 0 ti is 1
+
+
+
+ hi is 0
+
+
+
+ hi is 0 ti is 1
+
+
+
+ hi is 0
+
+
+
+ hi is 0 ti is 1
+
+
+
+ hi is 0
+
+
+
+ hi is 1 ti is 3
+
+
+
+ hi is 1
+
+ra
+pa
+
+
+ min is 2
+
+------hoho------a-----------------
+stack a is 9
+stack a is 11
+stack a is 4
+stack a is 5
+stack a is 7
+------------re a-----------------
+re stack a is 7
+re stack a is 5
+re stack a is 4
+re stack a is 11
+re stack a is 9
+------------b-----------------
+stack b is 6
+stack b is 3
+stack b is 2
+stack b is 1
+------------re b-----------------
+re stack b is 1
+re stack b is 2
+re stack b is 3
+re stack b is 6
+
+
+
+
+
+ hi is 0 ti is 1
+
+
+
+ hi is 0
+
+
+
+ hi is 0 ti is 1
+
+
+
+ hi is 0
+
+ra
+ra
+pa
+
+
+ min is 1
+
+------hoho------a-----------------
+stack a is 6
+stack a is 4
+stack a is 5
+stack a is 7
+stack a is 9
+stack a is 11
+------------re a-----------------
+re stack a is 11
+re stack a is 9
+re stack a is 7
+re stack a is 5
+re stack a is 4
+re stack a is 6
+------------b-----------------
+stack b is 3
+stack b is 2
+stack b is 1
+------------re b-----------------
+re stack b is 1
+re stack b is 2
+re stack b is 3
+
+
+
+
+
+ hi is 0 ti is 1
+
+
+
+ hi is 0
+
+
+
+ hi is 0 ti is 1
+
+
+
+ hi is 0
+
+ra
+pa
+
+
  min is 1
 
 ------hoho------a-----------------
 stack a is 3
+stack a is 4
+stack a is 5
+stack a is 7
+stack a is 9
+stack a is 11
 stack a is 6
-stack a is 1
-stack a is 2
 ------------re a-----------------
-re stack a is 2
-re stack a is 1
 re stack a is 6
+re stack a is 11
+re stack a is 9
+re stack a is 7
+re stack a is 5
+re stack a is 4
 re stack a is 3
------------None b-------------
+------------b-----------------
+stack b is 2
+stack b is 1
+------------re b-----------------
+re stack b is 1
+re stack b is 2
 
 
 
-------set pi------a-----------------
+
+
+ hi is 0 ti is 1
+
+
+
+ hi is 0
+
+
+
+ hi is 0 ti is 1
+
+
+
+ hi is 0
+
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+
+
+ min is 1
+
+------hoho------a-----------------
+stack a is 2
+stack a is 4
+stack a is 5
+stack a is 7
+stack a is 9
+stack a is 11
+stack a is 6
 stack a is 3
-stack a is 6
-stack a is 1
-stack a is 2
 ------------re a-----------------
-re stack a is 2
-re stack a is 1
-re stack a is 6
 re stack a is 3
+re stack a is 6
+re stack a is 11
+re stack a is 9
+re stack a is 7
+re stack a is 5
+re stack a is 4
+re stack a is 2
+------------b-----------------
+stack b is 1
+------------re b-----------------
+re stack b is 1
+
+
+
+
+
+ hi is 0 ti is 1
+
+
+
+ hi is 0
+
+
+
+ hi is 0 ti is 1
+
+
+
+ hi is 0
+
+rra
+rra
+rra
+rra
+rra
+rra
+pa
+
+
+ min is 1
+
+------hoho------a-----------------
+stack a is 1
+stack a is 5
+stack a is 7
+stack a is 9
+stack a is 11
+stack a is 6
+stack a is 3
+stack a is 2
+stack a is 4
+------------re a-----------------
+re stack a is 4
+re stack a is 2
+re stack a is 3
+re stack a is 6
+re stack a is 11
+re stack a is 9
+re stack a is 7
+re stack a is 5
+re stack a is 1
 -----------None b-------------
 
 
 
-Process:         push_swap [58409]
+rra
+rra
+rra
+rra
+rra
+------final stack------a-----------------
+stack a is 11
+stack a is 6
+stack a is 3
+stack a is 2
+stack a is 4
+stack a is 1
+stack a is 5
+stack a is 7
+stack a is 9
+------------re a-----------------
+re stack a is 9
+re stack a is 7
+re stack a is 5
+re stack a is 1
+re stack a is 4
+re stack a is 2
+re stack a is 3
+re stack a is 6
+re stack a is 11
+-----------None b-------------
+
+
+
+Process:         push_swap [6179]
 Path:            /Users/USER/Desktop/*/push_swap
-Load Address:    0x1054a4000
+Load Address:    0x102876000
 Identifier:      push_swap
 Version:         0
 Code Type:       X86-64
 Platform:        macOS
-Parent Process:  zsh [52826]
+Parent Process:  zsh [769]
 
-Date/Time:       2023-03-22 16:50:07.483 +0900
-Launch Time:     2023-03-22 16:50:07.399 +0900
+Date/Time:       2023-03-24 13:49:20.606 +0900
+Launch Time:     2023-03-24 13:49:20.065 +0900
 OS Version:      macOS 13.2.1 (22D68)
 Report Version:  7
 Analysis Tool:   /usr/bin/leaks
@@ -71,6 +445,6 @@ Idle exit: untracked
 ----
 
 leaks Report Version: 4.0
-Process 58409: 175 nodes malloced for 9 KB
-Process 58409: 0 leaks for 0 total leaked bytes.
+Process 6179: 176 nodes malloced for 9 KB
+Process 6179: 0 leaks for 0 total leaked bytes.
 

@@ -6,7 +6,7 @@
 /*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 00:22:12 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/22 16:13:12 by chanwookim       ###   ########.fr       */
+/*   Updated: 2023/03/24 13:56:41 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	counting_rules(t_ps *a, int num, int idx)
 		lst = lst->previous;
 		ti++;
 	}
-	ft_printf("\n\n hi is %d ti is %d\n\n", hi, ti);
 	if (hi > ti)
 		hi = ti;
 	if (hi == ft_dequesize(a->head))
