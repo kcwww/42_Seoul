@@ -6,7 +6,7 @@
 /*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:13:31 by chanwookim        #+#    #+#             */
-/*   Updated: 2023/03/24 13:47:16 by chanwookim       ###   ########.fr       */
+/*   Updated: 2023/03/25 14:18:53 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,49 +55,30 @@ void	go_sorting(t_ps *a, t_ps *b)
 
 void    exe_pa(t_ps *a, t_ps *b)
 {
-    t_deque	*lst;
-	int		hi;
-	int		ti;
+	t_deque	*lst;
+	int		pa_num;
+	int		hnum;
+	int		tnum;
 
-	hi = 0;
-	ti = 1;
-	lst = a->head;
-	while (lst)
+	pa_num = b->head->content;
+	hnum = a->head->content;
+	tnum = a->tail->content;
+	if (pa_num > hnum && pa_num > tnum)
 	{
-		if (lst->content > b->head->content)
-			break ;
-		lst = lst->next;
-		hi++;
+
 	}
-	lst = a->tail;
-	while (lst)
+	else if (pa_num > hnum && pa_num < tnum)
 	{
-		if (lst->content > b->head->content)
-			break ;
-		lst = lst->previous;
-		ti++;
+
 	}
-    if (hi == 0 && ti == 1)
-    {
-        if (check_sorting(a) != 1)
-			go_sorting(a, b);
-    }
-    else if (hi > ti)
-    {
-        while (ti)
-        {
-            execute_rules("rra", a, b);
-            ti--;
-        }
-    }
-    else
-    {
-        while (hi)
-        {
-            execute_rules("ra", a, b);
-            hi--;
-        }
-    }
+	else if (pa_num < hnum && pa_num > tnum)
+	{
+
+	}
+	else if (pa_num < hnum && pa_num < tnum)
+	{
+
+	}
     execute_rules("pa", a, b);
 }
 
