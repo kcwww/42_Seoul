@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 17:29:07 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/22 16:32:08 by chanwookim       ###   ########.fr       */
+/*   Updated: 2023/03/26 15:07:59 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int		ft_dequesize(t_deque *lst);
 void	sort_three(t_ps *a, t_ps *b);
 void	greeding(t_ps *a, t_ps *b);
 void    choose_greed(t_ps *a, t_ps *b, int min);
-int		counting_rules(t_ps *a, int num, int idx);
+int		counting_rules(t_ps *a, int num, int idx, int flag);
+void	go_sorting(t_ps *a, t_ps *b);
+void	count_sorting(t_ps *a, int *ra, int *rra);
 
 #endif

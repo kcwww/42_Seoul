@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:44:49 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/17 00:13:10 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/26 15:14:09 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,7 +166,7 @@ void	execute_rules(char	*rule, t_ps *a, t_ps *b)
 	}
 	else if (ft_strncmp(rule, "rr", 2) == 0 && ft_strlen(rule) == 2)
 	{
-		if (rule_ra(check_a, a) || rule_rb(check_b, b))
+		if (rule_ra(check_a, a) && rule_rb(check_b, b))
 			ft_printf("rr\n");
 	}
 	else if (ft_strncmp(rule, "rra", 3) == 0)
@@ -181,7 +181,7 @@ void	execute_rules(char	*rule, t_ps *a, t_ps *b)
 	}
 	else if (ft_strncmp(rule, "rrr", 3) == 0)
 	{
-		if (rule_rra(check_a, a) || rule_rrb(check_b, b))
+		if (rule_rra(check_a, a) && rule_rrb(check_b, b))
 			ft_printf("rrr\n");
 	}
 }

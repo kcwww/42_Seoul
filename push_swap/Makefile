@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+         #
+#    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 18:48:59 by chanwoki          #+#    #+#              #
-#    Updated: 2023/03/22 16:31:09 by chanwookim       ###   ########.fr        #
+#    Updated: 2023/03/26 11:42:20 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,9 @@ fclean : clean
 	make fclean -C $(LIBFT)
 	rm -rf $(NAME) $(LIBFT_NAME)
 
-re : fclean all
+re :
+	make fclean
+	make all
 
 libft :
 	make all -C $(LIBFT)/

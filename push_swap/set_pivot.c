@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_pivot.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 18:24:56 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/24 13:49:11 by chanwookim       ###   ########.fr       */
+/*   Updated: 2023/03/26 15:57:00 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,9 @@ void	partitioning(t_ps *a, t_ps *b, int pivot_a, int pivot_b)
 
 void	set_pivot(t_ps *a, t_ps *b)
 {
-	t_deque	*lst;
 	int		pivot_a;
 	int		pivot_b;
 	int		swap;
-	int		hi;
-	int		ti;
-	int		temp;
-	int		compare;
 
 	if (a->head->next == NULL)
 		return ;
@@ -68,44 +63,11 @@ void	set_pivot(t_ps *a, t_ps *b)
 		pivot_b = swap;
 	}
 	partitioning(a, b, pivot_a, pivot_b);
-	print_stack("after partitioning", a, b);
+	//print_stack("after partitioning", a, b);
 	while (b->head)
 	{
 		greeding(a, b);
-		print_stack("hoho", a, b);
+		//print_stack("hoho", a, b);
 	}
-	if (check_sorting(a) != 1)
-	{
-		lst = a->head;
-		hi = 0;
-		ti = ft_dequesize(a->head);
-		temp = lst->content;
-		compare = lst->next->content;
-		while (lst->next)
-		{
-			temp = lst->content;
-			compare = lst->next->content;
-			hi++;
-			if (temp > compare)
-				break ;
-			lst = lst->next;
-			
-		}
-		if (hi > (ti / 2))
-		{
-			while (hi)
-			{
-				execute_rules("rra", a, b);
-				hi--;
-			}
-		}
-		else
-		{
-			while (hi)
-			{
-				execute_rules("ra", a, b);
-				hi--;
-			}
-		}
-	}
+	go_sorting(a, b);
 }

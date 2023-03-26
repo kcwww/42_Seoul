@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:18:34 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/24 13:48:04 by chanwookim       ###   ########.fr       */
+/*   Updated: 2023/03/26 15:56:36 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,6 @@ void	print_stack(char *str, t_ps *a, t_ps *b)
 			ft_printf("stack a is %d\n", s->content);
 			s = s->next;
 		}
-		s = a->tail;
-		ft_printf("------------re a-----------------\n");
-		while (s)
-		{
-			ft_printf("re stack a is %d\n", s->content);
-			s = s->previous;
-		}
 	}
 	s = b->head;
 	if (s == NULL)
@@ -51,13 +44,6 @@ void	print_stack(char *str, t_ps *a, t_ps *b)
 			ft_printf("stack b is %d\n", s->content);
 			s = s->next;
 		}
-		s = b->tail;
-		ft_printf("------------re b-----------------\n");
-		while (s)
-		{
-			ft_printf("re stack b is %d\n", s->content);
-			s = s->previous;
-		}
 	}
 	ft_printf("\n\n\n");
 }
@@ -67,7 +53,7 @@ int	main(int argc, char **argv)
 	t_ps	a;
 	t_ps	b;
 
-	atexit(check_leaks);
+	// atexit(check_leaks);
 	ft_memset(&a, 0, sizeof(t_ps));
 	ft_memset(&b, 0, sizeof(t_ps));
 	if (check_arg(argc, argv) == -1)
@@ -85,7 +71,7 @@ int	main(int argc, char **argv)
 		execute_rules("sa", &a, &b);
 	else
 		set_pivot(&a, &b);
-	print_stack("final stack", &a, &b);
+	//print_stack("final stack", &a, &b);
 	ft_dequeclear(&a);
 	ft_dequeclear(&b);
 }
