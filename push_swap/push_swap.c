@@ -6,60 +6,26 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:18:34 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/26 15:56:36 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/27 00:14:21 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	check_leaks(void)
-{
-	system("leaks push_swap");
-}
-
-void	print_stack(char *str, t_ps *a, t_ps *b)
-{
-	t_deque	*s;
-
-	s = a->head;
-	if (s == NULL)
-		ft_printf("------%s-----None a-------------\n", str);
-	else
-	{
-		ft_printf("------%s------a-----------------\n", str);
-		while (s)
-		{
-			ft_printf("stack a is %d\n", s->content);
-			s = s->next;
-		}
-	}
-	s = b->head;
-	if (s == NULL)
-		ft_printf("-----------None b-------------\n");
-	else
-	{
-		ft_printf("------------b-----------------\n");
-		while (s)
-		{
-			ft_printf("stack b is %d\n", s->content);
-			s = s->next;
-		}
-	}
-	ft_printf("\n\n\n");
-}
 
 int	main(int argc, char **argv)
 {
 	t_ps	a;
 	t_ps	b;
 
-	// atexit(check_leaks);
 	ft_memset(&a, 0, sizeof(t_ps));
 	ft_memset(&b, 0, sizeof(t_ps));
-	if (check_arg(argc, argv) == -1)
+	if (argc == 1)
+		return (0);
+	if (check_arg(argc, argv) == -1 || init_deque(argc, argv, &a) == -1)
+	{
+		ft_printf("Error\n");
 		return (-1);
-	if (init_deque(argc, argv, &a) == -1)
-		return (-1);
+	}
 	if (check_sorting(&a) == 1)
 	{
 		ft_dequeclear(&a);
@@ -71,7 +37,6 @@ int	main(int argc, char **argv)
 		execute_rules("sa", &a, &b);
 	else
 		set_pivot(&a, &b);
-	//print_stack("final stack", &a, &b);
 	ft_dequeclear(&a);
 	ft_dequeclear(&b);
 }

@@ -6,250 +6,95 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 16:13:31 by chanwookim        #+#    #+#             */
-/*   Updated: 2023/03/26 15:56:27 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/27 02:38:29 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void	go_sorting(t_ps *a, t_ps *b)
+static void	exe_remain(t_rules *rule, t_ps *a, t_ps *b)
 {
-	t_deque	*lst;
-	int		temp;
-	int 	compare;
-	int		hi;
-	int		ti;
-
-	if (check_sorting(a) == 1)
-		return ;
-	//print_stack("go sorting", a, b);
-	lst = a->head;
-	hi = 0;
-	ti = ft_dequesize(a->head);
-	while (lst->next)
-	{
-		temp = lst->content;
-		compare = lst->next->content;
-		hi++;
-		if (temp > compare)
-			break ;
-		lst = lst->next;
-	}
-	if (hi > (ti / 2))
-	{
-		hi = ft_dequesize(a->head) - hi;
-		while (hi)
-		{
-			execute_rules("rra", a, b);
-			hi--;
-		}
-	}
-	else
-	{
-		while (hi)
-		{
-			execute_rules("ra", a, b);
-			hi--;
-		}
-	}
-	//print_stack("after sorting", a, b);
-}
-
-void	exe_remain(int ra, int rra, int rb, int rrb, t_ps *a, t_ps *b)
-{
-	while (ra > 0)
+	while (rule->ra > 0)
 	{
 		execute_rules("ra", a, b);
-		ra--;
+		rule->ra--;
 	}
-	while (rra > 0)
+	while (rule->rra > 0)
 	{
 		execute_rules("rra", a, b);
-		rra--;
+		rule->rra--;
 	}
-	while (rb > 0)
+	while (rule->rb > 0)
 	{
 		execute_rules("rb", a, b);
-		rb--;
+		rule->rb--;
 	}
-	while (rrb > 0)
+	while (rule->rrb > 0)
 	{
 		execute_rules("rrb", a, b);
-		rrb--;
+		rule->rrb--;
 	}
 }
 
-void	exe_rr(int ra, int rra, int rb, int rrb, t_ps *a, t_ps *b)
+void	exe_rr(t_rules *rule, t_ps *a, t_ps *b)
 {
-	while (ra && rb)
+	while (rule->ra && rule->rb)
 	{
 		execute_rules("rr", a, b);
-		ra--;
-		rb--;
+		rule->ra--;
+		rule->rb--;
 	}
-	while (rra && rrb)
+	while (rule->rra && rule->rrb)
 	{
 		execute_rules("rrr", a, b);
-		rra--;
-		rrb--;
+		rule->rra--;
+		rule->rrb--;
 	}
-	exe_remain(ra, rra, rb, rrb, a, b);
+	exe_remain(rule, a, b);
 }
 
-void	exe_pa(t_ps *a, t_ps *b, int num, int rrb, int rb)
+static t_deque	*find_min_num(t_ps *a, t_ps *b, t_num *num, int min)
 {
 	t_deque	*lst;
-	int		pa_num;
-	int		hnum;
-	int		tnum;
-	int		rra = 0;
-	int		ra = 0;
 
-	pa_num = num;
-	hnum = a->head->content;
-	tnum = a->tail->content;
-
-	int		hi;
-	int		ti;
-	int		temp;
-
-	if (pa_num > hnum && pa_num > tnum)
-	{
-		hi = 0;
-		ti = 0;
-		temp = 0;
-		lst = a->head;
-		while (lst)
-		{
-			if (lst->content > pa_num)
-				break ;
-			hi++;
-			lst = lst->next;
-		}
-		lst = a->tail;
-		while (lst)
-		{
-			ti++;
-			if (lst->content > pa_num)
-			{
-				temp = ti;
-			}
-			lst = lst->previous;
-		}
-		if (hi == ft_dequesize(a->head))
-			count_sorting(a, &ra, &rra);
-		else if (hi > temp)
-			rra = temp;
-		else
-			ra = hi;
-		exe_rr(ra, rra, rb, rrb, a, b);
-		execute_rules("pa", a, b);
-	}
-	else if (pa_num > hnum && pa_num < tnum)
-	{
-		lst = a->head;
-		hi = 0;
-		ti = 0;
-		while (lst)
-		{
-			if (lst->content > pa_num)
-				break ;
-			hi++;
-			lst = lst->next;
-		}
-		lst = a->tail;
-		while (lst)
-		{
-			if (lst->content < pa_num)
-				break ;
-			ti++;
-			lst = lst->previous;
-		}
-		if (hi > ti)
-			rra = ti;
-		else
-			ra = hi;
-		exe_rr(ra, rra, rb, rrb, a, b);
-		execute_rules("pa", a, b);
-	}
-	else if (pa_num < hnum && pa_num > tnum)
-	{
-		exe_rr(ra, rra, rb, rrb, a, b);
-		execute_rules("pa", a, b);
-	}
-	else if (pa_num < hnum && pa_num < tnum)
-	{
-		hi = 0;
-		ti = 0;
-		temp = 0;
-		lst = a->head;
-		while (lst)
-		{
-			hi++;
-			if (lst->content < pa_num)
-				temp = hi;
-			lst = lst->next;
-		}
-		lst = a->tail;
-		while (lst)
-		{
-			if (lst->content < pa_num)
-				break ;
-			ti++;
-			lst = lst->previous;
-		}
-		if (ti == ft_dequesize(a->head))
-			count_sorting(a, &ra, &rra);
-		else if (temp > ti)
-			rra = ti;
-		else
-			ra = temp;
-		exe_rr(ra, rra, rb, rrb, a, b);
-		execute_rules("pa", a, b);
-	}
-}
-
-void    choose_greed(t_ps *a, t_ps *b, int min)
-{
-    t_deque	*lst;
-	int		count;
-	int		i;
-	int		size;
-	int		flag;
-	int		rrb = 0;
-	int		rb = 0;
-
-	if (b->head == NULL)
-		return ;
 	lst = b->head;
-	size = ft_dequesize(b->head);
-	i = 0;
-	flag = 0;
 	while (lst)
 	{
-		count = counting_rules(a, lst->content, i, flag);
-		if (min == count)
+		num->temp = counting_rules(a, lst->content, num->hi, num->ti);
+		if (min == num->temp)
 			break ;
-		if (flag == 1)
-			i--;
+		if (num->ti == 1)
+			num->hi--;
 		else
-			i++;
-		if (i > (size / 2))
+			num->hi++;
+		if (num->hi > (num->compare / 2))
 		{
-			flag = 1;
-			if (size % 2 == 1)
-				i--;
+			num->ti = 1;
+			if (num->compare % 2 == 1)
+				num->hi--;
 			else
-				i -= 2;
+				num->hi -= 2;
 		}
 		lst = lst->next;
 	}
-	if (flag == 1)
-		rrb = i;
+	return (lst);
+}
+
+void	choose_greed(t_ps *a, t_ps *b, int min)
+{
+	t_deque	*lst;
+	t_rules	rule;
+	t_num	num;
+
+	ft_memset(&rule, 0, sizeof(t_rules));
+	ft_memset(&num, 0, sizeof(t_num));
+	if (b->head == NULL)
+		return ;
+	num.compare = ft_dequesize(b->head);
+	lst = find_min_num(a, b, &num, min);
+	if (num.ti == 1)
+		rule.rrb = num.hi;
 	else
-		rb = i;
-	if (lst == NULL)
-		lst = b->tail;
-	exe_pa(a, b, lst->content, rrb, rb);
+		rule.rb = num.hi;
+	exe_pa(a, b, lst->content, &rule);
 }

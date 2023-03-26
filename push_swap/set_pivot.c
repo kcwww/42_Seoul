@@ -6,11 +6,24 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 18:24:56 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/26 15:57:00 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/27 01:18:20 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	remaining_three(t_ps *a, t_ps *b)
+{
+	int	size;
+
+	size = ft_dequesize(a->head);
+	while (size > 3)
+	{
+		execute_rules("pb", a, b);
+		size--;
+	}
+	sort_three(a, b);
+}
 
 void	partitioning(t_ps *a, t_ps *b, int pivot_a, int pivot_b)
 {
@@ -37,13 +50,7 @@ void	partitioning(t_ps *a, t_ps *b, int pivot_a, int pivot_b)
 			execute_rules("ra", a, b);
 		size--;
 	}
-	size = ft_dequesize(a->head);
-	while (size > 3)
-	{
-		execute_rules("pb", a, b);
-		size--;
-	}
-	sort_three(a, b);
+	remaining_three(a, b);
 }
 
 void	set_pivot(t_ps *a, t_ps *b)
@@ -63,11 +70,7 @@ void	set_pivot(t_ps *a, t_ps *b)
 		pivot_b = swap;
 	}
 	partitioning(a, b, pivot_a, pivot_b);
-	//print_stack("after partitioning", a, b);
 	while (b->head)
-	{
 		greeding(a, b);
-		//print_stack("hoho", a, b);
-	}
 	go_sorting(a, b);
 }

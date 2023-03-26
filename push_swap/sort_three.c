@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 19:40:22 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/10 20:37:40 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/27 00:30:08 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,27 @@
 
 static void	sorting_three(t_ps *a, t_ps *b, t_three *t)
 {
-	int		head;
-	int		next;
-
-	head = a->head->content;
-	next = a->head->next->content;
-	if (head == t->min)
+	if (a->head->content == t->min)
 	{
 		execute_rules("pb", a, b);
 		execute_rules("sa", a, b);
 		execute_rules("pa", a, b);
 	}
-	else if (head == t->mid)
+	else if (a->head->content == t->mid)
 	{
-		if (next == t->min)
+		if (a->head->next->content == t->min)
 			execute_rules("sa", a, b);
-		else if (next == t->max)
+		else if (a->head->next->content == t->max)
 			execute_rules("rra", a, b);
 	}
-	else if (head == t->max)
+	else if (a->head->content == t->max)
 	{
-		if (next == t->mid)
+		if (a->head->next->content == t->mid)
 		{
 			execute_rules("ra", a, b);
 			execute_rules("sa", a, b);
 		}
-		else if (next == t->min)
+		else if (a->head->next->content == t->min)
 			execute_rules("ra", a, b);
 	}
 }

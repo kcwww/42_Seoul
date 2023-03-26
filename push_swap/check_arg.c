@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:10:00 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/19 12:49:16 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/27 00:06:45 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ int	check_arg(int argc, char **argv)
 	int	i;
 	int	re;
 
-	if (argc <= 1)
-		return (-1);
 	re = check_num(argc, argv);
 	if (re == -1)
 		return (-1);
