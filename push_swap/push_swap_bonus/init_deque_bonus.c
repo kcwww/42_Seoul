@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_deque.c                                       :+:      :+:    :+:   */
+/*   init_deque_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:25:33 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/30 02:35:17 by chanwookim       ###   ########.fr       */
+/*   Updated: 2023/03/30 02:35:24 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	init_deque(int argc, char **argv, t_ps *a)
 {

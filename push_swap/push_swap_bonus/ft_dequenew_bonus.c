@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_deque.c                                       :+:      :+:    :+:   */
+/*   ft_dequenew_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/25 19:25:33 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/30 02:35:17 by chanwookim       ###   ########.fr       */
+/*   Created: 2023/02/16 12:45:07 by chanwoki          #+#    #+#             */
+/*   Updated: 2023/03/30 02:29:02 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-int	init_deque(int argc, char **argv, t_ps *a)
+t_deque	*ft_dequenew(int content)
 {
-	int		i;
-	t_deque	*lst;
+	t_deque	*re;
 
-	i = 2;
-	lst = ft_dequenew(ft_atoi(argv[1]));
-	if (lst == NULL)
-		return (-1);
-	a->head = lst;
-	while (i < argc)
-	{
-		lst->next = ft_dequenew(ft_atoi(argv[i]));
-		if (lst == NULL)
-		{
-			ft_dequeclear(a);
-			return (-1);
-		}
-		lst->next->previous = lst;
-		lst = lst->next;
-		i++;
-	}
-	a->tail = lst;
-	return (1);
+	re = (t_deque *)malloc(sizeof(t_deque));
+	if (re == NULL)
+		return (NULL);
+	re->content = content;
+	re->next = NULL;
+	re->previous = NULL;
+	return (re);
 }

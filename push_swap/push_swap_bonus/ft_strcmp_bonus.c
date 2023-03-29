@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_deque.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/25 19:25:33 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/30 02:35:17 by chanwookim       ###   ########.fr       */
+/*   Created: 2022/11/11 18:19:05 by chanwoki          #+#    #+#             */
+/*   Updated: 2023/03/30 02:16:12 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-int	init_deque(int argc, char **argv, t_ps *a)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	int		i;
-	t_deque	*lst;
+	size_t			i;
 
-	i = 2;
-	lst = ft_dequenew(ft_atoi(argv[1]));
-	if (lst == NULL)
-		return (-1);
-	a->head = lst;
-	while (i < argc)
+	i = 0;
+	while (s1[i] && s2[i])
 	{
-		lst->next = ft_dequenew(ft_atoi(argv[i]));
-		if (lst == NULL)
-		{
-			ft_dequeclear(a);
-			return (-1);
-		}
-		lst->next->previous = lst;
-		lst = lst->next;
+		if (s1[i] != s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 		i++;
 	}
-	a->tail = lst;
-	return (1);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

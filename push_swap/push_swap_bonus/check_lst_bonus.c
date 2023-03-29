@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_deque.c                                       :+:      :+:    :+:   */
+/*   check_lst_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/25 19:25:33 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/30 02:35:17 by chanwookim       ###   ########.fr       */
+/*   Created: 2023/01/18 15:24:36 by chanwoki          #+#    #+#             */
+/*   Updated: 2023/03/30 02:26:42 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-int	init_deque(int argc, char **argv, t_ps *a)
+int	check_lst(t_ps *lst)
 {
-	int		i;
-	t_deque	*lst;
+	size_t	i;
+	t_deque	*temp;
 
-	i = 2;
-	lst = ft_dequenew(ft_atoi(argv[1]));
-	if (lst == NULL)
-		return (-1);
-	a->head = lst;
-	while (i < argc)
+	i = 0;
+	if (lst->head == NULL)
+		return (0);
+	temp = lst->head;
+	while (temp)
 	{
-		lst->next = ft_dequenew(ft_atoi(argv[i]));
-		if (lst == NULL)
-		{
-			ft_dequeclear(a);
-			return (-1);
-		}
-		lst->next->previous = lst;
-		lst = lst->next;
+		temp = temp->next;
 		i++;
+		if (i == 3)
+			return (3);
 	}
-	a->tail = lst;
+	if (i == 2)
+		return (2);
 	return (1);
 }

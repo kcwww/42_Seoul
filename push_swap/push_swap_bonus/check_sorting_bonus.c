@@ -1,39 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_deque.c                                       :+:      :+:    :+:   */
+/*   check_sorting.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/25 19:25:33 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/30 02:35:17 by chanwookim       ###   ########.fr       */
+/*   Created: 2023/03/10 15:35:44 by chanwoki          #+#    #+#             */
+/*   Updated: 2023/03/30 01:52:58 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-int	init_deque(int argc, char **argv, t_ps *a)
+int	check_sorting_bonus(t_ps *a, t_ps *b)
 {
-	int		i;
 	t_deque	*lst;
+	int		temp;
+	int		compare;
 
-	i = 2;
-	lst = ft_dequenew(ft_atoi(argv[1]));
-	if (lst == NULL)
-		return (-1);
-	a->head = lst;
-	while (i < argc)
+	if (b->head != NULL)
+		return (0);
+	lst = a->head;
+	temp = lst->content;
+	lst = lst->next;
+	while (lst)
 	{
-		lst->next = ft_dequenew(ft_atoi(argv[i]));
-		if (lst == NULL)
-		{
-			ft_dequeclear(a);
-			return (-1);
-		}
-		lst->next->previous = lst;
+		compare = lst->content;
 		lst = lst->next;
-		i++;
+		if (temp > compare)
+			return (0);
+		temp = compare;
 	}
-	a->tail = lst;
 	return (1);
 }
