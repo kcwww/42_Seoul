@@ -6,7 +6,7 @@
 /*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:44:49 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/30 03:02:02 by chanwookim       ###   ########.fr       */
+/*   Updated: 2023/03/30 12:43:17 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,13 @@ static void	exe_s(char *rule, t_num num, t_ps *a, t_ps *b)
 	check_a = num.hi;
 	check_b = num.ti;
 	if (ft_strncmp(rule, "sa", 2) == 0)
-	{
-		if (rule_sa(check_a, a))
-			ft_printf("sa\n");
-	}
+		rule_sa(check_a, a);
 	else if (ft_strncmp(rule, "sb", 2) == 0)
-	{
-		if (rule_sb(check_b, b))
-			ft_printf("sb\n");
-	}
+		rule_sb(check_b, b);
 	else if (ft_strncmp(rule, "ss", 2) == 0)
 	{
-		if (rule_sa(check_a, a) && rule_sb(check_b, b))
-			ft_printf("ss\n");
+		rule_sa(check_a, a);
+		rule_sb(check_b, b);
 	}
 }
 
@@ -44,15 +38,9 @@ static void	exe_push(char *rule, t_num num, t_ps *a, t_ps *b)
 	check_a = num.hi;
 	check_b = num.ti;
 	if (ft_strncmp(rule, "pa", 2) == 0)
-	{
-		if (rule_pa(check_b, a, b))
-			ft_printf("pa\n");
-	}
+		rule_pa(check_b, a, b);
 	else if (ft_strncmp(rule, "pb", 2) == 0)
-	{
-		if (rule_pb(check_a, a, b))
-			ft_printf("pb\n");
-	}
+		rule_pb(check_a, a, b);
 }
 
 static void	exe_re(char *rule, t_num num, t_ps *a, t_ps *b)
@@ -63,19 +51,13 @@ static void	exe_re(char *rule, t_num num, t_ps *a, t_ps *b)
 	check_a = num.hi;
 	check_b = num.ti;
 	if (ft_strncmp(rule, "ra", 2) == 0)
-	{
-		if (rule_ra(check_a, a))
-			ft_printf("ra\n");
-	}
+		rule_ra(check_a, a);
 	else if (ft_strncmp(rule, "rb", 2) == 0)
-	{
-		if (rule_rb(check_b, b))
-			ft_printf("rb\n");
-	}
+		rule_rb(check_b, b);
 	else if (ft_strncmp(rule, "rr", 2) == 0 && ft_strlen(rule) == 2)
 	{
-		if (rule_ra(check_a, a) && rule_rb(check_b, b))
-			ft_printf("rr\n");
+		rule_ra(check_a, a);
+		rule_rb(check_b, b);
 	}
 }
 
@@ -87,19 +69,13 @@ static void	exe_rre(char *rule, t_num num, t_ps *a, t_ps *b)
 	check_a = num.hi;
 	check_b = num.ti;
 	if (ft_strncmp(rule, "rra", 3) == 0)
-	{
-		if (rule_rra(check_a, a))
-			ft_printf("rra\n");
-	}
+		rule_rra(check_a, a);
 	else if (ft_strncmp(rule, "rrb", 3) == 0)
-	{
-		if (rule_rrb(check_b, b))
-			ft_printf("rrb\n");
-	}
+		rule_rrb(check_b, b);
 	else if (ft_strncmp(rule, "rrr", 3) == 0)
 	{
-		if (rule_rra(check_a, a) && rule_rrb(check_b, b))
-			ft_printf("rrr\n");
+		rule_rra(check_a, a);
+		rule_rrb(check_b, b);
 	}
 }
 

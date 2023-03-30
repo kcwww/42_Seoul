@@ -6,12 +6,12 @@
 #    By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/18 18:48:59 by chanwoki          #+#    #+#              #
-#    Updated: 2023/03/30 03:08:39 by chanwookim       ###   ########.fr        #
+#    Updated: 2023/03/30 12:09:23 by chanwookim       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=push_swap
-BONUS=Checker
+BONUS=checker
 
 CFLAGS=-Wall -Wextra -Werror
 
@@ -65,7 +65,7 @@ re :
 	
 bonus :
 	make all
-	$(CC) $(CFLAGS) -g3 -fsanitize=address -L . -l $(FT) -I $(BONUS_PATH) $(BONUS_WITH_PATH) -o $(BONUS)
+	$(CC) $(CFLAGS) -L . -l $(FT) -I $(BONUS_PATH) $(BONUS_WITH_PATH) -o $(BONUS)
 
 libft :
 	make all -C $(LIBFT)/

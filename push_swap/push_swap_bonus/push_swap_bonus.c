@@ -6,7 +6,7 @@
 /*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:51:54 by chanwookim        #+#    #+#             */
-/*   Updated: 2023/03/30 03:11:57 by chanwookim       ###   ########.fr       */
+/*   Updated: 2023/03/30 12:33:55 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	check_leaks(void)
 {
-	system("leaks Checker");
+	system("leaks checker");
 }
 
 void    free_str(char **line)
@@ -47,17 +47,24 @@ int main(int argc, char **argv)
 	}
 	while ((rule = get_next_line(0)) != NULL)
     {
-        ft_printf("rule is %s", rule);
-        if (check_str(rule) != NULL)
-            execute_rules(rule, &a, &b);
-        else
-        {
-            ft_printf("Error\n");
-            ft_dequeclear(&a);
-	        ft_dequeclear(&b);
-            return (1);
-        }
-        free_str(&rule);
+        rule = remove_newline(rule);
+		if (rule == NULL)
+		{
+			ft_dequeclear(&a);
+			ft_dequeclear(&b);
+			return (1);
+		}
+		if (check_str(rule) == 1)
+			execute_rules(rule, &a, &b);
+		else
+		{
+			free_str(&rule);
+			ft_dequeclear(&a);
+			ft_dequeclear(&b);
+			ft_printf("Error\n");
+			return (1);
+		}
+		free_str(&rule);
     }
     if (check_sorting_bonus(&a, &b) == 1)
         ft_printf("OK\n");

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 18:10:00 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/27 00:06:45 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/30 12:57:01 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,28 @@ int	check_num(int argc, char **argv)
 	return (1);
 }
 
+static int	check_null(int argc, char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (i < argc)
+	{
+		if (argv[i][0] == 0)
+			return (-1);
+		i++;
+	}
+	return (1);
+}
+
 int	check_arg(int argc, char **argv)
 {
 	int	i;
 	int	re;
 
+	re = check_null(argc, argv);
+	if (re == -1)
+		return (-1);
 	re = check_num(argc, argv);
 	if (re == -1)
 		return (-1);

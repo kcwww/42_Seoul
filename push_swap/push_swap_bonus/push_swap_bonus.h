@@ -6,7 +6,7 @@
 /*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:24:56 by chanwookim        #+#    #+#             */
-/*   Updated: 2023/03/30 03:12:11 by chanwookim       ###   ########.fr       */
+/*   Updated: 2023/03/30 11:49:15 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ int		rule_rb(int check_b, t_ps *b);
 int		rule_rra(int check_a, t_ps *a);
 int		rule_rrb(int check_b, t_ps *b);
 int		init_deque(int argc, char **argv, t_ps *a);
-char 	*check_str(char *rule);
+int 	check_str(char *rule);
 int 	check_rules(char *rule);
 void    free_str(char **line);
+char    *remove_newline(char *rule);
 
 #endif
