@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
+/*   By: kcw <kcw@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:24:56 by chanwookim        #+#    #+#             */
-/*   Updated: 2023/03/30 11:49:15 by chanwookim       ###   ########.fr       */
+/*   Updated: 2023/03/31 14:08:55 by kcw              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ typedef struct s_ps
 	t_deque	*lst;
 }	t_ps;
 
-int	    check_arg(int argc, char **argv);
-int	    check_sorting_bonus(t_ps *a, t_ps *b);
+int		check_arg(int argc, char **argv);
+int		check_sorting_bonus(t_ps *a, t_ps *b);
 void	ft_dequeclear(t_ps *deque);
 int		ft_strcmp(const char *s1, const char *s2);
 void	execute_rules(char *rule, t_ps *a, t_ps *b);
@@ -53,9 +53,9 @@ int		rule_rb(int check_b, t_ps *b);
 int		rule_rra(int check_a, t_ps *a);
 int		rule_rrb(int check_b, t_ps *b);
 int		init_deque(int argc, char **argv, t_ps *a);
-int 	check_str(char *rule);
-int 	check_rules(char *rule);
-void    free_str(char **line);
-char    *remove_newline(char *rule);
+int		check_str(char *rule);
+int		check_rules(char *rule);
+void	free_str(char **line);
+char	*remove_newline(char *rule);
 
 #endif

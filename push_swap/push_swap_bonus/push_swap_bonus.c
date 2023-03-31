@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
+/*   By: kcw <kcw@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:51:54 by chanwookim        #+#    #+#             */
-/*   Updated: 2023/03/30 12:33:55 by chanwookim       ###   ########.fr       */
+/*   Updated: 2023/03/31 14:10:01 by kcw              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	check_leaks(void)
 	system("leaks checker");
 }
 
-void    free_str(char **line)
+void	free_str(char **line)
 {
-    if (line != NULL)
+	if (line != NULL)
 	{
 		if (*line != NULL)
 		{
@@ -29,13 +29,13 @@ void    free_str(char **line)
 	}
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_ps	a;
 	t_ps	b;
-    char    *rule;
+	char	*rule;
 
-    atexit(check_leaks);
+	atexit(check_leaks);
 	ft_memset(&a, 0, sizeof(t_ps));
 	ft_memset(&b, 0, sizeof(t_ps));
 	if (argc == 1)
@@ -46,8 +46,8 @@ int main(int argc, char **argv)
 		return (-1);
 	}
 	while ((rule = get_next_line(0)) != NULL)
-    {
-        rule = remove_newline(rule);
+	{
+		rule = remove_newline(rule);
 		if (rule == NULL)
 		{
 			ft_dequeclear(&a);

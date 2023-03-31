@@ -3,47 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   check_str_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
+/*   By: kcw <kcw@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 02:00:38 by chanwookim        #+#    #+#             */
-/*   Updated: 2023/03/30 12:02:43 by chanwookim       ###   ########.fr       */
+/*   Updated: 2023/03/31 14:06:34 by kcw              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-char    *remove_newline(char *rule)
+char	*remove_newline(char *rule)
 {
-    int     len;
-    int     idx;
-    char    *str;
+	int		len;
+	int		idx;
+	char	*str;
 
-    len = ft_strlen(rule);
-    idx = 0;
-    str = (char *)malloc(sizeof(char) * len);
-    if (str == NULL)
-    {
-        free(rule);
-        return (NULL);
-    }
-    str[len - 1] = 0;
-    while (idx + 1 < len)
-    {
-        str[idx] = rule[idx];
-        idx++;
-    }
-    free_str(&rule);
-    return (str);
+	len = ft_strlen(rule);
+	idx = 0;
+	str = (char *)malloc(sizeof(char) * len);
+	if (str == NULL)
+	{
+		free(rule);
+		return (NULL);
+	}
+	str[len - 1] = 0;
+	while (idx + 1 < len)
+	{
+		str[idx] = rule[idx];
+		idx++;
+	}
+	free_str(&rule);
+	return (str);
 }
 
 int	check_str(char *rule)
 {
-    int len;
+	int	len;
 
-    len = ft_strlen(rule);
-    if (len > 4 || len == 0)
-        return (-1);
-    if (check_rules(rule) == 1)
-        return (1);
-    return (-1);
+	len = ft_strlen(rule);
+	if (len > 4 || len == 0)
+		return (-1);
+	if (check_rules(rule) == 1)
+		return (1);
+	return (-1);
 }
