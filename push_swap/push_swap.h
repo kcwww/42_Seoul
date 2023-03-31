@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 17:29:07 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/30 01:28:03 by chanwookim       ###   ########.fr       */
+/*   Updated: 2023/03/31 16:49:55 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int		check_arg(int argc, char **argv);
 int		ft_strcmp(const char *s1, const char *s2);
 int		init_deque(int argc, char **argv, t_ps *a);
 int		check_sorting(t_ps *a);
-void	set_pivot(t_ps *a, t_ps *b);
+int		set_pivot(t_ps *a, t_ps *b);
 int		ft_dequesize(t_deque *lst);
 void	sort_three(t_ps *a, t_ps *b);
 void	greeding(t_ps *a, t_ps *b);
@@ -85,5 +85,6 @@ void	ex_both_big(int pa_num, t_ps *a, t_ps *b, t_rules *rule);
 void	ex_big_and_small(int pa_num, t_ps *a, t_ps *b, t_rules *rule);
 void	ex_both_small(int pa_num, t_ps *a, t_ps *b, t_rules *rule);
 void	mid_assist(t_num *num, t_ps *a, int pa_num);
+void	select_sort(int *arr, int len);
 
 #endif

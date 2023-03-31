@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 18:24:56 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/27 01:18:20 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/03/31 16:49:31 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,24 +53,57 @@ void	partitioning(t_ps *a, t_ps *b, int pivot_a, int pivot_b)
 	remaining_three(a, b);
 }
 
-void	set_pivot(t_ps *a, t_ps *b)
+static void	list_to_arr(t_ps *a, int *arr)
+{
+	t_deque	*lst;
+	int		i;
+
+	lst = a->head;
+	i = 0;
+	while (lst)
+	{
+		arr[i] = lst->content;
+		lst = lst->next;
+		i++;
+	}
+}
+
+static int	setting_pivot(t_ps *a, int *pia, int *pib)
+{
+	int	len;
+	int	idx;
+	int	*arr;
+
+	len = ft_dequesize(a->head);
+	idx = 0;
+	arr = (int *)malloc(sizeof(int) * len);
+	if (arr == NULL)
+		return (0);
+	list_to_arr(a, arr);
+	select_sort(arr, len);
+	*pia = arr[len / 3];
+	*pib = arr[(len / 3) * 2];
+	free(arr);
+	return (1);
+}
+
+int	set_pivot(t_ps *a, t_ps *b)
 {
 	int		pivot_a;
 	int		pivot_b;
-	int		swap;
 
 	if (a->head->next == NULL)
-		return ;
-	pivot_a = a->head->content;
-	pivot_b = a->tail->content;
-	if (pivot_a > pivot_b)
+		return (0);
+	pivot_a = 0;
+	pivot_b = 0;
+	if (setting_pivot(a, &pivot_a, &pivot_b) == 0)
 	{
-		swap = pivot_a;
-		pivot_a = pivot_b;
-		pivot_b = swap;
+		ft_printf("Error\n");
+		return (0);
 	}
 	partitioning(a, b, pivot_a, pivot_b);
 	while (b->head)
 		greeding(a, b);
 	go_sorting(a, b);
+	return (1);
 }

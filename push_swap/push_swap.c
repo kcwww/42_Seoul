@@ -3,14 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
+/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 19:18:34 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/03/30 01:15:08 by chanwookim       ###   ########.fr       */
+/*   Updated: 2023/03/31 16:49:45 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	select_sort(int *arr, int len)
+{
+	int	i;
+	int	j;
+	int	temp;
+
+	i = 0;
+	while (i < len)
+	{
+		j = i + 1;
+		while (j < len)
+		{
+			if (arr[i] > arr[j])
+			{
+				temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+			j++;
+		}
+		i++;
+	}
+}
 
 int	main(int argc, char **argv)
 {
