@@ -6,11 +6,16 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:57:52 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/06/21 15:21:07 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:17:59 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void	ft_usleep(int msec)
+{
+	usleep(1000 * msec);
+}
 
 t_bool	ft_isdigit(char c)
 {

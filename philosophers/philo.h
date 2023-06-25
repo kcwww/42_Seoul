@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:44:55 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/06/21 15:58:55 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/06/25 17:39:23 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@
 typedef int	t_bool;
 
 typedef struct s_info {
-	int	num_of_philo;
-	int	time_to_die;
-	int	time_to_eat;
-	int	time_to_sleep;
-	int	num_of_must_eat;
+	int				num_of_philo;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				num_of_must_eat;
+	struct timeval	start;
 }	t_info;
 
 typedef struct s_philo {
@@ -50,5 +51,7 @@ char	**ft_split(char const *s, char c);
 t_bool	ft_isdigit(char c);
 t_bool	check_argcs(int argc, char **argv);
 int		ft_atoi(char *str);
+void	ft_usleep(int msec);
+int		get_time(struct timeval start);
 
 #endif
