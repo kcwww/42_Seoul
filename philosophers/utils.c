@@ -6,15 +6,26 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:57:52 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/06/25 16:17:59 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/06/25 20:20:59 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_usleep(int msec)
+void	ft_usleep(int msec, long long time)
 {
-	usleep(1000 * msec);
+	struct timeval	tv;
+	long long		end;
+
+	end = 0;
+	while (1)
+	{
+		usleep(100);
+		gettimeofday(&tv, NULL);
+		end = tv.tv_sec * 1000 + tv.tv_usec / 1000;
+		if (end - time >= msec)
+			break ;
+	}
 }
 
 t_bool	ft_isdigit(char c)
