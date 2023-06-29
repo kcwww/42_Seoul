@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/19 14:38:51 by chanwoki          #+#    #+#              #
-#    Updated: 2023/06/21 15:02:01 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/06/29 17:41:17 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ ARFLAGS=rcsv
 
 RM=rm -f
 
-SRC_FILES=main.c ft_split.c check_argc.c utils.c
+SRC_FILES=main.c ft_split.c check_argc.c utils.c set_philo.c
 
 SRC_OBJECTS = $(SRC_FILES:.c=.o)
 

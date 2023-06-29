@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:44:55 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/06/25 20:13:27 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/06/29 17:40:45 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <sys/time.h>
 # define TRUE 1
 # define FALSE 0
+# define DEAD 1
 
 typedef int	t_bool;
 
@@ -31,21 +32,21 @@ typedef struct s_info {
 	int				time_to_sleep;
 	int				num_of_must_eat;
 	long long		start;
+	int				live;
+	pthread_t		*thread;
+	pthread_mutex_t	*fork;
+	pthread_mutex_t	print;
+	pthread_mutex_t	die;
 }	t_info;
 
 typedef struct s_philo {
 	int				id;
+	int				left_fork;
+	int				right_fork;
 	int				num_of_eat;
-	int				time_to_die;
-	int				time_to_eat;
-	int				time_to_sleep;
-	int				num_of_must_eat;
-	long long		start_time;
 	long long		last_eat;
-	pthread_mutex_t	*fork;
-	pthread_mutex_t	*print;
-	pthread_mutex_t	*eat;
 }	t_philo;
+
 
 char			**ft_split(char const *s, char c);
 t_bool			ft_isdigit(char c);
@@ -53,5 +54,7 @@ t_bool			check_argcs(int argc, char **argv);
 int				ft_atoi(char *str);
 void			ft_usleep(int msec, long long time);
 long long		get_time(long long start);
+t_info			*set_struct(int argc, char **argv);
+void			set_mutex(t_info *info);
 
 #endif
