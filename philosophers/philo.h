@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:44:55 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/06/29 17:40:45 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/06/29 17:57:56 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 # define TRUE 1
 # define FALSE 0
 # define DEAD 1
+# define HOLD 1
+# define LAY 0
 
 typedef int	t_bool;
 
