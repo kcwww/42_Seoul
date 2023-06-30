@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:44:55 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/06/29 17:57:56 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/06/30 17:09:44 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,15 @@ typedef struct s_info {
 	int				num_of_must_eat;
 	long long		start;
 	int				live;
+	int				*tfork;
 	pthread_t		*thread;
-	pthread_mutex_t	*fork;
+	pthread_mutex_t	*mfork;
 	pthread_mutex_t	print;
 	pthread_mutex_t	die;
 }	t_info;
 
 typedef struct s_philo {
 	int				id;
-	int				left_fork;
-	int				right_fork;
 	int				num_of_eat;
 	long long		last_eat;
 }	t_philo;

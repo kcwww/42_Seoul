@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:13:06 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/06/29 17:13:39 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/06/30 17:11:23 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@ void	set_mutex(t_info *info)
 	int	i;
 
 	i = 0;
-	info->fork = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t)
+	info->mfork = (pthread_mutex_t *)malloc(sizeof(pthread_mutex_t)
 			* info->num_of_philo);
-	memset(info->fork, 0, sizeof(pthread_mutex_t) * info->num_of_philo);
+	info->tfork = (int *)malloc(sizeof(int) * info->num_of_philo);
+	memset(info->tfork, 0, sizeof(int) * info->num_of_philo);
 	pthread_mutex_init(&info->print, NULL);
 	pthread_mutex_init(&info->die, NULL);
 	while (i < info->num_of_philo)
 	{
-		pthread_mutex_init(&info->fork[i], NULL);
+		pthread_mutex_init(&info->mfork[i], NULL);
 		i++;
 	}
 	return ;
