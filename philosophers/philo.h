@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:44:55 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/06/30 17:09:44 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/06/30 17:14:44 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void			ft_usleep(int msec, long long time);
 long long		get_time(long long start);
 t_info			*set_struct(int argc, char **argv);
 void			set_mutex(t_info *info);
+void			free_philo(t_info *info);
 
 #endif

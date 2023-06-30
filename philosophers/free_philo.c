@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_philo.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/21 14:43:28 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/06/30 17:12:41 by chanwoki         ###   ########.fr       */
+/*   Created: 2023/06/30 17:12:52 by chanwoki          #+#    #+#             */
+/*   Updated: 2023/06/30 17:13:16 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	main(int argc, char **argv)
+void	free_philo(t_info *info)
 {
-	t_info	*info;
+	int	i;
 
-	if (check_argcs(argc, argv) == FALSE)
-		return (0);
-	info = set_struct(argc, argv);
-	free_philo(info);
-	return (0);
+	i = 0;
+	while (i < info->num_of_philo)
+	{
+		pthread_mutex_destroy(&info->mfork[i]);
+		i++;
+	}
+	pthread_mutex_destroy(&info->print);
+	pthread_mutex_destroy(&info->die);
+	free(info->mfork);
+	free(info->tfork);
+	free(info->thread);
+	free(info);
+	return ;
 }
