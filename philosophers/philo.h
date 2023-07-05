@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:44:55 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/06/30 17:14:44 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/07/05 15:32:13 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@
 
 typedef int	t_bool;
 
+typedef struct s_philo {
+	int				id;
+	int				num_of_eat;
+	long long		last_eat;
+	struct s_philo	*next;
+}	t_philo;
+
 typedef struct s_info {
 	int				num_of_philo;
 	int				time_to_die;
@@ -40,14 +47,8 @@ typedef struct s_info {
 	pthread_mutex_t	*mfork;
 	pthread_mutex_t	print;
 	pthread_mutex_t	die;
+	t_philo			*philo;
 }	t_info;
-
-typedef struct s_philo {
-	int				id;
-	int				num_of_eat;
-	long long		last_eat;
-}	t_philo;
-
 
 char			**ft_split(char const *s, char c);
 t_bool			ft_isdigit(char c);
@@ -58,5 +59,5 @@ long long		get_time(long long start);
 t_info			*set_struct(int argc, char **argv);
 void			set_mutex(t_info *info);
 void			free_philo(t_info *info);
-
+void			philo_start(t_info *info);
 #endif
