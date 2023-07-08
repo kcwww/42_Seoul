@@ -6,24 +6,27 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:57:52 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/06/25 20:20:59 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/07/08 15:47:59 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	ft_usleep(int msec, long long time)
+void	ft_usleep(int msec)
 {
 	struct timeval	tv;
 	long long		end;
+	long long		start;
 
-	end = 0;
+	gettimeofday(&tv, NULL);
+	start = tv.tv_sec * 1000 + tv.tv_usec / 1000;
+	end = start;
 	while (1)
 	{
 		usleep(100);
 		gettimeofday(&tv, NULL);
 		end = tv.tv_sec * 1000 + tv.tv_usec / 1000;
-		if (end - time >= msec)
+		if (end - start >= msec)
 			break ;
 	}
 }

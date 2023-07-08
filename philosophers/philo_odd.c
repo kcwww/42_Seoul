@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_philo.c                                       :+:      :+:    :+:   */
+/*   philo_odd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/30 17:12:52 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/07/08 15:28:46 by chanwoki         ###   ########.fr       */
+/*   Created: 2023/07/05 15:50:32 by chanwoki          #+#    #+#             */
+/*   Updated: 2023/07/08 15:31:16 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	free_philo(t_philo *philo)
+void	philo_odd(t_philo *philo)
 {
 	t_info	*info;
-	int		i;
 
-	i = 0;
 	info = philo[0].info;
-	while (i < info->num_of_philo)
-	{
-		pthread_mutex_destroy(&info->mfork[i]);
-		i++;
-	}
-	pthread_mutex_destroy(&info->print);
-	pthread_mutex_destroy(&info->die);
-	free(info->mfork);
-	free(info->thread);
-	free(info);
-	free(philo);
+	(void)info;
 	return ;
 }
