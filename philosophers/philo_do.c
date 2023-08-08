@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 14:34:33 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/07/08 15:41:38 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/08 14:53:33 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	eat(t_info *info, t_philo *philo)
 	pthread_mutex_unlock(&info->mfork[(idx + 1) % info->num_of_philo]);
 	philo->num_of_eat++;
 }
+
 void	sleep_philo(t_info *info, t_philo *philo)
 {
 	int	idx;
@@ -40,6 +41,7 @@ void	sleep_philo(t_info *info, t_philo *philo)
 	pthread_mutex_unlock(&info->print);
 	ft_usleep(info->time_to_sleep);
 }
+
 void	thinking(t_info *info, t_philo *philo)
 {
 	int	idx;
