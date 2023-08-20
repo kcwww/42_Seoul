@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:44:55 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/20 14:56:26 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/20 16:10:40 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,7 @@ void			thinking(t_info *info, t_philo *philo);
 t_philo			*set_philo(t_info *info);
 int				ft_strcmp(char *s1, char *s2);
 void			print_mutex(t_info *info, char *str, int num);
+int				check_philo_die(t_info *info, t_philo *philo);
+int				check_philo(t_info *info, t_philo *philo);
 
 #endif

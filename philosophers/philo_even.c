@@ -6,26 +6,38 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:50:19 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/20 14:54:42 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/20 16:18:22 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	check_philo_die(t_info *info, t_philo *philo)
+int	even_philo(t_info *info, t_philo *philo)
 {
-	int	flag;
+	if (check_philo(info, philo))
+		return (TRUE);
+	eat(info, philo);
+	if (check_philo(info, philo))
+		return (TRUE);
+	sleep_philo(info, philo);
+	if (check_philo(info, philo))
+		return (TRUE);
+	thinking(info, philo);
+	return (FALSE);
+}
 
-	flag = FALSE;
-	if (get_time(info->start) - philo->last_eat > info->time_to_die)
-	{
-		pthread_mutex_lock(&info->die);
-		print_mutex(info, "die", philo->lfork);
-		info->live = DEAD;
-		pthread_mutex_unlock(&info->die);
-		flag = TRUE;
-	}
-	return (flag);
+int	odd_philo(t_info *info, t_philo *philo)
+{
+	if (check_philo(info, philo))
+		return (TRUE);
+	sleep_philo(info, philo);
+	if (check_philo(info, philo))
+		return (TRUE);
+	thinking(info, philo);
+	if (check_philo(info, philo))
+		return (TRUE);
+	eat(info, philo);
+	return (FALSE);
 }
 
 void	*act_even(void *ptr)
@@ -37,20 +49,15 @@ void	*act_even(void *ptr)
 	info = philo->info;
 	while (TRUE)
 	{
-		if (check_die(info) || philo->num_of_eat == info->num_of_must_eat || \
-			info->num_of_must_eat == 0 || check_philo_die(info, philo))
-			break ;
 		if (philo->lfork % 2 == 0)
 		{
-			eat(info, philo);
-			sleep_philo(info, philo);
-			thinking(info, philo);
+			if (even_philo(info, philo))
+				break ;
 		}
 		else
 		{
-			sleep_philo(info, philo);
-			thinking(info, philo);
-			eat(info, philo);
+			if (odd_philo(info, philo))
+				break ;
 		}
 	}
 	return (NULL);
