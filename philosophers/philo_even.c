@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:50:19 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/07/08 15:46:47 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/20 13:38:06 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	philo_even(t_philo *philo)
 		pthread_create(&info->thread[i], NULL, act_even, &philo[i]);
 		i++;
 	}
-	usleep(200);
+
 	i = 0;
 	while (i < info->num_of_philo)
 	{

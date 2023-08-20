@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:44:55 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/07/08 15:46:37 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/20 14:38:43 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ void			eat(t_info *info, t_philo *philo);
 void			sleep_philo(t_info *info, t_philo *philo);
 void			thinking(t_info *info, t_philo *philo);
 t_philo			*set_philo(t_info *info);
+int				ft_strcmp(char *s1, char *s2);
 
 #endif
