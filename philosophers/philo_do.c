@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 14:34:33 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/20 14:40:19 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/20 14:52:48 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	print_mutex(t_info *info, char *str, int idx)
 		printf("%lld %d is sleeping\n", get_time(info->start), idx + 1);
 	else if (ft_strcmp(str, "think") == 0)
 		printf("%lld %d is thinking\n", get_time(info->start), idx + 1);
+	else if (ft_strcmp(str, "die") == 0)
+		printf("%lld %d died\n", get_time(info->start), idx + 1);
 	pthread_mutex_unlock(&info->print);
 }
 
