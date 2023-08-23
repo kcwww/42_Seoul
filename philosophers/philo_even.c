@@ -6,13 +6,13 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:50:19 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/20 16:18:22 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/24 03:21:44 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	even_philo(t_info *info, t_philo *philo)
+static int	even_philo(t_info *info, t_philo *philo)
 {
 	if (check_philo(info, philo))
 		return (TRUE);
@@ -26,7 +26,7 @@ int	even_philo(t_info *info, t_philo *philo)
 	return (FALSE);
 }
 
-int	odd_philo(t_info *info, t_philo *philo)
+static int	odd_philo(t_info *info, t_philo *philo)
 {
 	if (check_philo(info, philo))
 		return (TRUE);
