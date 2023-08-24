@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:44:55 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/24 03:35:08 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/24 21:12:02 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char			**ft_split(char const *s, char c);
 t_bool			ft_isdigit(char c);
 t_bool			check_argcs(int argc, char **argv);
 int				ft_atoi(char *str);
-void			ft_usleep(int msec);
+void			ft_usleep(t_info *info, t_philo *philo, int msec);
 long long		get_time(long long start);
 t_info			*set_struct(int argc, char **argv);
 void			set_mutex(t_info *info);

@@ -6,23 +6,17 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:43:28 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/24 20:35:24 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/24 21:11:47 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-void	ft_free(void)
-{
-	system("leaks philo");
-}
 
 int	main(int argc, char **argv)
 {
 	t_info	*info;
 	t_philo	*philo;
 
-	atexit(ft_free);
 	if (check_argcs(argc, argv) == FALSE)
 		return (0);
 	info = set_struct(argc, argv);
@@ -32,7 +26,7 @@ int	main(int argc, char **argv)
 	if (info->num_of_philo == 1)
 	{
 		printf("%lld %d has taken a fork\n", get_time(info->start), 1);
-		ft_usleep(info->time_to_die);
+		ft_usleep(info, philo, info->time_to_die);
 		printf("%lld %d is died\n", get_time(info->start), 1);
 		free_philo(philo);
 		return (0);
