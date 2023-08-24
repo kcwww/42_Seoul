@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:43:28 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/24 19:42:59 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/24 20:15:53 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int	main(int argc, char **argv)
 	if (info->num_of_philo == 1)
 	{
 		printf("%lld %d has taken a fork\n", get_time(info->start), 1);
-		printf("%lld %d is died\n", get_time(info->start), 1);
+		printf("%lld %d is died\n", get_time(info->start) + \
+		info->time_to_die, 1);
 		free_philo(philo);
 		return (0);
 	}

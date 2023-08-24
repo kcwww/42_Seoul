@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:50:32 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/24 19:58:16 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/24 20:10:05 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static int	odd_philo(t_info *info, t_philo *philo)
 {
+	if (check_philo(info, philo))
+		return (TRUE);
 	eat(info, philo);
 	if (check_philo(info, philo))
 		return (TRUE);
