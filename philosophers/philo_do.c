@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 14:34:33 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/24 20:15:13 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/24 20:22:57 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,21 @@ void	eat(t_info *info, t_philo *philo)
 {
 	int	idx;
 
-	if (check_philo(info, philo))
-		return ;
 	idx = philo->lfork;
 	pthread_mutex_lock(&info->mfork[idx]);
 	print_mutex(info, "fork", idx);
 	if (check_philo(info, philo))
+	{
+		pthread_mutex_unlock(&info->mfork[idx]);
 		return ;
+	}
 	pthread_mutex_lock(&info->mfork[(idx + 1) % info->num_of_philo]);
 	if (check_philo(info, philo))
+	{
+		pthread_mutex_unlock(&info->mfork[idx]);
+		pthread_mutex_unlock(&info->mfork[(idx + 1) % info->num_of_philo]);
 		return ;
+	}
 	print_mutex(info, "fork", idx);
 	print_mutex(info, "eat", idx);
 	philo->last_eat = get_time(info->start);
@@ -49,8 +54,6 @@ void	eat(t_info *info, t_philo *philo)
 	pthread_mutex_unlock(&info->mfork[idx]);
 	pthread_mutex_unlock(&info->mfork[(idx + 1) % info->num_of_philo]);
 	philo->num_of_eat++;
-	if (check_philo(info, philo))
-		return ;
 }
 
 void	sleep_philo(t_info *info, t_philo *philo)
