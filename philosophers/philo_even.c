@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:50:19 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/24 03:21:44 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/24 21:32:38 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 static int	even_philo(t_info *info, t_philo *philo)
 {
-	if (check_philo(info, philo))
+	if (check_philo(info))
 		return (TRUE);
 	eat(info, philo);
-	if (check_philo(info, philo))
+	if (check_philo(info))
 		return (TRUE);
 	sleep_philo(info, philo);
-	if (check_philo(info, philo))
+	if (check_philo(info))
 		return (TRUE);
 	thinking(info, philo);
 	return (FALSE);
@@ -28,13 +28,13 @@ static int	even_philo(t_info *info, t_philo *philo)
 
 static int	odd_philo(t_info *info, t_philo *philo)
 {
-	if (check_philo(info, philo))
+	if (check_philo(info))
 		return (TRUE);
 	sleep_philo(info, philo);
-	if (check_philo(info, philo))
+	if (check_philo(info))
 		return (TRUE);
 	thinking(info, philo);
-	if (check_philo(info, philo))
+	if (check_philo(info))
 		return (TRUE);
 	eat(info, philo);
 	return (FALSE);
@@ -75,6 +75,8 @@ void	philo_even(t_philo *philo)
 		pthread_create(&info->thread[i], NULL, act_even, &philo[i]);
 		i++;
 	}
+	usleep(200);
+	monitoring(info, philo);
 	i = 0;
 	while (i < info->num_of_philo)
 	{

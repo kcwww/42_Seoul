@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:57:52 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/24 21:12:09 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/24 21:28:39 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	ft_strcmp(char *s1, char *s2)
 	return ((unsigned char)s1[idx] - (unsigned char)s2[idx]);
 }
 
-void	ft_usleep(t_info *info, t_philo *philo, int msec)
+void	ft_usleep(t_info *info, int msec)
 {
 	struct timeval	tv;
 	long long		end;
@@ -42,7 +42,7 @@ void	ft_usleep(t_info *info, t_philo *philo, int msec)
 		usleep(100);
 		gettimeofday(&tv, NULL);
 		end = tv.tv_sec * 1000 + tv.tv_usec / 1000;
-		if (check_philo(info, philo))
+		if (check_philo(info))
 			break ;
 		if (end - start >= msec)
 			break ;
