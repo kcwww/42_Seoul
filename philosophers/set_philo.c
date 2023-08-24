@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:13:06 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/07/08 15:42:43 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/24 19:35:28 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,8 @@ t_philo	*set_philo(t_info *info)
 	return (philo);
 }
 
-t_info	*set_struct(int argc, char **argv)
+t_bool	check_info(t_info *info, int argc, char **argv)
 {
-	t_info			*info;
-	struct timeval	tv;
-
-	info = (t_info *)malloc(sizeof(t_info));
-	memset(info, 0, sizeof(t_info));
 	info->num_of_philo = ft_atoi(argv[1]);
 	info->time_to_die = ft_atoi(argv[2]);
 	info->time_to_eat = ft_atoi(argv[3]);
@@ -63,6 +58,27 @@ t_info	*set_struct(int argc, char **argv)
 		info->num_of_must_eat = ft_atoi(argv[5]);
 	else
 		info->num_of_must_eat = -1;
+	if (info->num_of_philo < 1 || info->time_to_die < 1
+		|| info->time_to_eat < 1 || info->time_to_sleep < 1)
+	{
+		printf("Error: Invalid argument\n");
+		return (FALSE);
+	}
+	return (TRUE);
+}
+
+t_info	*set_struct(int argc, char **argv)
+{
+	t_info			*info;
+	struct timeval	tv;
+
+	info = (t_info *)malloc(sizeof(t_info));
+	memset(info, 0, sizeof(t_info));
+	if (check_info(info, argc, argv) == FALSE)
+	{
+		free(info);
+		return (NULL);
+	}
 	gettimeofday(&tv, NULL);
 	info->start = tv.tv_sec * 1000 + tv.tv_usec / 1000;
 	info->thread = (pthread_t *)malloc(sizeof(pthread_t) * info->num_of_philo);

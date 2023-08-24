@@ -6,16 +6,14 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 15:50:32 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/24 03:29:16 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/24 19:58:16 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static int	even_philo(t_info *info, t_philo *philo)
+static int	odd_philo(t_info *info, t_philo *philo)
 {
-	if (check_philo(info, philo))
-		return (TRUE);
 	eat(info, philo);
 	if (check_philo(info, philo))
 		return (TRUE);
@@ -27,12 +25,11 @@ static int	even_philo(t_info *info, t_philo *philo)
 	return (FALSE);
 }
 
-static int	odd_philo(t_info *info, t_philo *philo)
+static int	even_philo(t_info *info, t_philo *philo)
 {
 	if (check_philo(info, philo))
 		return (TRUE);
 	sleep_philo(info, philo);
-	usleep(200);
 	if (check_philo(info, philo))
 		return (TRUE);
 	thinking(info, philo);
@@ -53,12 +50,12 @@ void	*act_odd(void *ptr)
 	{
 		if (philo->lfork % 2 == 0)
 		{
-			if (even_philo(info, philo))
+			if (odd_philo(info, philo))
 				break ;
 		}
 		else
 		{
-			if (odd_philo(info, philo))
+			if (even_philo(info, philo))
 				break ;
 		}
 	}
