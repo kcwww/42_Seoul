@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/08 14:34:33 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/25 17:01:15 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/25 19:00:00 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 void	print_mutex(t_info *info, char *str, int idx)
 {
-	if (check_philo(info) && ft_strcmp(str, "die") != 0)
-		return ;
 	pthread_mutex_lock(&info->print);
+	if (check_philo(info) && ft_strcmp(str, "die") != 0)
+	{
+		pthread_mutex_unlock(&info->print);
+		return ;
+	}
 	if (ft_strcmp(str, "fork") == 0)
 		printf("%lld %d has taken a fork\n", get_time(info->start), idx + 1);
 	else if (ft_strcmp(str, "eat") == 0)
