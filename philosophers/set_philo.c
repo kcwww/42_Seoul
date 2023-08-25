@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 17:13:06 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/25 15:27:49 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/25 19:21:08 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ t_philo	*set_philo(t_info *info)
 		philo[i].rfork = (i + 1) % info->num_of_philo;
 		philo[i].last_eat = info->start;
 		philo[i].info = info;
-		philo[i].eat_time = &info->mfork[i];
-		philo[i].eat_num = &info->mfork[i];
+		pthread_mutex_init(&philo[i].eat_time, NULL);
+		pthread_mutex_init(&philo[i].eat_num, NULL);
 		i++;
 	}
 	return (philo);

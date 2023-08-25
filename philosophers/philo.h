@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 14:44:55 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/25 15:26:57 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/25 19:20:22 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ typedef struct s_philo {
 	int				rfork;
 	long long		last_eat;
 	t_info			*info;
-	pthread_mutex_t	*eat_time;
-	pthread_mutex_t	*eat_num;
+	pthread_mutex_t	eat_time;
+	pthread_mutex_t	eat_num;
 }	t_philo;
 
 char			**ft_split(char const *s, char c);
