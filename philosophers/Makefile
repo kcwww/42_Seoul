@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/19 14:38:51 by chanwoki          #+#    #+#              #
-#    Updated: 2023/08/20 16:11:13 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/08/25 15:30:18 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC_OBJECTS = $(SRC_FILES:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJECTS)
-	$(CC) $(CFLAGS) $(SRC_FILES) -o $(NAME)
+	$(CC) $(CFLAGS) $(SRC_FILES) -o $(NAME) -g -fsanitize=thread
 
 clean :
 	$(RM) $(SRC_OBJECTS)
