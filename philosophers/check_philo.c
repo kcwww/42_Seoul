@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/20 16:09:39 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/25 15:27:24 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/08/25 15:50:07 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	check_philo_die(t_info *info, t_philo *philo)
 	if (time > info->time_to_die)
 	{
 		pthread_mutex_lock(&info->die);
-		print_mutex(info, "die", philo->lfork);
 		info->live = DEAD;
 		pthread_mutex_unlock(&info->die);
+		print_mutex(info, "die", philo->lfork);
 		flag = TRUE;
 	}
 	return (flag);
