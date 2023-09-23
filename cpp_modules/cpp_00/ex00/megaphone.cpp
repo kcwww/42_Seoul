@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:10:37 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/23 15:10:53 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/23 16:23:38 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 
 	i = 1;
 	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::flush;
 	else
 	{
 		while (i < argc)
@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 			j = 0;
 			while (argv[i][j])
 			{
-				std::cout << (char)toupper(argv[i][j]);
+				std::cout << static_cast<char>(toupper(argv[i][j]));
 				j++;
 			}
 			i++;

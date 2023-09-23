@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 13:48:35 by chanwoki          #+#    #+#              #
-#    Updated: 2023/09/23 13:51:37 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/09/23 15:34:50 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = megaphone
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC_FILES = megaphone.cpp
+SRC_FILES = Megaphone.cpp
 
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
