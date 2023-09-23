@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 13:48:35 by chanwoki          #+#    #+#              #
-#    Updated: 2023/09/23 13:52:29 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/09/23 16:11:43 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = phonebook
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC_FILES = phonebook.cpp
+SRC_FILES = Phonebook.cpp main.cpp
 
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
