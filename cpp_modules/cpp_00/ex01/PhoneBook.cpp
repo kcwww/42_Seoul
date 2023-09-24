@@ -6,12 +6,17 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 16:11:51 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/24 14:29:46 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/24 14:51:34 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
-#include <iomanip>
+#include "PhoneBook.hpp"
+
+PhoneBook::PhoneBook(void)
+{
+  this->_nbContacts = 0;
+  this->size = 0;
+}
 
 void  PhoneBook::addContact(void)
 {
@@ -92,5 +97,10 @@ void PhoneBook::exitContact(void)
 {
   std::cout << "Exit" << std::endl;
 
+  return ;
+}
+
+PhoneBook::~PhoneBook(void)
+{
   return ;
 }
