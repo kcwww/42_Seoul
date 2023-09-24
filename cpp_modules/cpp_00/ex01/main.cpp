@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 16:08:51 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/24 15:28:25 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/24 15:49:02 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ int main()
     else if (command == "SEARCH")
       phonebook.searchContact();
     else if (command == "EXIT")
+    {
+      phonebook.exitContact();
       break;
+    }
     else
       std::cout << "Invalid command" << std::endl;
   }
