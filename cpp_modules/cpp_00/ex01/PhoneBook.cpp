@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 16:11:51 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/24 15:47:52 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/24 15:57:53 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,15 +95,17 @@ void PhoneBook::searchContact() {
         std::cout << "|" << std::setw(10) << i + 1 << "|" << std::setw(10) << firstName << "|" << std::setw(10) << lastName << "|" << std::setw(10) << nickname << "|" << std::endl;
     }
 
-    int index;
+    std::string indexStr;
     std::cout << "Enter the index of the entry to display: ";
-    std::cin >> index;
+    std::cin >> indexStr;
     if (std::cin.eof())
     {
       std::cout << "Entered EOF" << std::endl;
       exit(0);
     }
-    if (index < 1 || index > _nbContacts) {
+    this->isNumber(indexStr);
+    int index = std::stoi(indexStr);
+    if (index < 1 || index > size) {
         std::cout << "Invalid index. Please enter a valid index." << std::endl;
     } else {
       std::string firstName = _contacts[index - 1].getFirstName();
