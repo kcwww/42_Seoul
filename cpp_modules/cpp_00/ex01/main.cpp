@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 16:08:51 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/24 14:47:15 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/24 15:28:25 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,14 @@ int main()
 
   while (true)
   {
-    std::cout << "Enter a command: " << std::endl;
+    std::cout << "Enter a command: " << std::flush;
     std::cin >> command;
-    if (command == "ADD")
+    if (std::cin.eof())
+    {
+      std::cout << "Entered EOF" << std::endl;
+      exit(0);
+    }
+    else if (command == "ADD")
       phonebook.addContact();
     else if (command == "SEARCH")
       phonebook.searchContact();

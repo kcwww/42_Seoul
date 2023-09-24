@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:49:25 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/24 14:39:04 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/24 15:41:03 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class PhoneBook
     void		addContact(void);
     void		searchContact(void);
     void    exitContact(void);
+    void    isNumber(std::string str);
     ~PhoneBook(void);
 };
 
