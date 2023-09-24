@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 16:11:51 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/24 15:57:53 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/24 19:05:28 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 PhoneBook::PhoneBook(void)
 {
   this->_nbContacts = 0;
-  this->size = 0;
+  this->_size = 0;
 }
 
 void  PhoneBook::addContact(void)
@@ -66,13 +66,13 @@ void  PhoneBook::addContact(void)
 
   this->_contacts[this->_nbContacts] = contact;
   this->_nbContacts++;
-  this-> size++;
+  this-> _size++;
   this->_nbContacts %= 8;
-  this->size = this->size > 8 ? 8 : this->size;
+  this->_size = this->_size > 8 ? 8 : this->_size;
 }
 
 void PhoneBook::searchContact() {
-    if (this->size == 0) {
+    if (this->_size == 0) {
         std::cout << "Phonebook is empty. Add contacts first." << std::endl;
         return;
     }
@@ -80,7 +80,7 @@ void PhoneBook::searchContact() {
     std::cout << "|   Index  |First Name| Last Name| Nickname |" << std::endl;
     std::cout << "|----------|----------|----------|----------|" << std::endl;
 
-    for (int i = 0; i < this->size; ++i) {
+    for (int i = 0; i < this->_size; ++i) {
         std::string firstName = _contacts[i].getFirstName();
         std::string lastName = _contacts[i].getLastName();
         std::string nickname = _contacts[i].getNickname();
@@ -105,7 +105,7 @@ void PhoneBook::searchContact() {
     }
     this->isNumber(indexStr);
     int index = std::stoi(indexStr);
-    if (index < 1 || index > size) {
+    if (index < 1 || index > _size) {
         std::cout << "Invalid index. Please enter a valid index." << std::endl;
     } else {
       std::string firstName = _contacts[index - 1].getFirstName();
