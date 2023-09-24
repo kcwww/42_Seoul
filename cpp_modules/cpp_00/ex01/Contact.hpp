@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:49:25 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/23 16:11:07 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/23 19:01:14 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 class Contact
 {
   private:
+    Contact(void);
     std::string	_firstName;
     std::string	_lastName;
     std::string	_nickname;
     std::string	_phoneNumber;
     std::string	_darkestSecret;
   public:
-    Contact(void);
     Contact (
       std::string firstName,
       std::string lastName,
