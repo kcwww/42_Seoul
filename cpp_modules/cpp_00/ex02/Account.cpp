@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 18:57:04 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/27 15:28:03 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/27 15:33:59 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	Account::_displayTimestamp( void )
 
 	time(&ts);
 	strftime(buf, sizeof(buf), "%Y%m%d_%H%M%S", localtime(&ts));
-	std::cout << "[" << buf << "]";
+	std::cout << "[" << buf << "] ";
 }
 
 Account::Account( void )
