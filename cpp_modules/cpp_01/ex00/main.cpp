@@ -6,16 +6,22 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 17:30:13 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/27 17:31:31 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/27 17:51:05 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
+void  check_leaks(void)
+{
+  system("leaks Zombie");
+}
+
 int main(void)
 {
   Zombie	*zombie;
 
+  atexit(check_leaks);
   zombie = newZombie("Zombie_heap");
   zombie->announce();
   delete zombie;
