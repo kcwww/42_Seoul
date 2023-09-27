@@ -6,15 +6,15 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 13:48:35 by chanwoki          #+#    #+#              #
-#    Updated: 2023/09/27 15:47:31 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/09/27 17:56:54 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = HI THIS IS BRAIN
+NAME = HI_THIS_IS_BRAIN
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC_FILES =
+SRC_FILES = main.cpp
 
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
