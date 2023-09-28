@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 13:48:35 by chanwoki          #+#    #+#              #
-#    Updated: 2023/09/27 15:48:35 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/09/28 13:02:07 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Weapon
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC_FILES =
+SRC_FILES = Weapon.cpp HumanA.cpp HumanB.cpp main.cpp
 
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
