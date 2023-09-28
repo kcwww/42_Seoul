@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 18:28:41 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/28 18:40:31 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/28 18:52:23 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() {
+Fixed::Fixed() : _value(0)
+{
   std::cout << "\x1b[33m""Default constructor called""\x1b[0m" << std::endl;
 }
 
-Fixed::Fixed(Fixed const &ref) {
-  *this = ref;
+Fixed::Fixed(const Fixed &ref) {
   std::cout << "\x1b[35m""Copy constructor called""\x1b[0m" << std::endl;
+  *this = ref;
 }
 
 Fixed::~Fixed() {
@@ -28,12 +29,11 @@ Fixed::~Fixed() {
 }
 
 Fixed&	Fixed::operator=(Fixed const &ref) {
-  if (this != &ref) {
-    //compose deep-copy with your own class!
-    std::cout << "\x1b[34m""Copy assignment operator called""\x1b[0m" << std::endl;
+  std::cout << "\x1b[34m""Copy assignment operator called""\x1b[0m" << std::endl;
+  if (this != &ref)
+  {
+    this->_value = ref.getRawBits();
   }
-  else
-    std::cout << "\x1b[34m""Copy assignment operator with same instance""\x1b[0m" << std::endl;
   return (*this);
 }
 
