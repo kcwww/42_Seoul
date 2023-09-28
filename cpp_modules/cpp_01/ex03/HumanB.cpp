@@ -6,15 +6,14 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 18:03:31 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/28 13:05:00 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/28 13:09:20 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) : _name(name)
+HumanB::HumanB(std::string name) : _name(name), _weapon(NULL)
 {
-  this->_weapon = NULL;
   std::cout << "HumanB constructor called" << std::endl;
   return ;
 }
