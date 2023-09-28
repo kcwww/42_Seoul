@@ -6,15 +6,15 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 13:48:35 by chanwoki          #+#    #+#              #
-#    Updated: 2023/09/27 15:50:02 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/09/28 16:34:31 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Harl filter
+NAME = HarlFilter
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC_FILES =
+SRC_FILES = Harl.cpp main.cpp
 
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
