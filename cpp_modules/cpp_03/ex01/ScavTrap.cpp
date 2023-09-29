@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:51:26 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 15:13:03 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:21:48 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,6 @@ void	ScavTrap::guardGate(void)
   }
   std::cout << "ScavTrap " << this->_name << " has enterred in Gate keeper mode" << std::endl;
   this->_mode = "Gate keeper";
+  this->_energyPoints--;
   return ;
 }
