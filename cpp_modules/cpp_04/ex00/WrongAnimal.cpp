@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:32 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 17:39:55 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 18:02:13 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ WrongAnimal::~WrongAnimal() {
 
 WrongAnimal&	WrongAnimal::operator=(WrongAnimal const &ref) {
   if (this != &ref) {
+    this->_type = ref.getType();
     std::cout << "\x1b[34m""[WrongAnimal]: assign operator has called!""\x1b[0m" << std::endl;
   }
   else

@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:28 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 17:40:47 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 18:02:01 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Dog::~Dog() {
 
 Dog&	Dog::operator=(Dog const &ref) {
   if (this != &ref) {
-    //compose deep-copy with your own class!
+    this->_type = ref.getType();
     std::cout << "\x1b[34m""[Dog]: assign operator has called!""\x1b[0m" << std::endl;
   }
   else

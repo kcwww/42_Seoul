@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:14 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 17:44:36 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 18:01:26 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ Animal::~Animal() {
 
 Animal&	Animal::operator=(Animal const &ref) {
   if (this != &ref) {
+    this->_type = ref.getType();
     std::cout << "\x1b[34m""[Animal]: assign operator has called!""\x1b[0m" << std::endl;
   }
   else

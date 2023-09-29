@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:35 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 17:40:40 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 18:02:19 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ WrongCat::~WrongCat() {
 
 WrongCat&	WrongCat::operator=(WrongCat const &ref) {
   if (this != &ref) {
-    //compose deep-copy with your own class!
+    this->_type = ref.getType();
     std::cout << "\x1b[34m""[WrongCat]: assign operator has called!""\x1b[0m" << std::endl;
   }
   else
