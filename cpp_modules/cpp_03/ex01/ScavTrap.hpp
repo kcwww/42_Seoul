@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:47:31 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 15:09:30 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:42:56 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ class ScavTrap : public ClapTrap
     ~ScavTrap(void);
     ScavTrap &operator=(const ScavTrap & rhs);
     void	attack(std::string const & target);
-    void	takeDamage(unsigned int amount);
-    void	beRepaired(unsigned int amount);
     void	guardGate(void);
 };
 

@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:51:26 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 15:21:48 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:43:35 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,34 +69,6 @@ void	ScavTrap::attack(std::string const & target)
     std::cout << "ScavTrap " << this->_name << " attack " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
     this->_energyPoints--;
   }
-  return ;
-}
-
-void	ScavTrap::takeDamage(unsigned int amount)
-{
-  if (amount >= this->_hitPoints)
-    this->_hitPoints = 0;
-  else
-    this->_hitPoints -= amount;
-
-  if (this->_hitPoints == 0)
-    std::cout << "ScavTrap " << this->_name << " is dead!" << std::endl;
-  else
-    std::cout << "ScavTrap " << this->_name << " take " << amount << " points of damage!" << std::endl;
-  return ;
-}
-
-void	ScavTrap::beRepaired(unsigned int amount)
-{
-  if (this->_hitPoints == 0 || this->_energyPoints == 0)
-  {
-    std::cout << "ScavTrap " << this->_name << " can't be repaired, because he is dead!" << std::endl;
-    return ;
-  }
-
-  this->_hitPoints += amount;
-  this->_energyPoints--;
-  std::cout << "ScavTrap " << this->_name << " is repaired by " << amount << " points!" << std::endl;
   return ;
 }
 
