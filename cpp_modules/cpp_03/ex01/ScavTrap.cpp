@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:51:26 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 15:09:50 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:13:03 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,11 @@ void	ScavTrap::beRepaired(unsigned int amount)
 
 void	ScavTrap::guardGate(void)
 {
+  if (this->_energyPoints == 0 || this->_hitPoints == 0)
+  {
+    std::cout << "ScavTrap " << this->_name << " can't enter in Gate keeper mode, because he is dead!" << std::endl;
+    return ;
+  }
   std::cout << "ScavTrap " << this->_name << " has enterred in Gate keeper mode" << std::endl;
   this->_mode = "Gate keeper";
   return ;
