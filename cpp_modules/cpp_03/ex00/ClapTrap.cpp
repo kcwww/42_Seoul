@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:17:12 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 14:38:28 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:14:38 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ClapTrap::ClapTrap(void) : _name("default"), _hitPoints(10), _energyPoints(10), 
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-  std::cout << "ClapTrap Default constructor called" << std::endl;
+  std::cout << "ClapTrap "<< this->_name <<" constructor called" << std::endl;
   return ;
 }
 
