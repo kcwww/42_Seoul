@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:17:14 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 15:52:21 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:52:45 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int main()
 {
   DiamondTrap a("a");
   DiamondTrap b("b");
+
+
 
   a.attack("b");
   b.takeDamage(100);

@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 15:52:27 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 16:37:02 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:52:30 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ DiamondTrap::~DiamondTrap(void)
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name), ScavTrap(name), FragTrap(name), _name(name)
 {
   ClapTrap::_name = name + "_clap_name";
-  this->_energyPoints = ScavTrap::_energyPoints;
+  this->_energyPoints = 50;
   std::cout << "DiamondTrap "<< this->_name <<" constructor called" << std::endl;
   return ;
 }
@@ -56,13 +56,7 @@ DiamondTrap	&DiamondTrap::operator=(const DiamondTrap & rhs)
 
 void	DiamondTrap::attack(std::string const & target)
 {
-  if (this->_hitPoints == 0 || this->_energyPoints == 0)
-  {
-    std::cout << "DiamondTrap is dead" << std::endl;
-    return ;
-  }
-  std::cout << "DiamondTrap " << this->_name << " attack " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
-  this->_energyPoints--;
+  ScavTrap::attack(target);
 }
 
 void	DiamondTrap::whoAmI(void)
