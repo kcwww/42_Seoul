@@ -6,15 +6,15 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 13:48:35 by chanwoki          #+#    #+#              #
-#    Updated: 2023/09/27 15:57:47 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/09/29 18:25:13 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Brain
+NAME = Animal
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC_FILES =
+SRC_FILES = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
