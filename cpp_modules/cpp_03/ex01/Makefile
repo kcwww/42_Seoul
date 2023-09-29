@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 13:48:35 by chanwoki          #+#    #+#              #
-#    Updated: 2023/09/27 15:55:55 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/09/29 14:59:16 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = ScavTrap
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC_FILES =
+SRC_FILES = main.cpp ClapTrap.cpp ScavTrap.cpp
 
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
