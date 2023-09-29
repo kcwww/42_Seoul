@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:51:26 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 15:49:16 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 16:35:10 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ void FragTrap::highFivesGuys(void)
     return ;
   }
   std::cout << "FragTrap " << this->_name << " want high fives!" << std::endl;
+  this->_energyPoints--;
   return ;
 }
