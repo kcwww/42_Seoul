@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 13:48:35 by chanwoki          #+#    #+#              #
-#    Updated: 2023/09/27 15:57:40 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/09/29 17:08:44 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Animal
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC_FILES =
+SRC_FILES = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
