@@ -6,15 +6,15 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:35 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 17:16:12 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:40:40 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat() {
+WrongCat::WrongCat() : WrongAnimal()
+{
+  this->_type = "WrongCat";
   std::cout << "\x1b[33m""[WrongCat]: default constructor has called!""\x1b[0m" << std::endl;
 }
 
@@ -35,4 +35,9 @@ WrongCat&	WrongCat::operator=(WrongCat const &ref) {
   else
     std::cout << "\x1b[34m""[WrongCat]: assign operator with same instance!""\x1b[0m" << std::endl;
   return (*this);
+}
+
+void WrongCat::makeSound() const {
+  std::cout << "Miaou Miaou!" << std::endl;
+  return ;
 }

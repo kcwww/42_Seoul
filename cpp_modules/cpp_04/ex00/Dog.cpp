@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:28 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 17:16:25 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:40:47 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "Dog.hpp"
 
 Dog::Dog() {
+  this->_type = "Dog";
   std::cout << "\x1b[33m""[Dog]: default constructor has called!""\x1b[0m" << std::endl;
 }
 
@@ -35,4 +36,9 @@ Dog&	Dog::operator=(Dog const &ref) {
   else
     std::cout << "\x1b[34m""[Dog]: assign operator with same instance!""\x1b[0m" << std::endl;
   return (*this);
+}
+
+void  Dog::makeSound() const {
+  std::cout << "Wouf Wouf!" << std::endl;
+  return ;
 }

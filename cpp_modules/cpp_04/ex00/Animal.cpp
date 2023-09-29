@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:14 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 17:17:02 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:37:10 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 #include "Animal.hpp"
 
-Animal::Animal() {
+Animal::Animal() : _type("Animal")
+{
   std::cout << "\x1b[33m""[Animal]: default constructor has called!""\x1b[0m" << std::endl;
 }
 
@@ -34,4 +35,13 @@ Animal&	Animal::operator=(Animal const &ref) {
   else
     std::cout << "\x1b[34m""[Animal]: assign operator with same instance!""\x1b[0m" << std::endl;
   return (*this);
+}
+
+void	Animal::makeSound() const {
+  std::cout << "if you see this message, you are in the wrong class!" << std::endl;
+  return ;
+}
+
+std::string	Animal::getType() const {
+  return (this->_type);
 }
