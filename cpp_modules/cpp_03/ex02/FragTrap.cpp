@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:51:26 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 15:44:27 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 15:49:16 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,11 @@ void	FragTrap::attack(std::string const & target)
 
 void FragTrap::highFivesGuys(void)
 {
+  if (this->_energyPoints == 0 || this->_hitPoints == 0)
+  {
+    std::cout << "FragTrap " << this->_name << " can't high fives!" << std::endl;
+    return ;
+  }
   std::cout << "FragTrap " << this->_name << " want high fives!" << std::endl;
   return ;
 }
