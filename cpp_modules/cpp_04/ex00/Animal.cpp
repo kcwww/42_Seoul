@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:14 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 17:37:10 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/09/29 17:44:36 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Animal&	Animal::operator=(Animal const &ref) {
 }
 
 void	Animal::makeSound() const {
-  std::cout << "if you see this message, you are in the wrong class!" << std::endl;
+  std::cout << "Animal Sound!!" << std::endl;
   return ;
 }
 
