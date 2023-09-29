@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 13:48:35 by chanwoki          #+#    #+#              #
-#    Updated: 2023/09/27 15:53:32 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/09/29 12:13:50 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Fixed
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC_FILES =
+SRC_FILES = main.cpp Fixed.cpp
 
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
