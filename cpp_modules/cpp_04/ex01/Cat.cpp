@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:25 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/10/01 17:01:55 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/10/01 17:08:10 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Cat::Cat() {
 Cat::Cat(Cat const &ref) {
   *this = ref;
   this->_brain = new Brain(*ref.getBrain());
-  std::cout << "\x1b[35m""Copy constructor has called!""\x1b[0m" << std::endl;
+  std::cout << "\x1b[35m""[Cat] Copy constructor has called!""\x1b[0m" << std::endl;
 }
 
 Cat::~Cat() {

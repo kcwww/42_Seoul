@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:48:41 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/10/01 14:44:53 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/10/01 17:07:55 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ Brain::Brain() {
 }
 
 Brain::Brain(Brain const &ref) {
-  *this = ref;
+  for (int i = 0; i < 100; i++)
+    this->_ideas[i] = ref.getIdeas()[i];
   std::cout << "\x1b[35m""[Brain]: Copy constructor has called!""\x1b[0m" << std::endl;
 }
 
