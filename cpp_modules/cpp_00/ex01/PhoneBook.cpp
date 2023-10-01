@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 16:11:51 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/24 19:05:28 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/10/01 13:59:49 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,12 +112,14 @@ void PhoneBook::searchContact() {
       std::string lastName = _contacts[index - 1].getLastName();
       std::string nickname = _contacts[index - 1].getNickname();
       std::string phoneNumber = _contacts[index - 1].getPhoneNumber();
+      std::string darkestSecret = _contacts[index - 1].getDarkestSecret();
 
       std::cout << "Index : " << index << std::endl;
       std::cout << "First Name : " << firstName << std::endl;
       std::cout << "Last Name : " << lastName << std::endl;
       std::cout << "Nickname: " << nickname << std::endl;
       std::cout << "Phone Number: " << phoneNumber << std::endl;
+      std::cout << "Darkest Secret: " << darkestSecret << std::endl;
     }
 }
 
