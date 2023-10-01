@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:14 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 18:02:25 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/10/01 14:44:14 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Animal::Animal() : _type("Animal")
 
 Animal::Animal(Animal const &ref) {
   *this = ref;
-  std::cout << "\x1b[35m""[Animal]: deep-copy constructor has called!""\x1b[0m" << std::endl;
+  std::cout << "\x1b[35m""[Animal]: Copy constructor has called!""\x1b[0m" << std::endl;
 }
 
 Animal::~Animal() {

@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:32 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 18:02:13 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/10/01 14:44:35 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ WrongAnimal::WrongAnimal() : _type("WrongAnimal")
 
 WrongAnimal::WrongAnimal(WrongAnimal const &ref) {
   *this = ref;
-  std::cout << "\x1b[35m""[WrongAnimal]: deep-copy constructor has called!""\x1b[0m" << std::endl;
+  std::cout << "\x1b[35m""[WrongAnimal]: Copy constructor has called!""\x1b[0m" << std::endl;
 }
 
 WrongAnimal::~WrongAnimal() {

@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:48:41 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 18:07:12 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/10/01 14:44:53 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Brain::Brain() {
 
 Brain::Brain(Brain const &ref) {
   *this = ref;
-  std::cout << "\x1b[35m""[Brain]: deep-copy constructor has called!""\x1b[0m" << std::endl;
+  std::cout << "\x1b[35m""[Brain]: Copy constructor has called!""\x1b[0m" << std::endl;
 }
 
 Brain::~Brain() {
