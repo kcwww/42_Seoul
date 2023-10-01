@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:25 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 18:01:39 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/10/01 13:42:11 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Cat::Cat() {
 
 Cat::Cat(Cat const &ref) {
   *this = ref;
-  std::cout << "\x1b[35m""[Cat]: deep-copy constructor has called!""\x1b[0m" << std::endl;
+  std::cout << "\x1b[35m""[Cat]: Copy constructor has called!""\x1b[0m" << std::endl;
 }
 
 Cat::~Cat() {

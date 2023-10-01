@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:28 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 18:02:01 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/10/01 13:53:32 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Dog::Dog() {
 
 Dog::Dog(Dog const &ref) {
   *this = ref;
-  std::cout << "\x1b[35m""[Dog]: deep-copy constructor has called!""\x1b[0m" << std::endl;
+  std::cout << "\x1b[35m""[Dog]: Copy constructor has called!""\x1b[0m" << std::endl;
 }
 
 Dog::~Dog() {

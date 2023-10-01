@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:30 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 17:44:19 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/10/01 13:49:57 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,25 @@ void check_leaks()
 int main()
 {
   atexit(check_leaks);
-  const Animal *meta = new Animal();
+  Animal *meta = new Animal();
   const Animal *j = new Dog();
   const Animal *i = new Cat();
 
+  // = operator test
+  *meta = *i;
+
   std::cout << j->getType() << " " << std::endl;
   std::cout << i->getType() << " " << std::endl;
+  std::cout << meta->getType() << " " << std::endl;
   i->makeSound();
   j->makeSound();
+
   meta->makeSound();
 
   delete meta;
   delete j;
   delete i;
+
 
 
   const WrongAnimal *meta2 = new WrongAnimal();
