@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:25 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/10/01 14:44:59 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/10/01 17:01:55 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ Brain *Cat::getBrain() const {
 Cat&	Cat::operator=(Cat const &ref) {
   if (this != &ref) {
     this->_type = ref.getType();
-    delete this->_brain;
     this->_brain = new Brain(*ref.getBrain());
     std::cout << "\x1b[34m""[Cat]: assign operator has called!""\x1b[0m" << std::endl;
   }

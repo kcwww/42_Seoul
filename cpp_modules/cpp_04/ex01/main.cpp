@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:30 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 18:29:52 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/10/01 16:27:34 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,21 @@ int main()
 
  	Animal	*a[4];
 
-	Animal *abc = new Dog();
-	Animal *def = new Cat();
+	Dog *abc = new Dog();
+	Cat *def = new Cat();
 
 	Animal *ggg = abc;
 
 	ggg->makeSound();
 	def->makeSound();
 
+	// ref copy
+	//const Animal *copy = new Dog(*abc);
+
+
 	delete def;
 	delete ggg;
+	//delete copy;
 
 	atexit(checkLeaks);
 	for(int i=0; i<4; i++) {
