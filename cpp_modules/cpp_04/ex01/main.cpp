@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:30 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/10/01 17:14:31 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/10/01 17:23:30 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,12 @@ int main()
 	delete j;
 	delete i;
 
+	Dog *originaldog = new Dog();
+	Dog *copydog = new Dog(*originaldog);
+	*copydog = *originaldog;
 
+	delete originaldog;
+	delete copydog;
 
  	Animal	*a[4];
 
