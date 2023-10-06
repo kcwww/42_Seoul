@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 
 	i = 1;
 	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::flush;
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *"
 	else
 	{
 		while (i < argc)
