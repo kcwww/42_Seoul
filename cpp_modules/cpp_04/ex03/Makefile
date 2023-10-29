@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/23 13:48:35 by chanwoki          #+#    #+#              #
-#    Updated: 2023/09/27 15:58:34 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/10/29 11:09:54 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = AMateria
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC_FILES =
+SRC_FILES = main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp ICharacter.cpp MateriaSource.cpp IMateriaSource.cpp
 
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
