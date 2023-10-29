@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 18:57:04 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/27 15:33:59 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/10/01 17:25:40 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	Account::_displayTimestamp( void )
 
 Account::Account( void )
 {
-  _accountIndex = 0;
+  _accountIndex = _nbAccounts;
+  _nbAccounts++;
   _amount = 0;
   _nbDeposits = 0;
   _nbWithdrawals = 0;
