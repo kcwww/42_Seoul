@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 10:57:53 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/10/29 10:58:08 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:18:36 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Character : public ICharacter
   private:
     std::string _name;
     Amateria *_inventory[4];
-    int _count;
+
   public:
     Character(std::string const &);
     Character(Character const &);
@@ -32,6 +32,6 @@ class Character : public ICharacter
     virtual void equip(AMateria * m);
     virtual void unequip(int idx);
     virtual void use(int idx, ICharacter & target);
-}
+};
 
 #endif

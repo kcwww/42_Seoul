@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 10:56:30 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/10/29 11:12:43 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:09:13 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ class Ice : public Amateria
 
     virtual Amateria *clone(void) const;
     virtual void use(ICharacter & target);
-}
+};
 
 #endif

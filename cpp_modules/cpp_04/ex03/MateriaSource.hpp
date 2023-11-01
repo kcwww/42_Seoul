@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 11:10:04 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/10/29 11:11:00 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:29:09 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class MateriaSource : public IMateriaSource
 {
   private:
     AMateria *_materia[4];
-    int _nbMateria;
+
   public:
     MateriaSource(void);
     MateriaSource(MateriaSource const &);
@@ -30,6 +30,6 @@ class MateriaSource : public IMateriaSource
 
     virtual void learnMateria(AMateria *);
     virtual AMateria *createMateria(std::string const & type);
-}
+};
 
 #endif
