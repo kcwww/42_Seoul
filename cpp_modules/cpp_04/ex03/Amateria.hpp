@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 10:54:09 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/11/01 16:14:05 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:58:20 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,25 @@
 # define AMATERIA_HPP
 
 # include <iostream>
+# include "ICharacter.hpp"
 
-class Amateria
+class AMateria
 {
   protected:
     std::string _type;
 
   public:
-    Amateria(void);
-    Amateria(std::string const & type);
-    Amateria(Amateria const &);
-    virtual ~Amateria(void);
+    AMateria(void);
+    AMateria(std::string const & type);
+    AMateria(AMateria const &);
+    virtual ~AMateria(void);
 
-    Amateria &operator=(Amateria const &);
+    AMateria &operator=(AMateria const &);
 
     std::string const & getType(void) const;
 
 
-    virtual Amateria *clone(void) const = 0;
+    virtual AMateria *clone(void) const = 0;
     virtual void use(ICharacter & target);
 };
 

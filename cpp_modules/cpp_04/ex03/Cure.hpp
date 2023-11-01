@@ -6,17 +6,17 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 10:56:45 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/11/01 16:09:16 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:57:31 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CURE_HPP
 # define CURE_HPP
 
-# include "Amateria.hpp"
+# include "AMateria.hpp"
 # include "ICharacter.hpp"
 
-class Cure : public Amateria
+class Cure : public AMateria
 {
   public:
     Cure(void);
@@ -25,7 +25,7 @@ class Cure : public Amateria
 
     Cure &operator=(Cure const &);
 
-    virtual Amateria *clone(void) const;
+    virtual AMateria *clone(void) const;
     virtual void use(ICharacter & target);
 };
 

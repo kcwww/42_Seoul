@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 11:11:50 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/11/01 16:39:07 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:54:11 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ std::string const & Character::getName(void) const
 };
 
 
-void Character::equip(Amateria *m)
+void Character::equip(AMateria *m)
 {
   for (int i = 0; i < 4; i++)
   {

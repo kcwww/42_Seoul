@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 11:12:56 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/11/01 16:11:26 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:57:19 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "Cure.hpp"
 #include "MateriaSource.hpp"
 #include "Character.hpp"
-#include "Amateria.hpp"
+#include "AMateria.hpp"
 
 int main()
 {

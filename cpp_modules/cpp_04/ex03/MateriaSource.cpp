@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 11:12:59 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/11/01 16:47:25 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:56:29 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ MateriaSource & MateriaSource::operator=(const MateriaSource &src)
 }
 
 
-void MateriaSource::learnMateria(Amateria *m)
+void MateriaSource::learnMateria(AMateria *m)
 {
   if (m == NULL)
     return ;
@@ -58,7 +58,7 @@ void MateriaSource::learnMateria(Amateria *m)
   }
 }
 
-Amateria *MateriaSource::createMateria(std::string const & type)
+AMateria *MateriaSource::createMateria(std::string const & type)
 {
   for (int i = 0; i < 4; i++)
   {

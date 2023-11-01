@@ -6,14 +6,14 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 10:58:47 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/11/01 16:31:31 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:57:57 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_HPP
 # define ICHARACTER_HPP
 
-#include "Amateria.hpp"
+#include "AMateria.hpp"
 
 class ICharacter
 {

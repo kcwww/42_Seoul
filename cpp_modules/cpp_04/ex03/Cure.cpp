@@ -6,17 +6,17 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 11:12:16 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/11/01 16:49:57 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/11/01 16:54:40 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-Cure::Cure(void) : Amateria("cure")
+Cure::Cure(void) : AMateria("cure")
 {
 }
 
-Cure::Cure(const Cure &src) : Amateria(src)
+Cure::Cure(const Cure &src) : AMateria(src)
 {
 }
 
@@ -28,12 +28,12 @@ Cure &Cure::operator=(const Cure &src)
 {
   if (this != &src)
   {
-    Amateria::operator=(src);
+    AMateria::operator=(src);
   }
   return (*this);
 }
 
-Amateria *Cure::clone(void) const
+AMateria *Cure::clone(void) const
 {
   return (new Cure(*this));
 }
