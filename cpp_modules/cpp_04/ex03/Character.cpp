@@ -6,11 +6,12 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 11:11:50 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/11/01 16:54:11 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/11/04 16:51:39 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include "AMateria.hpp"
 
 Character::Character(std::string const & name) : _name(name)
 {
@@ -21,7 +22,7 @@ Character::Character(std::string const & name) : _name(name)
 Character::Character(Character const & src) : _name(src._name)
 {
     for (int i = 0; i < 4; i++)
-        this->_materia[i] = src._materia[i] ? src._materia[i]->clone() : NULL;
+        this->_materia[i] = src._materia[i] ? (src._materia[i]->clone()) : NULL;
 };
 
 Character::~Character(void)
@@ -37,7 +38,7 @@ Character & Character::operator=(Character const & src)
     for (int i = 0; i < 4; i++)
     {
         delete this->_materia[i];
-        this->_materia[i] = src._materia[i] ? src._materia[i]->clone() : NULL;
+        this->_materia[i] = src._materia[i] ? (src._materia[i]->clone()) : NULL;
     }
   }
     return (*this);
