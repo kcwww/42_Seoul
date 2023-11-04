@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Amateria.cpp                                       :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 11:11:42 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/11/01 16:53:31 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/11/04 16:40:18 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Amateria.hpp"
+#include "AMateria.hpp"
 #include "ICharacter.hpp"
 
 AMateria::AMateria(void) : _type("default")

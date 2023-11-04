@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 11:12:37 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/11/01 16:55:57 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/11/04 16:40:39 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Ice &Ice::operator=(const Ice &src)
   return (*this);
 }
 
-Amateria *Ice::clone(void) const
+AMateria *Ice::clone(void) const
 {
   return (new Ice(*this));
 }
