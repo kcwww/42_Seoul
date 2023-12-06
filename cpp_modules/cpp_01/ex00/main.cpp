@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kcw <kcw@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 17:30:13 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/27 17:51:05 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/06 09:02:38 by kcw              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <stdlib.h>
 
 void  check_leaks(void)
 {
