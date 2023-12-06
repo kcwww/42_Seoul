@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replacer.cpp                                       :+:      :+:    :+:   */
+/*   Replacer.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kcw <kcw@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:19:27 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/28 14:46:21 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/06 09:23:42 by kcw              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Replacer.hpp"
+#include <stdlib.h>
 
 Replacer::Replacer(std::string filename, std::string s1, std::string s2)
 {
@@ -26,7 +27,7 @@ Replacer::~Replacer(void)
 
 void Replacer::replace(void)
 {
-  std::ifstream ifs(_filename);
+  std::ifstream ifs(_filename.c_str());
   std::string line;
   std::string new_line;
 
@@ -37,7 +38,7 @@ void Replacer::replace(void)
   }
 
   // .replace 파일 생성
-  std::ofstream ofs(_filename + ".replace");
+  std::ofstream ofs((_filename + ".replace").c_str());
 
   if (ofs.is_open())
   {

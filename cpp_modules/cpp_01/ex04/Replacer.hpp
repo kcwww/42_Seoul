@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replacer.hpp                                       :+:      :+:    :+:   */
+/*   Replacer.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kcw <kcw@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 14:19:25 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/28 14:26:30 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/06 09:21:08 by kcw              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 
 class Replacer
