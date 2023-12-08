@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 12:30:51 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 12:40:41 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/08 13:32:49 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,12 +103,12 @@ Fixed Fixed::operator/(Fixed const & rhs) const {
 }
 
 Fixed & Fixed::operator++(void) {
-  this->_fixedPointValue++;
+  this->_fixedPointValue += 1;
   return *this;
 }
 
 Fixed & Fixed::operator--(void) {
-  this->_fixedPointValue--;
+  this->_fixedPointValue -= 1;
   return *this;
 }
 
