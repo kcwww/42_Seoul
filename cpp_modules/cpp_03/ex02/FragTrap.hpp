@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 15:18:56 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 15:44:32 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/11 19:34:19 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class FragTrap : public ClapTrap
     FragTrap(const FragTrap & src);
     ~FragTrap(void);
     FragTrap	&operator=(const FragTrap & rhs);
-    void	attack(std::string const & target);
     void	highFivesGuys(void);
 };
 

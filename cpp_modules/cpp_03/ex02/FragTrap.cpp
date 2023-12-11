@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 14:51:26 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 16:35:10 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/11 19:34:33 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,6 @@ FragTrap	&FragTrap::operator=(const FragTrap & rhs)
     this->_attackDamage = rhs._attackDamage;
   }
   return (*this);
-}
-
-void	FragTrap::attack(std::string const & target)
-{
-  if (this->_energyPoints == 0 || this->_hitPoints == 0)
-  {
-    std::cout << "FragTrap " << this->_name << " can't attack " << target << ", because he is dead!" << std::endl;
-    return ;
-  }
-  else
-  {
-    std::cout << "FragTrap " << this->_name << " attack " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
-    this->_energyPoints--;
-  }
-  return ;
 }
 
 void FragTrap::highFivesGuys(void)
