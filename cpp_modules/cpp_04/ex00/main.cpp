@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:30 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/10/01 13:49:57 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/11 19:46:28 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,9 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-#include <stdlib.h>
-
-void check_leaks()
-{
-  system("leaks Animal");
-}
 
 int main()
 {
-  atexit(check_leaks);
   Animal *meta = new Animal();
   const Animal *j = new Dog();
   const Animal *i = new Cat();
