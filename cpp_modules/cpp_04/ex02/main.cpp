@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:30 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/10/28 20:38:30 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/11 20:35:54 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,31 @@
 
 #include "Brain.hpp"
 
-#include <stdlib.h>
 
 
-int main( void )
+
+int main()
 {
-	// Exercice example
-	const AAnimal* dog = new Dog();
-	const AAnimal* cat = new Cat();
-	//const AAnimal* animal = new AAnimal();
+    std::cout << std::endl << "***Test virtual destructor" << std::endl;
 
-	dog->makeSound();
-	cat->makeSound();
+    const int arrSize = 6;
+    const AAnimal* animals[arrSize];
 
+    for(int k = 0; k < arrSize/2; ++k) {
+        animals[k] = new Dog();
+    }
+    for(int k = arrSize/2; k < arrSize; ++k) {
+        animals[k] = new Cat();
+    }
+    for(int k = 0; k < arrSize; ++k) {
+        delete animals[k];
+    }
 
-	delete dog;
-	delete cat;
-
+		//const AAnimal* meta = new AAnimal();
+    std::cout << std::endl << "***Test deep copy" << std::endl;
+    Dog basic;
+    {
+        Dog tmp = basic;
+    }
+    return 0;
 }
