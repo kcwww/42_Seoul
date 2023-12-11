@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:35 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/10/01 14:44:39 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/11 19:57:53 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ WrongCat&	WrongCat::operator=(WrongCat const &ref) {
 }
 
 void WrongCat::makeSound() const {
-  std::cout << "Miaou Miaou!" << std::endl;
+  std::cout << "wMiaou wMiaou!" << std::endl;
   return ;
 }
