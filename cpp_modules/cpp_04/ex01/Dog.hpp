@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:29 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 17:58:12 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/11 20:21:20 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class Dog : public Animal
     ~Dog();
     Dog&	operator=(const Dog& ref);
     void makeSound() const;
-    Brain *getBrain() const;
 };
 
 #endif

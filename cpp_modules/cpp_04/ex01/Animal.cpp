@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:14 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/10/01 14:44:14 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/11 20:07:23 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ Animal::Animal() : _type("Animal")
   std::cout << "\x1b[33m""[Animal]: default constructor has called!""\x1b[0m" << std::endl;
 }
 
-Animal::Animal(Animal const &ref) {
-  *this = ref;
+Animal::Animal(Animal const &ref) : _type(ref.getType()){
   std::cout << "\x1b[35m""[Animal]: Copy constructor has called!""\x1b[0m" << std::endl;
 }
 
@@ -39,7 +38,7 @@ Animal&	Animal::operator=(Animal const &ref) {
 }
 
 void	Animal::makeSound() const {
-  std::cout << "Animal Sound!!" << std::endl;
+  std::cout << "Animal makes a sound!!" << std::endl;
   return ;
 }
 

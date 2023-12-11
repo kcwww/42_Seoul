@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:30 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/10/01 17:23:30 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/11 20:23:55 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,9 @@
 
 #include "Brain.hpp"
 
-#include <stdlib.h>
-
-void	checkLeaks()
-{
-	system("leaks Animal");
-}
 
 int main()
 {
-	atexit(checkLeaks);
-
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 	delete j;

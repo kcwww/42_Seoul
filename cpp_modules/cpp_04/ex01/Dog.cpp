@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:28 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/10/01 17:20:48 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/11 20:21:44 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Dog::Dog() {
 
 Dog::Dog(Dog const &ref) {
   this->_type = ref.getType();
-  this->_brain = new Brain(*ref.getBrain());
+  this->_brain = new Brain(*(ref._brain));
   std::cout << "\x1b[35m""[Dog] Copy constructor has called!""\x1b[0m" << std::endl;
 }
 
@@ -31,15 +31,12 @@ Dog::~Dog() {
   std::cout << "\x1b[31m""[Dog]: destructor has called!""\x1b[0m" << std::endl;
 }
 
-Brain *Dog::getBrain() const {
-  return (this->_brain);
-}
 
 Dog&	Dog::operator=(Dog const &ref) {
   if (this != &ref) {
     this->_type = ref.getType();
     delete this->_brain;
-    this->_brain = new Brain(*ref.getBrain());
+    this->_brain = new Brain(*(ref._brain));
     std::cout << "\x1b[34m""[Dog]: assign operator has called!""\x1b[0m" << std::endl;
   }
   else

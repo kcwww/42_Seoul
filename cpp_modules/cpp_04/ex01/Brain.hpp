@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:48:37 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/09/29 18:06:47 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/11 20:14:08 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 class Brain {
   private:
-    std::string _ideas[100];
+    static const unsigned int _ideasSize = 100;
+    std::string _ideas[_ideasSize];
 
   public:
     Brain();
     Brain(const Brain& ref);
     ~Brain();
     Brain&	operator=(const Brain& ref);
-    std::string const *getIdeas() const;
 };
 
 #endif

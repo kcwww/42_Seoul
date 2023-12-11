@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 17:10:25 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/10/01 17:20:57 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/11 20:19:03 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ Cat::Cat() {
   std::cout << "\x1b[33m""[Cat]: default constructor has called!""\x1b[0m" << std::endl;
 }
 
-Cat::Cat(Cat const &ref) {
-  *this = ref;
-  this->_brain = new Brain(*ref.getBrain());
+Cat::Cat(Cat const &ref) : Animal(ref) {
+  this->_brain = new Brain(*(ref._brain));
   std::cout << "\x1b[35m""[Cat] Copy constructor has called!""\x1b[0m" << std::endl;
 }
 
@@ -31,15 +30,11 @@ Cat::~Cat() {
   std::cout << "\x1b[31m""[Cat]: destructor has called!""\x1b[0m" << std::endl;
 }
 
-Brain *Cat::getBrain() const {
-  return (this->_brain);
-}
-
 Cat&	Cat::operator=(Cat const &ref) {
   if (this != &ref) {
     this->_type = ref.getType();
     delete this->_brain;
-    this->_brain = new Brain(*ref.getBrain());
+    this->_brain = new Brain(*(ref._brain));
     std::cout << "\x1b[34m""[Cat]: assign operator has called!""\x1b[0m" << std::endl;
   }
   else
