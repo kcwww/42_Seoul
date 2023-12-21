@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:25:40 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/12/21 16:58:53 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:15:49 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int main(void)
     std::cout << f1 << std::endl;
     std::cout << f2 << std::endl;
 
-    b1.signedForm(f1);
-    b2.signedForm(f2);
-    b1.signedForm(f2);
-    b2.signedForm(f1);
+    b1.signForm(f1);
+    b2.signForm(f2);
+    b1.signForm(f2);
+    b2.signForm(f1);
   }
   catch (std::exception & e)
   {
