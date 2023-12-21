@@ -6,14 +6,14 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:25:38 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/12/20 17:13:06 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/21 16:42:26 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-# include <exception>
+
 # include <iostream>
 
 class Bureaucrat
