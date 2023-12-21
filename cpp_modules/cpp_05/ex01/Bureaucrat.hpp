@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:25:38 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/12/21 16:56:09 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:14:44 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ class Bureaucrat
     const std::string& getName() const;
     int getGrade() const;
 
-    void signedForm(Form& form);
+    void signForm(Form& form);
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& ref);

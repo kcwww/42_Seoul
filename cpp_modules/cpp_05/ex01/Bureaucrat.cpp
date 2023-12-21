@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 16:25:35 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/12/21 16:57:31 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/21 18:14:40 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& ref)
   return (os);
 }
 
-void Bureaucrat::signedForm(Form& form) {
+void Bureaucrat::signForm(Form& form) {
   try {
     form.beSigned(*this);
     std::cout << this->getName() << " signed " << form.getName() << std::endl;
