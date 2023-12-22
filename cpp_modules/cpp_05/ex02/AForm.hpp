@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:54:22 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/12/21 18:06:59 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/22 16:32:32 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ private:
 public:
   AForm(const std::string &name, int signGrade, int execGrade);
   AForm(AForm const &ref);
-  ~AForm();
+  virtual ~AForm();
   AForm &operator=(AForm const &ref);
 
   class GradeTooHighException : public std::exception
