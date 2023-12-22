@@ -6,7 +6,7 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 16:25:42 by chanwoki          #+#    #+#              #
-#    Updated: 2023/12/22 15:52:31 by chanwoki         ###   ########.fr        #
+#    Updated: 2023/12/22 16:09:42 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = Bureaucrat
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC_FILES = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp  RobotomyRequestForm.cpp #PresidentialPardonForm.cpp
+SRC_FILES = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp  RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
