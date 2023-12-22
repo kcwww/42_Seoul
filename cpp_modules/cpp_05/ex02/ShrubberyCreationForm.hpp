@@ -6,7 +6,7 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 17:49:09 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/12/21 18:18:16 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/22 15:46:50 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ private:
   ShrubberyCreationForm(void);
 
 public:
-  ShrubberyCreationForm(std::string const &);
-  ShrubberyCreationForm(ShrubberyCreationForm const &);
+  ShrubberyCreationForm(std::string const &target);
+  ShrubberyCreationForm(ShrubberyCreationForm const &ref);
   ~ShrubberyCreationForm(void);
   ShrubberyCreationForm &operator=(ShrubberyCreationForm const &);
 
