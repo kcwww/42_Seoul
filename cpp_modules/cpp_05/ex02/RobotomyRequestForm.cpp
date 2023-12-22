@@ -6,11 +6,12 @@
 /*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 15:46:09 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/12/22 15:50:57 by chanwoki         ###   ########.fr       */
+/*   Updated: 2023/12/22 16:08:33 by chanwoki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
+#include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45)
 {
@@ -57,7 +58,8 @@ void RobotomyRequestForm::execute(Bureaucrat const &executor) const
   verifyExec(executor);
 
   std::cout << "* drilling noises *" << std::endl;
-  if (rand() % 2) {
+  std::time_t currentTime = std::time(nullptr);
+  if (currentTime % 2 == 0) {
     std::cout << this->_target << " has been robotomized successfully" << std::endl;
   } else {
     std::cout << this->_target << " robotomization failed" << std::endl;
