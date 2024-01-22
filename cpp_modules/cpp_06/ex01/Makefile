@@ -6,11 +6,11 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 16:25:42 by chanwoki          #+#    #+#              #
-#    Updated: 2024/01/22 17:05:54 by chanwoki         ###   ########.fr        #
+#    Updated: 2024/01/22 17:24:37 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = convert
+NAME = Serializer
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
