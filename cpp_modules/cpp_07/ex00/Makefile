@@ -6,11 +6,11 @@
 #    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 16:25:42 by chanwoki          #+#    #+#              #
-#    Updated: 2024/01/25 15:48:31 by chanwoki         ###   ########.fr        #
+#    Updated: 2024/05/07 15:01:13 by chanwoki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Swap
+NAME = whatever
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
