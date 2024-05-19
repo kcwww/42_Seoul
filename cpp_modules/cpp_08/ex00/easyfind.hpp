@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+        */
+/*   By: chanwookim@student.42.fr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 23:54:53 by chanwookim        #+#    #+#             */
-/*   Updated: 2024/05/19 23:59:56 by chanwookim       ###   ########.fr       */
+/*   Updated: 2024/05/20 00:26:07 by chanwookim       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP
 
-# include <algorithm>
-# include <exception>
+#include <algorithm>
+#include <exception>
 
 class NotFoundException : public std::exception {
 public:
@@ -23,6 +23,15 @@ public:
     }
 };
 
-# include "easyfind.tpp"
+template <typename T>
+typename T::iterator easyfind(T &container, int value) {
+    typename T::iterator it = std::find(container.begin(), container.end(), value);
+
+    if (it == container.end()) {
+        throw NotFoundException();
+    }
+
+    return it;
+}
 
 #endif
