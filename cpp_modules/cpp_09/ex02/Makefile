@@ -3,18 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+         #
+#    By: chanwookim <chanwookim@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 16:25:42 by chanwoki          #+#    #+#              #
-#    Updated: 2024/05/20 13:11:49 by chanwoki         ###   ########.fr        #
+#    Updated: 2024/06/03 01:50:12 by chanwookim       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 
+NAME = PmergeMe
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC_FILES = main.cpp
+SRC_FILES = main.cpp PmergeMe.cpp
 
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
 
