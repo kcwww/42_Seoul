@@ -110,8 +110,10 @@ int	check_component(char **map)
 				com[1]++;
 			else if (map[i][j] == 'C')
 				com[2]++;
-			else if (map[i][j] != '1' && map[i][j] != '0')
+			else if (map[i][j] != '1' && map[i][j] != '0') {
+				printf("%c", map[i][j]);
 				return (-1);
+			}
 			j++;
 		}
 		i++;
