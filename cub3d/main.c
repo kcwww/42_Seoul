@@ -3,17 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanwoki <chanwoki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dkham <dkham@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/20 16:47:28 by chanwoki          #+#    #+#             */
-/*   Updated: 2023/08/20 16:54:26 by chanwoki         ###   ########.fr       */
+/*   Created: 2023/09/09 20:23:55 by dkham             #+#    #+#             */
+/*   Updated: 2023/09/13 20:27:46 by dkham            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main(int args, char **argv)
+int	main(int argc, char **argv)
 {
-	if (check_args(args, argv) == 0)
+	t_config	*s_config;
+	t_info		s_info;
+
+	if (!validate_arguments(argc, argv, &s_config))
 		return (0);
+	initialize_s_info(&s_info, s_config);
+	if (!initialize_window(&s_info, s_config))
+		return (0);
+	setup_hooks_and_loop(&s_info);
+	free_config(s_config);
+	free_resources(&s_info);
+	free(s_config);
+	return (0);
 }
