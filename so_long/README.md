@@ -8,3 +8,8 @@
 ### AppKit?
 일반적으로 AppKit이라고 하는 Application Kit는 NeXTSTEP의 그래픽 사용자 인터페이스 툴킷 입니다. Foundation 및 Display PostScript 와 함께 OpenStep API 사양의 핵심 부분 중 하나입니다. macOS와 함께 번들로 제공되는 대부분의 응용 프로그램 (예 : Finder , TextEdit , Calendar 및 Preview)은 AppKit을 사용하여 사용자 인터페이스를 제공합니다.
 
+<br />
+<div align="center">
+<img src="https://github.com/user-attachments/assets/008c66e0-0fd3-4cc3-88c1-f4d443fb9c6d">
+</div>
+<br />
